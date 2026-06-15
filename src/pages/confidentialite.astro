@@ -2,6 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
+<style>
+  .section h2 { margin-bottom: 20px; }
+  .section h3 { margin-top: 28px; margin-bottom: 14px; }
+</style>
+
 <Layout
   title="Politique de confidentialité — Audioask"
   description="Politique de confidentialité d'Audioask (Natives Sàrl) : données collectées, finalités, droits des utilisateurs, conformité RGPD et LPD suisse."
@@ -73,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
       <li><strong>Amélioration du service :</strong> analyse agrégée et anonymisée des usages pour améliorer les fonctionnalités.</li>
       <li><strong>Obligations légales :</strong> conservation des données requises par la loi applicable.</li>
     </ul>
-    <p>Nous ne vendons pas vos données à des tiers et ne les utilisons pas à des fins publicitaires.</p>
+    <p>Nous ne vendons pas vos données à des tiers et ne les utilisons pas à des fins publicitaires. Certaines de ces finalités impliquent le recours à des prestataires techniques soigneusement sélectionnés, liés par des accords de confidentialité et de traitement des données conformes au RGPD et à la LPD.</p>
   </div>
 </section>
 
@@ -92,33 +97,10 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- 5. Services tiers -->
+<!-- 5. Cookies -->
 <section class="section paper">
   <div class="container" style="max-width: 820px;">
-    <h2>5. Services tiers</h2>
-    <p>Audioask fait appel aux prestataires suivants pour assurer son fonctionnement. Chacun dispose de sa propre politique de confidentialité :</p>
-
-    <h3>Auth0 (Okta)</h3>
-    <p>Gestion de l'authentification et des sessions utilisateur. Vos identifiants de connexion sont gérés par Auth0. <a href="https://auth0.com/privacy" target="_blank" rel="noopener">Politique de confidentialité Auth0</a>.</p>
-
-    <h3>Paddle</h3>
-    <p>Gestion des paiements et des abonnements. Paddle agit comme Merchant of Record et traite vos données de facturation. <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener">Politique de confidentialité Paddle</a>.</p>
-
-    <h3>LemonFox</h3>
-    <p>Service de transcription audio. Les fichiers audio que vous soumettez sont transmis à LemonFox pour traitement. Les fichiers sont utilisés uniquement aux fins de transcription et ne sont pas conservés au-delà du traitement.</p>
-
-    <h3>DeepSeek / Google Gemini</h3>
-    <p>Modèles d'intelligence artificielle utilisés pour l'analyse et la génération de réponses à partir de vos transcriptions. Les données envoyées à ces services sont vos transcriptions et prompts.</p>
-
-    <h3>Infomaniak Network SA</h3>
-    <p>Hébergeur du service, basé en Suisse. Les serveurs sont situés en Suisse, garantissant un hébergement conforme au droit suisse de la protection des données. <a href="https://www.infomaniak.com/fr/cgv/privacy" target="_blank" rel="noopener">Politique de confidentialité Infomaniak</a>.</p>
-  </div>
-</section>
-
-<!-- 6. Cookies -->
-<section class="section alt">
-  <div class="container" style="max-width: 820px;">
-    <h2>6. Cookies et traceurs</h2>
+    <h2>5. Cookies et traceurs</h2>
     <p>Audioask utilise uniquement des cookies strictement nécessaires au fonctionnement du service :</p>
     <ul>
       <li><strong>Cookies de session Auth0 :</strong> maintien de votre session de connexion.</li>
@@ -128,10 +110,10 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- 7. Droits des utilisateurs -->
-<section class="section paper">
+<!-- 6. Droits des utilisateurs -->
+<section class="section alt">
   <div class="container" style="max-width: 820px;">
-    <h2>7. Vos droits</h2>
+    <h2>6. Vos droits</h2>
     <p>Conformément au Règlement général sur la protection des données (RGPD) et à la Loi fédérale suisse sur la protection des données (LPD), vous disposez des droits suivants :</p>
     <ul>
       <li><strong>Droit d'accès :</strong> obtenir une copie des données que nous détenons vous concernant.</li>
@@ -146,28 +128,28 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- 8. Sécurité -->
-<section class="section alt">
+<!-- 7. Sécurité -->
+<section class="section paper">
   <div class="container" style="max-width: 820px;">
-    <h2>8. Sécurité des données</h2>
+    <h2>7. Sécurité des données</h2>
     <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte, destruction ou divulgation. Les communications entre votre navigateur et nos serveurs sont chiffrées via HTTPS/TLS.</p>
     <p>En cas de violation de données susceptible d'engendrer un risque élevé pour vos droits et libertés, nous vous en informerons dans les délais prévus par la loi applicable.</p>
   </div>
 </section>
 
-<!-- 9. Droit applicable -->
-<section class="section paper">
+<!-- 8. Droit applicable -->
+<section class="section alt">
   <div class="container" style="max-width: 820px;">
-    <h2>9. Droit applicable et juridiction</h2>
+    <h2>8. Droit applicable et juridiction</h2>
     <p>La présente politique de confidentialité est régie par le droit suisse, notamment la Loi fédérale sur la protection des données (LPD) et son ordonnance d'application (OLPD).</p>
     <p>Tout litige relatif à la protection de vos données personnelles sera soumis à la juridiction compétente du <strong>Canton de Genève</strong>, Suisse.</p>
   </div>
 </section>
 
-<!-- 10. Modifications -->
-<section class="section alt">
+<!-- 9. Modifications -->
+<section class="section paper">
   <div class="container" style="max-width: 820px;">
-    <h2>10. Modifications de cette politique</h2>
+    <h2>9. Modifications de cette politique</h2>
     <p>Natives Sàrl se réserve le droit de modifier cette politique de confidentialité à tout moment. En cas de modification substantielle, nous vous informerons par e-mail ou via une notification dans l'application.</p>
     <p>La version en vigueur est toujours accessible à l'adresse <a href="https://audioask.ai/confidentialite">audioask.ai/confidentialite</a>. La date de dernière mise à jour figure en haut de ce document.</p>
   </div>
