@@ -4,258 +4,333 @@ const APP_URL = 'https://app.audioask.ai';
 ---
 
 <Layout
-  title="Traduire — AudioAsk"
-  description="La barrière de la langue ne devrait pas vous priver des meilleures idées. AudioAsk traduit les transcriptions en 12 langues et génère un nouvel épisode audio."
+  title="Traduire — Audioask"
+  description="Traduisez n'importe quel podcast dans 12 langues et générez un nouvel épisode audio doublé avec une voix au choix."
   activePage="features"
 >
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-split">
-        <div>
-          <span class="page-intro">Fonctionnalité 04 · Traduire</span>
-          <h1>Les meilleurs podcasts du monde, dans votre langue.</h1>
-          <p class="lede">La barrière de la langue ne devrait pas vous priver des meilleures idées. AudioAsk traduit les transcriptions et génère un nouvel épisode audio dans la langue de votre choix.</p>
-          <div class="hero-ctas" style="margin-top: 28px;">
-            <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Traduire un épisode</a>
-          </div>
-          <p style="margin-top: 14px; font-size: 13px; color: var(--ink-3);">Inclus dans le plan Premium et Pro.</p>
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;">
+      <div>
+        <div class="page-intro">Fonctionnalité 04 · Traduire</div>
+        <h1 style="text-align: left;">
+          Traduisez n'importe quel podcast,<br>
+          <span class="em-serif">dans votre langue.</span>
+        </h1>
+        <p class="lede" style="margin-top: 24px;">
+          Traduisez la transcription dans 12 langues — et générez un nouvel épisode audio doublé avec un voix au choix.
+        </p>
+        <div class="hero-ctas" style="margin-top: 32px;">
+          <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Traduire un épisode <span class="arrow">→</span></a>
+          <a class="btn lg" href="#">Écouter un exemple</a>
         </div>
-        <div class="app-mock">
-          <div class="app-mock-bar">
-            <div class="app-mock-dot" style="background: #ff5f56;"></div>
-            <div class="app-mock-dot" style="background: #febc2e;"></div>
-            <div class="app-mock-dot" style="background: #27c93f;"></div>
-            <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); margin-left: 8px;">Transcript bilingue</span>
-          </div>
-          <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
-            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">Langue :</div>
-              <div class="lang-badge">EN · original</div>
-              <span style="color: var(--accent);">→</span>
-              <div class="lang-badge active">FR · traduit</div>
+      </div>
+
+      <!-- Translation card -->
+      <div class="app-card" style="max-width: 100%;">
+        <div class="app-toolbar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">audioask.ai · traduction</span>
+        </div>
+        <div style="padding: 22px; background: var(--cream);">
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <div style="padding: 8px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; display: flex; gap: 6px; align-items: center; font-size: 13px;">
+              <span>🇺🇸</span><span>English</span>
             </div>
-            <div class="translation-side">
-              <div class="translated-line">
-                <span class="ts">04:02</span>
-                <span class="orig">"Strategy is, above all, choosing what not to do."</span>
-              </div>
-              <div class="translated-line">
-                <span class="ts">04:02</span>
-                <span class="trans">"La stratégie, c'est avant tout choisir ce qu'on ne fait pas."</span>
-              </div>
-              <div class="translated-line" style="margin-top: 8px;">
-                <span class="ts">05:27</span>
-                <span class="orig">"And that's exactly what we noticed at our company when…"</span>
-              </div>
-              <div class="translated-line">
-                <span class="ts">05:27</span>
-                <span class="trans">"Et c'est exactement ce qu'on a constaté chez nous quand…"</span>
-              </div>
-              <div class="translated-line" style="margin-top: 8px;">
-                <span class="ts">07:11</span>
-                <span class="orig">"So concretely, in daily practice…"</span>
-              </div>
-              <div class="translated-line">
-                <span class="ts">07:11</span>
-                <span class="trans">"Donc concrètement, dans la pratique quotidienne…"</span>
-              </div>
+            <span style="color: var(--accent); font-size: 18px;">→</span>
+            <div style="padding: 8px 14px; background: var(--accent); color: white; border-radius: 999px; display: flex; gap: 6px; align-items: center; font-size: 13px;">
+              <span>🇫🇷</span><span>Français</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- MODÈLE COLLABORATIF -->
-  <section class="section dark">
-    <div class="container">
-      <div style="max-width: 720px;">
-        <h2 style="color: white;">Un modèle collaboratif</h2>
-        <p class="lede" style="color: #b0a898;">Chaque traduction faite par un utilisateur enrichit la bibliothèque partagée. Si un autre membre cherche le même épisode dans la même langue, il y accède instantanément — sans consommer ses crédits.</p>
-      </div>
-      <div style="margin-top: 40px; display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap;">
-        <div class="stat-big">12 langues</div>
-        <div style="font-size: 18px; color: #b0a898; max-width: 22ch;">disponibles dès aujourd'hui</div>
-      </div>
-      <div style="margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap;">
-        {['🇫🇷 Français', '🇬🇧 English', '🇩🇪 Deutsch', '🇪🇸 Español', '🇮🇹 Italiano', '🇵🇹 Português', '🇳🇱 Nederlands', '🇵🇱 Polski', '🇷🇺 Русский', '🇯🇵 日本語', '🇨🇳 中文', '🇧🇷 Português (BR)'].map(lang => (
-          <span style="background: #2a2420; border: 1px solid #3a3028; border-radius: 6px; padding: 6px 12px; font-size: 13px; color: #c0b8a8;">{lang}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section alt">
-    <div class="container">
-      <h2>3 étapes pour franchir la barrière de la langue</h2>
-      <div class="steps" style="margin-top: 36px;">
-        <div class="step card">
-          <span class="step-num">Étape 01</span>
-          <h4>Choisissez un épisode</h4>
-          <p>Dans n'importe quelle langue. Anglais, allemand, espagnol, italien, portugais et 7 autres.</p>
-        </div>
-        <div class="step card">
-          <span class="step-num">Étape 02</span>
-          <h4>Sélectionnez votre langue</h4>
-          <p>FR, DE, ES, IT… AudioAsk traduit l'intégralité de la transcription en quelques secondes.</p>
-        </div>
-        <div class="step card">
-          <span class="step-num">Étape 03</span>
-          <h4>Lisez, interrogez, écoutez</h4>
-          <p>Texte traduit côte-à-côte avec l'original. Posez vos questions dans votre langue.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES DÉTAILLÉES -->
-  <section class="section">
-    <div class="container">
-      <div class="feature-alt">
-        <div>
-          <span class="eyebrow">01 · Traduction de la transcription</span>
-          <h3>D'une langue à l'autre en un clic</h3>
-          <p class="lede">Sélectionnez votre langue cible, AudioAsk traduit l'intégralité de la transcription. La traduction est fluide et naturelle, pas mécanique.</p>
-        </div>
-        <div class="card" style="background: var(--bg-alt); padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <div class="lang-badge">EN · original</div>
-            <span style="color: var(--accent); font-size: 16px;">→</span>
-            <div class="lang-badge active">FR · traduit</div>
-            <div class="lang-badge" style="opacity: 0.5;">DE</div>
-            <div class="lang-badge" style="opacity: 0.5;">ES</div>
-            <div class="lang-badge" style="opacity: 0.5;">IT</div>
+          <!-- Side-by-side transcript -->
+          <div style="margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
+              <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 8px;">ORIGINAL · 🇺🇸</div>
+              <div style="font-size: 12px; line-height: 1.55; color: var(--ink-2);">
+                <div style="margin-bottom: 6px;"><span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-right: 6px;">12:42</span>"We bet on CUDA when nobody believed in it."</div>
+                <div><span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-right: 6px;">14:31</span>"Honestly, the board had doubts for three years."</div>
+              </div>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 12px; padding: 14px;">
+              <div style="font-family: var(--mono); font-size: 9px; color: var(--accent-ink); letter-spacing: 0.08em; margin-bottom: 8px;">TRADUIT · 🇫🇷</div>
+              <div style="font-size: 12px; line-height: 1.55; color: var(--ink);">
+                <div style="margin-bottom: 6px;"><span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-right: 6px;">12:42</span>«&nbsp;On a parié sur CUDA quand personne n'y croyait.&nbsp;»</div>
+                <div><span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-right: 6px;">14:31</span>«&nbsp;Honnêtement, le board avait des doutes pendant trois ans.&nbsp;»</div>
+              </div>
+            </div>
           </div>
-          <div class="translated-line">
-            <span class="ts">12:00</span>
-            <span class="trans">"La stratégie, c'est avant tout choisir ce qu'on ne fait pas."</span>
-          </div>
-          <div class="translated-line">
-            <span class="ts">12:08</span>
-            <span class="trans">"Et ça, beaucoup d'entreprises l'oublient en voulant tout faire."</span>
+
+          <!-- Audio dub -->
+          <div style="margin-top: 14px; padding: 14px 16px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span style="font-size: 12.5px; font-weight: 600;">✦ Audio doublé · épisode FR</span>
+              <span class="chip accent-soft" style="font-size: 10.5px;">PRÊT</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center;">▶</span>
+              <div style="flex: 1; height: 20px; display: flex; align-items: center; gap: 2px;">
+                <span style="flex: 1; height: 14px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 8px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 18px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 12px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 20px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 6px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 16px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 10px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 14px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 8px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 18px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 12px; background: var(--accent); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 20px; background: var(--cream-3); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 6px; background: var(--cream-3); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 14px; background: var(--cream-3); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 10px; background: var(--cream-3); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 16px; background: var(--cream-3); border-radius: 1px;"></span>
+                <span style="flex: 1; height: 8px; background: var(--cream-3); border-radius: 1px;"></span>
+              </div>
+              <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">12:42 / 2:47:01</span>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="feature-alt reverse">
-        <div>
-          <span class="eyebrow">02 · Translation audio</span>
-          <h3>Générez un nouvel épisode audio dans votre langue.</h3>
-          <p class="lede">AudioAsk propose une traduction de la transcription mais également la génération d'un nouvel épisode audio dans la langue de votre choix. Écoutez comme si le podcast avait été enregistré en français.</p>
+<!-- 12 LANGUES -->
+<section class="section alt">
+  <div class="container">
+    <div class="center" style="max-width: 720px; margin: 0 auto;">
+      <div class="eyebrow center" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> 12 langues</div>
+      <h2 style="margin-top: 16px;">Vos podcasts préférés,<br><span class="serif-it">dans la langue de votre choix.</span></h2>
+    </div>
+
+    <div class="lang-grid">
+      <div class="lang-chip on"><span class="flag">🇫🇷</span><span>Français</span></div>
+      <div class="lang-chip"><span class="flag">🇬🇧</span><span>English</span></div>
+      <div class="lang-chip"><span class="flag">🇩🇪</span><span>Deutsch</span></div>
+      <div class="lang-chip"><span class="flag">🇮🇹</span><span>Italiano</span></div>
+      <div class="lang-chip"><span class="flag">🇪🇸</span><span>Español</span></div>
+      <div class="lang-chip"><span class="flag">🇵🇹</span><span>Português</span></div>
+      <div class="lang-chip"><span class="flag">🇳🇱</span><span>Nederlands</span></div>
+      <div class="lang-chip"><span class="flag">🇸🇪</span><span>Svenska</span></div>
+      <div class="lang-chip"><span class="flag">🇯🇵</span><span>日本語</span></div>
+      <div class="lang-chip"><span class="flag">🇰🇷</span><span>한국어</span></div>
+      <div class="lang-chip"><span class="flag">🇨🇳</span><span>中文</span></div>
+      <div class="lang-chip"><span class="flag">🇸🇦</span><span>العربية</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="container">
+    <div style="max-width: 720px;">
+      <div class="eyebrow"><span class="dot">●</span> Sous le capot</div>
+      <h2 style="margin-top: 16px;">Trois niveaux<br><span class="serif-it">de profondeur.</span></h2>
+    </div>
+
+    <div class="feature-alt" style="margin-top: 48px; border-top: 0;">
+      <div>
+        <div class="eyebrow"><span style="color: var(--accent);">01</span> · Modèle collaboratif</div>
+        <h3 style="margin-top: 12px;">Une traduction faite, profite à tous.</h3>
+        <p>Comme pour les transcriptions, chaque traduction enrichit la bibliothèque commune. Si quelqu'un a déjà traduit l'épisode dans votre langue, l'accès est instantané.</p>
+        <div style="margin-top: 24px; display: flex; align-items: baseline; gap: 12px;">
+          <span style="font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: var(--accent-ink);">12</span>
+          <span style="font-size: 14px; color: var(--ink-3);">langues couvertes</span>
         </div>
-        <div class="card" style="background: var(--bg-alt); padding: 24px; display: flex; flex-direction: column; gap: 14px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em;">Épisode audio généré</div>
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div class="play-btn" style="width: 36px; height: 36px; font-size: 12px;">▶</div>
+      </div>
+      <div class="demo" style="padding: 22px;">
+        <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">VERSIONS DISPONIBLES · #119 ACQUIRED</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="font-size: 20px;">🇺🇸</span>
+            <span style="flex: 1;">Original · English</span>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">2h 47min</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="font-size: 20px;">🇫🇷</span>
+            <span style="flex: 1; font-weight: 600;">Français</span>
+            <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">DÉJÀ TRADUIT · 0 crédit</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="font-size: 20px;">🇩🇪</span>
+            <span style="flex: 1;">Deutsch</span>
+            <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">DÉJÀ TRADUIT</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-3);">
+            <span style="font-size: 20px;">🇮🇹</span>
+            <span style="flex: 1;">Italiano</span>
+            <span class="chip" style="height: 22px; font-size: 10.5px; padding: 0 8px; background: var(--cream-2); border-color: var(--line);">→ Lancer la trad'</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-alt reverse">
+      <div>
+        <div class="eyebrow"><span style="color: var(--accent);">02</span> · Audio doublé</div>
+        <h3 style="margin-top: 12px;">Un nouvel épisode audio. <span class="serif-it">Doublé.</span></h3>
+        <p>Pas seulement une traduction texte&nbsp;: générez un véritable épisode audio doublé, conservant la cadence et les voix de chaque intervenant.</p>
+      </div>
+      <div class="demo" style="padding: 22px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">ÉPISODE DOUBLÉ · #119 FR</div>
+        <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 12px;">#119</div>
             <div style="flex: 1;">
-              <div style="font-size: 13px; font-weight: 600;">Acquired #119 — Version française</div>
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); margin-top: 4px;">2h 47min · 2 voix</div>
+              <div style="font-size: 14px; font-weight: 600;">Nvidia · la décennie</div>
+              <div style="font-size: 11.5px; color: var(--ink-3);">Acquired · 🇫🇷 audio doublé</div>
             </div>
+            <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center;">▶</span>
           </div>
-          <div class="progress-bar"></div>
-          <div style="display: flex; gap: 8px; font-family: var(--mono); font-size: 10px; color: var(--ink-3);">
-            <span>12:42</span>
-            <span>/</span>
-            <span>2:47:01</span>
+          <div style="margin-top: 12px; height: 4px; background: var(--cream-2); border-radius: 2px; position: relative;">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 22%; background: var(--accent); border-radius: 2px;"></div>
+            <div style="position: absolute; top: 50%; left: 22%; transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></div>
           </div>
-        </div>
-      </div>
-
-      <div class="feature-alt">
-        <div>
-          <span class="eyebrow">03 · Choix des voix</span>
-          <h3>Choisissez la voix de chaque intervenant·e</h3>
-          <p class="lede">Sélectionnez une voix parmi un large choix pour chacun·e des intervenant·es. La traduction devient une vraie écoute, pas une lecture à voix synthétique uniforme.</p>
-        </div>
-        <div class="card" style="background: var(--bg-alt); padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Voix par intervenant</div>
-          {[
-            { label: '● Hôte', voice: 'Voix masculine · Naturelle', color: 'var(--accent-ink)' },
-            { label: '● Invité', voice: 'Voix féminine · Dynamique', color: '#2a6' },
-          ].map(item => (
-            <div style={`display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 6px;`}>
-              <span style={`color: ${item.color}; font-size: 12px; font-weight: 600;`}>{item.label}</span>
-              <div style="flex: 1; font-size: 12px; color: var(--ink-2);">{item.voice}</div>
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); border: 1px solid var(--line-soft); padding: 3px 8px; border-radius: 4px;">▾</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POUR QUI -->
-  <section class="section alt">
-    <div class="container">
-      <h2>AudioAsk s'adapte à votre profil</h2>
-      <div class="grid-3" style="margin-top: 32px;">
-        <div class="card">
-          <div class="icon-sq">🎧</div>
-          <h3>Amateurs de podcasts</h3>
-          <p>Plus jamais peur de manquer un épisode important. Écoutez les meilleurs podcasts mondiaux dans votre langue.</p>
-        </div>
-        <div class="card">
-          <div class="icon-sq">🎙️</div>
-          <h3>Éditeurs de podcast</h3>
-          <p>Rendez votre catalogue accessible à une audience internationale. Proposez vos épisodes en plusieurs langues.</p>
-        </div>
-        <div class="card">
-          <div class="icon-sq">📡</div>
-          <h3>Agences médias</h3>
-          <p>Accédez au contenu mondial pour votre veille, sans barrière de langue. Citations et analyses multilingues.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AUTOMATISATION BONUS -->
-  <section class="section">
-    <div class="container">
-      <div class="feature-alt highlight">
-        <div>
-          <div class="eyebrow">
-            <span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 3px; font-size: 10px;">EN BONUS</span>
-            {' '}Automatisation
-          </div>
-          <h3 style="margin-top: 12px;">Automatisez la transcription et la traduction de vos podcasts</h3>
-          <p class="lede">AudioAsk propose une transcription et traduction automatique de vos podcasts. Définissez le prompt à appliquer et choisissez de recevoir le résultat directement par email — sans repasser dans l'app.</p>
-          <a class="btn arrow" href="/fonctionnalites/automatiser" style="margin-top: 18px;">En savoir plus sur l'automatisation</a>
-        </div>
-        <div class="card" style="display: flex; flex-direction: column; gap: 12px; padding: 24px;">
-          <div class="auto-phase">
-            <div class="auto-phase-label">Automatisé · Channel EN → Résumé FR</div>
-            <div style="font-size: 12px; color: var(--ink-2);">Acquired — 3 channels en EN</div>
-          </div>
-          <div class="auto-arrow">↓</div>
-          <div style="padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--paper); border-radius: 0 6px 6px 0; font-size: 12px;">
-            <strong>Email reçu ce matin</strong><br>
-            <span style="color: var(--ink-3);">Résumé FR · Acquired #189</span>
+          <div style="margin-top: 8px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--ink-3);">
+            <span>0:36:42</span><span>2:47:01</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Le savoir mondial, dans votre langue.</h2>
-      <p class="lede">Traduisez votre premier épisode gratuitement avec le plan Premium.</p>
-      <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup?plan=premium`}>Essayer la traduction</a>
+    <div class="feature-alt">
+      <div>
+        <div class="eyebrow"><span style="color: var(--accent);">03</span> · Voix au choix</div>
+        <h3 style="margin-top: 12px;">Choisissez la voix de chaque intervenant.</h3>
+        <p>Pour chaque speaker identifié, sélectionnez une voix dans notre bibliothèque — ou clonez votre propre voix (plan Pro).</p>
+      </div>
+      <div class="demo" style="padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">INTERVENANTS · 3 DÉTECTÉS</div>
+        <div class="voice-card">
+          <div class="voice-avatar">BG</div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 13px; font-weight: 600;">Ben Gilbert</div>
+            <div style="font-size: 11px; color: var(--ink-3);">Voix Audioask · "Marc · grave · FR"</div>
+          </div>
+          <div class="voice-wave">
+            <span style="height: 30%"></span><span style="height: 60%"></span><span style="height: 40%"></span><span style="height: 80%"></span><span style="height: 30%"></span><span style="height: 70%"></span><span style="height: 50%"></span><span style="height: 90%"></span><span style="height: 30%"></span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar" style="background: linear-gradient(135deg, #5B7FD9, #2E4FB5);">DR</div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 13px; font-weight: 600;">David Rosenthal</div>
+            <div style="font-size: 11px; color: var(--ink-3);">Voix Audioask · "Antoine · médium · FR"</div>
+          </div>
+          <div class="voice-wave">
+            <span style="height: 50%; background: #5B7FD9;"></span><span style="height: 30%; background: #5B7FD9;"></span><span style="height: 70%; background: #5B7FD9;"></span><span style="height: 40%; background: #5B7FD9;"></span><span style="height: 80%; background: #5B7FD9;"></span><span style="height: 50%; background: #5B7FD9;"></span><span style="height: 30%; background: #5B7FD9;"></span><span style="height: 60%; background: #5B7FD9;"></span><span style="height: 40%; background: #5B7FD9;"></span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-avatar" style="background: linear-gradient(135deg, #6B6B6B, #3D3D3D);">JH</div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 13px; font-weight: 600;">Jensen Huang <span class="chip" style="height: 18px; padding: 0 6px; font-size: 9px; font-family: var(--mono); background: var(--ink); color: var(--cream); border: 0; margin-left: 4px;">PRO · CLONE</span></div>
+            <div style="font-size: 11px; color: var(--ink-3);">Voix clonée · Jensen Huang FR</div>
+          </div>
+          <div class="voice-wave">
+            <span style="height: 40%; background: var(--ink);"></span><span style="height: 70%; background: var(--ink);"></span><span style="height: 50%; background: var(--ink);"></span><span style="height: 90%; background: var(--ink);"></span><span style="height: 30%; background: var(--ink);"></span><span style="height: 60%; background: var(--ink);"></span><span style="height: 80%; background: var(--ink);"></span><span style="height: 40%; background: var(--ink);"></span><span style="height: 70%; background: var(--ink);"></span>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- Bonus : automation -->
+    <div class="feature-alt reverse" style="background: var(--cream-2); border-radius: 24px; padding: 48px; margin-top: 32px; border: 1px solid var(--line);">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 10px;">
+          <span style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 999px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;">BONUS · AUTO</span>
+          <span class="eyebrow"><span style="color: var(--accent);">04</span> · Automatisation</span>
+        </div>
+        <h3 style="margin-top: 16px;">Traduisez automatiquement chaque nouvel épisode.</h3>
+        <p>Combinez avec les automations&nbsp;: chaque nouvel épisode d'un channel suivi est transcrit + traduit + audio-doublé, livré dans la langue de votre choix.</p>
+        <a class="btn btn-primary" href="/fonctionnalites/automatiser" style="margin-top: 20px;">Voir les automations <span class="arrow">→</span></a>
+      </div>
+      <div class="demo" style="padding: 22px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px;">
+            <span style="color: var(--accent);">⚡</span>
+            <span style="flex: 1;"><b>Acquired</b> · nouvel épisode publié</span>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">12:14</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px;">
+            <span style="color: var(--accent);">○</span>
+            <span style="flex: 1;">Transcription EN</span>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--accent);">2:48</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px;">
+            <span style="color: var(--accent);">○</span>
+            <span style="flex: 1;">Traduction FR</span>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--accent);">0:42</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px;">
+            <span style="color: var(--accent);">○</span>
+            <span style="flex: 1;">Audio doublé FR</span>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--accent);">5:18</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 10px 14px; background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;">
+            <span style="color: var(--accent);">●</span>
+            <span style="flex: 1; color: var(--accent-ink); font-weight: 600;">✓ Livré dans la bibliothèque · 12:22</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="container">
+    <div class="center" style="max-width: 720px; margin: 0 auto;">
+      <div class="eyebrow center" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> FAQ</div>
+      <h2 style="margin-top: 16px;">Questions sur <span class="serif-it">la traduction.</span></h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <span>Quelle est la qualité de l'audio doublé&nbsp;?</span><span class="plus">+</span>
+        <div class="faq-answer">L'audio doublé est généré par des modèles de synthèse vocale de dernière génération. Le résultat est naturel et conserve la cadence originale du podcast. La qualité varie selon la voix choisie.</div>
+      </div>
+      <div class="faq-item">
+        <span>Combien de temps prend la génération audio doublée&nbsp;?</span><span class="plus">+</span>
+        <div class="faq-answer">La génération audio prend généralement quelques minutes pour un épisode d'une heure. Le délai dépend de la charge de nos serveurs et de la durée de l'épisode.</div>
+      </div>
+      <div class="faq-item">
+        <span>Puis-je cloner ma propre voix&nbsp;?</span><span class="plus">+</span>
+        <div class="faq-answer">Oui, le clonage de voix est disponible dans le plan Pro. Il suffit de fournir quelques minutes d'enregistrement audio de votre voix pour créer un clone utilisable pour le doublage.</div>
+      </div>
+      <div class="faq-item">
+        <span>Les podcasters d'origine sont-ils notifiés&nbsp;?</span><span class="plus">+</span>
+        <div class="faq-answer">Non, les traductions restent dans votre espace personnel sur Audioask. Elles ne sont pas redistribuées ni publiées sans votre accord.</div>
+      </div>
+      <div class="faq-item">
+        <span>Quelles langues supportent l'audio doublé&nbsp;?</span><span class="plus">+</span>
+        <div class="faq-answer">L'audio doublé est disponible pour toutes les 12 langues prises en charge par Audioask : français, anglais, allemand, italien, espagnol, portugais, néerlandais, suédois, japonais, coréen, chinois et arabe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark cta-final">
+  <div class="container">
+    <h2>Traduisez votre premier épisode<br><span class="em-serif">dans 12 langues.</span></h2>
+    <p class="lede" style="margin: 0 auto 36px; max-width: 50ch; color: var(--night-text-2);">
+      Traduction incluse dans le plan Premium. Audio doublé en Pro.
+    </p>
+    <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="height: 56px; font-size: 16px; padding: 0 28px;">Essayer maintenant <span class="arrow">→</span></a>
+  </div>
+</section>
 
 </Layout>
 
 <script>
-document.querySelectorAll<HTMLElement>('.faq-item').forEach(item => {
-  item.querySelector('.faq-question')?.addEventListener('click', () => {
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('open');
   });
 });
 </script>

@@ -4,54 +4,61 @@ const APP_URL = 'https://app.audioask.ai';
 ---
 
 <Layout
-  title="Automatiser — AudioAsk"
-  description="Configurez vos channels une fois. AudioAsk surveille, transcrit, analyse et vous envoie l'essentiel automatiquement, sans intervention."
+  title="Automatiser — Audioask"
+  description="Configurez un channel, sauvegardez un prompt, indiquez où livrer : chaque nouvel épisode déclenche votre workflow sans intervention."
   activePage="features"
 >
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero dotbg">
     <div class="container">
-      <div class="hero-split">
-        <div>
-          <span class="page-intro">Fonctionnalité 03 · Automatiser</span>
-          <h1>Vos podcasts analysés automatiquement, dès leur sortie.</h1>
-          <p class="lede">Configurez vos channels une fois. AudioAsk surveille, transcrit, analyse et vous envoie l'essentiel — sans que vous ayez à lever le petit doigt.</p>
-          <div class="hero-ctas" style="margin-top: 28px;">
-            <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Configurer mon premier channel</a>
-            <a class="btn btn-lg" href="/tarifs">Voir les plans</a>
-          </div>
-          <p style="margin-top: 14px; font-size: 13px; color: var(--ink-3);">1 channel automatisé inclus dans le plan Premium.</p>
+      <div class="hero-copy">
+        <div class="page-intro" style="margin-bottom: 24px;">Fonctionnalité 03 · Automatiser</div>
+        <h1>Configurez une fois.<br><span class="em-serif">Recevez automatiquement</span> à chaque nouvel épisode.</h1>
+        <p class="lede">
+          Choisissez un channel, sauvegardez un prompt, indiquez où livrer&nbsp;: chaque nouvel épisode déclenche votre workflow sans intervention.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Configurer ma première automation <span class="arrow">→</span></a>
+          <a class="btn lg" href="/tarifs">Voir les plans</a>
         </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 12px; padding: 24px;">
-          <div class="auto-phase">
-            <div class="auto-phase-label">· Phase 01 · Channel</div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="width: 32px; height: 32px; border-radius: 6px; background: var(--bg-alt); border: 1px solid var(--line-soft); flex-shrink: 0;"></div>
-              <div style="flex: 1; font-size: 13px;"><strong>The Knowledge Project</strong><br><span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">Automatiser ?</span></div>
-              <div class="toggle-pill">
-                <span style="color: var(--ink-3); font-size: 11px;">non</span>
-                <div class="toggle-track"><div class="toggle-thumb"></div></div>
-                <span style="color: var(--accent-ink); font-weight: 600; font-size: 11px;">oui</span>
-              </div>
+      </div>
+
+      <!-- 3-phase flow visual -->
+      <div class="auto-flow" style="margin-top: 60px;">
+        <div class="auto-step">
+          <div class="eyebrow"><span style="color: var(--accent);">01</span> · Channel</div>
+          <h4 style="margin-top: 6px; font-size: 17px;">Choisissez un channel</h4>
+          <div style="margin-top: 8px; padding: 12px 14px; background: var(--cream-2); border-radius: 10px; display: flex; align-items: center; gap: 10px;">
+            <img src="/assets/pod-acquired.jpg" alt="Acquired" style="width: 36px; height: 36px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 13px; font-weight: 600;">Acquired</div>
+              <div style="font-size: 11px; color: var(--ink-3);">142 épisodes</div>
             </div>
+            <span class="chip accent" style="font-size: 10px; height: 22px; padding: 0 8px;">✓</span>
           </div>
-          <div class="auto-arrow">↓</div>
-          <div class="auto-phase">
-            <div class="auto-phase-label">· Phase 02 · Prompt</div>
-            <div style="font-size: 12px; color: var(--ink-2); margin-bottom: 8px;">Appliquer un prompt</div>
-            <div style="padding: 8px 12px; border: 1.5px solid var(--line-soft); border-radius: 6px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; background: var(--paper);">
-              <span><strong>Résumé exécutif</strong> · points clés + citations</span>
-              <span style="color: var(--ink-3);">▾</span>
-            </div>
+        </div>
+
+        <div class="auto-arrow">→</div>
+
+        <div class="auto-step">
+          <div class="eyebrow"><span style="color: var(--accent);">02</span> · Prompt</div>
+          <h4 style="margin-top: 6px; font-size: 17px;">Définissez un prompt IA</h4>
+          <div style="margin-top: 8px; padding: 12px 14px; background: var(--cream-2); border-radius: 10px; font-size: 12.5px; color: var(--ink-2); line-height: 1.4; font-family: var(--mono);">
+            Résume cet épisode en 5 points<br>actionnables pour un brief client.
           </div>
-          <div class="auto-arrow">↓</div>
-          <div class="auto-phase">
-            <div class="auto-phase-label">· Phase 03 · Après traitement</div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <div class="badge accent">✓ Enregistrer dans la bibliothèque</div>
-              <div class="badge accent">✓ Envoyer par email</div>
-            </div>
+          <div style="margin-top: 8px; font-size: 11px; color: var(--ink-3); font-family: var(--mono); letter-spacing: 0.05em;">OU AUCUN — TRANSCRIPTION SEULE</div>
+        </div>
+
+        <div class="auto-arrow">→</div>
+
+        <div class="auto-step">
+          <div class="eyebrow"><span style="color: var(--accent);">03</span> · Livraison</div>
+          <h4 style="margin-top: 6px; font-size: 17px;">Choisissez la livraison</h4>
+          <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+            <div style="padding: 10px 12px; background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 8px; display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--accent-ink);"><span>✓</span> Bibliothèque</div>
+            <div style="padding: 10px 12px; background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 8px; display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--accent-ink);"><span>✓</span> Email</div>
+            <div style="padding: 10px 12px; background: var(--cream-2); border: 1px solid var(--line); border-radius: 8px; display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-3);"><span>○</span> Webhook · Slack <span class="chip" style="margin-left: auto; height: 18px; padding: 0 6px; font-size: 9px; background: var(--ink); color: var(--cream); border: 0;">PRO</span></div>
           </div>
         </div>
       </div>
@@ -61,90 +68,138 @@ const APP_URL = 'https://app.audioask.ai';
   <!-- HOW IT WORKS -->
   <section class="section alt">
     <div class="container">
-      <h2>3 étapes pour automatiser votre veille</h2>
-      <div class="steps" style="margin-top: 36px;">
-        <div class="step card">
-          <span class="step-num">Étape 01</span>
-          <h4>Ajoutez un channel</h4>
-          <p>Choisissez parmi vos abonnements ou collez une URL RSS. Vous pouvez automatiser autant de channels que votre plan le permet.</p>
-        </div>
-        <div class="step card">
-          <span class="step-num">Étape 02</span>
-          <h4>Choisissez votre prompt</h4>
-          <p>Résumé exécutif, points clés, citations notables, analyse sectorielle — ou créez votre propre prompt personnalisé.</p>
-        </div>
-        <div class="step card">
-          <span class="step-num">Étape 03</span>
-          <h4>Recevez par email</h4>
-          <p>À chaque nouvel épisode, vous recevez l'analyse formatée directement dans votre boîte. Sans intervention.</p>
+      <div class="row between" style="align-items: flex-end; flex-wrap: wrap; gap: 32px;">
+        <div>
+          <div class="eyebrow"><span class="dot">●</span> Comment ça marche</div>
+          <h2 style="margin-top: 16px;">Une configuration de 30 secondes,<br><span class="serif-it">un workflow toute l'année.</span></h2>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- FEATURES DÉTAILLÉES -->
-  <section class="section">
-    <div class="container">
-      <div class="feature-alt">
+      <div class="feature-alt" style="margin-top: 48px; border-top: 0;">
         <div>
-          <span class="eyebrow">01 · Set &amp; forget</span>
-          <h3>Configurez une fois. Recevez toujours.</h3>
-          <p class="lede">Activez l'automatisation sur n'importe quel channel. À chaque nouvel épisode, AudioAsk transcrit et vous envoie l'analyse — que vous soyez disponible ou non.</p>
+          <div class="eyebrow"><span style="color: var(--accent);">01</span> · Toggle</div>
+          <h3 style="margin-top: 12px;">Activez en un clic depuis un channel.</h3>
+          <p>Sur chaque channel suivi, un toggle «&nbsp;Auto&nbsp;». Activez-le, configurez-le. Désactivez-le quand vous voulez.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 14px; padding: 24px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
-            <span><strong>Acquired</strong> — Automatisation</span>
-            <div class="toggle-pill">
-              <div class="toggle-track"><div class="toggle-thumb"></div></div>
-              <span style="color: var(--accent-ink); font-weight: 600; font-size: 11px;">Actif</span>
+        <div class="demo" style="padding: 28px;">
+          <!-- mockup : modal "Configurer l'automation" -->
+          <div style="background: var(--paper); border-radius: 14px; border: 1px solid var(--line); padding: 22px; box-shadow: var(--shadow-md);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+              <span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center;">⚡</span>
+              <b style="font-size: 16px;">Configurer l'automation</b>
+              <span style="margin-left: auto; color: var(--ink-3);">✕</span>
             </div>
-          </div>
-          <div style="padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--paper); border-radius: 0 6px 6px 0;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Email reçu · il y a 2h</div>
-            <div style="font-size: 12px; font-weight: 600;">Acquired · #189 — OpenAI : l'histoire complète</div>
-            <div style="font-size: 11px; color: var(--ink-3); margin-top: 4px;">3 points clés · 5 citations · 2:14h d'audio</div>
+            <div style="background: var(--cream); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+              <img src="/assets/pod-acquired.jpg" alt="Acquired" style="width: 36px; height: 36px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+              <div>
+                <div style="font-size: 14px; font-weight: 600;">Acquired</div>
+                <div style="font-size: 11.5px; color: var(--ink-3);">Chaque nouvel épisode sera traité automatiquement</div>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 6px;">📖 PROMPT IA</div>
+              <div style="background: var(--cream); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--ink);">— Aucun prompt (transcription seule) —</div>
+            </div>
+            <div style="margin-top: 14px;">
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 6px;">LIVRAISON DES RÉSULTATS</div>
+              <div style="background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--accent);">📚</span>
+                <div style="flex: 1;">
+                  <div style="font-size: 12.5px; font-weight: 600; color: var(--accent-ink);">Sauvegarder dans la bibliothèque</div>
+                  <div style="font-size: 11px; color: var(--accent-deep);">Accessibles dans My Audioask → Réponses</div>
+                </div>
+                <span style="width: 18px; height: 18px; background: var(--accent); border-radius: 4px; color: white; display: flex; align-items: center; justify-content: center; font-size: 10px;">✓</span>
+              </div>
+              <div style="background: var(--cream); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin-top: 6px; display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--ink-3);">✉</span>
+                <div style="flex: 1;">
+                  <div style="font-size: 12.5px; font-weight: 600;">Envoyer par email</div>
+                  <div style="font-size: 11px; color: var(--ink-3);">Email dès que la transcription est prête</div>
+                </div>
+                <span style="width: 18px; height: 18px; background: var(--paper); border: 1px solid var(--line-2); border-radius: 4px;"></span>
+              </div>
+            </div>
+            <div style="margin-top: 18px; display: flex; gap: 10px; justify-content: flex-end;">
+              <span class="chip" style="height: 32px; padding: 0 14px; font-size: 13px;">Annuler</span>
+              <span class="chip accent" style="height: 32px; padding: 0 14px; font-size: 13px;">✓ Enregistrer</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="feature-alt reverse">
         <div>
-          <span class="eyebrow">02 · Prompts</span>
-          <h3>L'analyse exactement comme vous la voulez</h3>
-          <p class="lede">Choisissez parmi vos prompts personnalisés : résumé exécutif, points clés, citations notables, analyse sectorielle. Chaque channel peut avoir son propre format.</p>
+          <div class="eyebrow"><span style="color: var(--accent);">02</span> · Détection</div>
+          <h3 style="margin-top: 12px;">Audioask détecte chaque nouvel épisode.</h3>
+          <p>Dès qu'un nouvel épisode est publié sur le channel suivi, Audioask le transcrit, applique votre prompt, et livre le résultat.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 8px; padding: 24px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Prompt appliqué à ce channel</div>
-          <div style="border: 1.5px solid oklch(0.80 0.08 38); background: var(--paper); border-radius: 8px; padding: 12px;">
-            <div style="font-size: 13px; font-weight: 600; color: var(--accent-ink);">Résumé exécutif</div>
-            <div style="font-size: 12px; color: var(--ink-2); margin-top: 4px;">Points clés + citations + recommandations d'action</div>
+        <div class="demo" style="padding: 22px; aspect-ratio: auto;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">JOURNAL D'AUTOMATION · ACQUIRED</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; gap: 12px; font-size: 12.5px;">
+              <span style="color: var(--accent); font-size: 16px;">●</span>
+              <div style="flex: 1;">
+                <div style="font-weight: 600;">#119 — Nvidia&nbsp;: la décennie</div>
+                <div style="color: var(--ink-3); font-size: 11px;">Détecté il y a 12 min · Transcrit en 2:48 · Synthèse envoyée par email</div>
+              </div>
+              <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">✓ Livré</span>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; gap: 12px; font-size: 12.5px;">
+              <span style="color: var(--accent); font-size: 16px;">●</span>
+              <div style="flex: 1;">
+                <div style="font-weight: 600;">#118 — Costco</div>
+                <div style="color: var(--ink-3); font-size: 11px;">Hier · Bibliothèque + email</div>
+              </div>
+              <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">✓ Livré</span>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; gap: 12px; font-size: 12.5px;">
+              <span style="color: var(--accent); font-size: 16px;">●</span>
+              <div style="flex: 1;">
+                <div style="font-weight: 600;">#117 — Hermès</div>
+                <div style="color: var(--ink-3); font-size: 11px;">10 mai · Bibliothèque + email</div>
+              </div>
+              <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">✓ Livré</span>
+            </div>
           </div>
-          <div style="border: 1px solid var(--line-soft); border-radius: 8px; padding: 12px; font-size: 12px; color: var(--ink-3);">Recommandations de livres mentionnés</div>
-          <div style="border: 1px solid var(--line-soft); border-radius: 8px; padding: 12px; font-size: 12px; color: var(--ink-3);">Chiffres et statistiques</div>
+          <div style="margin-top: 14px; padding: 10px 14px; background: var(--cream); border-radius: 8px; font-size: 11.5px; color: var(--ink-3); display: flex; gap: 8px; align-items: center;">
+            <span style="color: var(--accent);">▶</span> Prochain check Audioask&nbsp;: dans 6h.
+          </div>
         </div>
       </div>
 
       <div class="feature-alt">
         <div>
-          <span class="eyebrow">03 · Historique</span>
-          <h3>Tout l'historique disponible dans votre bibliothèque</h3>
-          <p class="lede">Chaque analyse automatique est archivée dans votre bibliothèque. Retrouvez, recherchez et partagez n'importe quelle analyse passée.</p>
+          <div class="eyebrow"><span style="color: var(--accent);">03</span> · Livraison</div>
+          <h3 style="margin-top: 12px;">Bibliothèque, email — et plus encore en Pro.</h3>
+          <p>Choisissez où arrive le résultat. En Pro, débloquez webhooks, intégrations Slack &amp; Teams.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 6px; padding: 24px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">Historique — Acquired</div>
-          {['#189 OpenAI — il y a 2h', '#188 Spotify — hier', '#187 Airbnb — il y a 3j', '#186 Stripe — il y a 1 semaine'].map(ep => (
-            <div style="padding: 8px 12px; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 6px; font-size: 12px; display: flex; justify-content: space-between; align-items: center;">
-              <span>{ep.split('—')[0]}</span>
-              <span style="color: var(--ink-3); font-family: var(--mono); font-size: 10px;">{ep.split('—')[1]?.trim()}</span>
+        <div class="demo" style="padding: 22px; aspect-ratio: auto;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 14px;">DESTINATIONS DISPONIBLES</div>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+            <div style="padding: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; display: flex; gap: 10px; align-items: center;">
+              <span style="font-size: 22px;">📚</span>
+              <div><div style="font-size: 13px; font-weight: 600;">Bibliothèque</div><div style="font-size: 11px; color: var(--ink-3);">Tous plans</div></div>
             </div>
-          ))}
+            <div style="padding: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; display: flex; gap: 10px; align-items: center;">
+              <span style="font-size: 22px;">✉</span>
+              <div><div style="font-size: 13px; font-weight: 600;">Email</div><div style="font-size: 11px; color: var(--ink-3);">Tous plans</div></div>
+            </div>
+            <div style="padding: 14px; background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; display: flex; gap: 10px; align-items: center;">
+              <span style="font-size: 22px;">⚡</span>
+              <div><div style="font-size: 13px; font-weight: 600;">Webhook</div><div style="font-size: 11px; color: var(--accent-ink); font-family: var(--mono);">PRO</div></div>
+            </div>
+            <div style="padding: 14px; background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; display: flex; gap: 10px; align-items: center;">
+              <span style="font-size: 22px;">💬</span>
+              <div><div style="font-size: 13px; font-weight: 600;">Slack / Teams</div><div style="font-size: 11px; color: var(--accent-ink); font-family: var(--mono);">PRO</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROMO LLM -->
-  <section class="section alt">
+  <section class="section">
     <div class="container">
       <div class="feature-alt highlight">
         <div>
@@ -154,7 +209,7 @@ const APP_URL = 'https://app.audioask.ai';
           </div>
           <h3 style="margin-top: 12px;">L'automatisation devient vraiment puissante avec l'IA.</h3>
           <p class="lede">Chaque nouvel épisode est non seulement transcrit, mais aussi analysé par notre IA selon vos prompts. Résumé, citations clés, fact-checks, questions de suivi — votre veille devient une vraie conversation, pas une simple liste.</p>
-          <a class="btn btn-primary arrow" href="/fonctionnalites/interroger" style="margin-top: 18px;">Découvrir la fonction IA</a>
+          <a class="btn btn-primary arrow" href="/fonctionnalites/interroger" style="margin-top: 18px;">Découvrir la fonction IA <span class="arrow">→</span></a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 12px; padding: 8px;">
           <div style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); text-transform: uppercase; letter-spacing: 0.08em;">Email automatique reçu</div>
@@ -169,36 +224,45 @@ const APP_URL = 'https://app.audioask.ai';
   </section>
 
   <!-- FAQ -->
-  <section class="section">
-    <div class="container-narrow">
-      <h2>Questions sur l'automatisation</h2>
-      <div style="margin-top: 28px;">
+  <section class="section alt">
+    <div class="container">
+      <div class="center" style="max-width: 720px; margin: 0 auto;">
+        <div class="eyebrow center" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> FAQ</div>
+        <h2 style="margin-top: 16px;">Questions sur <span class="serif-it">l'automation.</span></h2>
+      </div>
+      <div class="faq">
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Combien de channels puis-je automatiser ?</span><div class="faq-icon">+</div></div>
+          <span>Combien d'automations puis-je avoir&nbsp;?</span><span class="plus">+</span>
           <div class="faq-answer">Plan Premium : 1 channel automatisé. Plan Pro : channels illimités. Sur le plan gratuit, l'automatisation n'est pas disponible, mais vous pouvez analyser manuellement n'importe quel épisode.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Que se passe-t-il si je n'ai pas assez de crédits ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Vous recevrez une notification avant que vos crédits s'épuisent. Sur le plan Pro, la transcription continue avec facturation à l'usage. Sur Premium, l'automatisation est mise en pause jusqu'au renouvellement mensuel.</div>
+          <span>Que se passe-t-il si je désactive une automation&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Désactiver une automation arrête immédiatement la surveillance du channel. L'historique des analyses précédentes reste disponible dans votre bibliothèque. Vous pouvez réactiver l'automation à tout moment.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Puis-je choisir un prompt différent par channel ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Oui, chaque channel automatisé peut avoir son propre prompt. Par exemple, votre channel de veille concurrentielle peut recevoir un "résumé stratégique" tandis que votre channel de formation envoie une "liste des ressources citées".</div>
+          <span>Audioask consomme-t-il mes crédits sur chaque épisode auto&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Oui, chaque épisode traité automatiquement consomme des crédits de transcription (et de prompt IA si vous en avez configuré un). Vous recevrez une notification avant que vos crédits s'épuisent.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">À quelle fréquence les channels sont-ils surveillés ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">AudioAsk surveille les flux RSS toutes les heures. En général, un nouvel épisode est détecté dans l'heure suivant sa publication, puis transcrit et analysé automatiquement.</div>
+          <span>Puis-je modifier le prompt d'une automation existante&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Oui, vous pouvez modifier le prompt d'une automation à tout moment. La modification s'applique aux prochains épisodes détectés. Les analyses déjà réalisées ne sont pas modifiées.</div>
+        </div>
+        <div class="faq-item">
+          <span>Quelle est la latence entre publication et livraison&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Audioask surveille les flux RSS toutes les heures. En général, un nouvel épisode est détecté dans l'heure suivant sa publication, puis transcrit et analysé automatiquement. La livraison a lieu dans les minutes qui suivent la fin du traitement.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="section dark cta-final">
     <div class="container">
-      <h2>Mettez votre veille en pilote automatique.</h2>
-      <p class="lede">1 channel automatisé inclus dans le plan Premium.</p>
-      <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Configurer mon premier channel</a>
+      <h2>Configurez votre première automation<br><span class="em-serif">en moins d'une minute.</span></h2>
+      <p class="lede" style="margin: 0 auto 36px; max-width: 50ch; color: var(--night-text-2);">
+        1 channel automatisé inclus dans le plan Premium. Illimité en Pro.
+      </p>
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="height: 56px; font-size: 16px; padding: 0 28px;">Configurer maintenant <span class="arrow">→</span></a>
     </div>
   </section>
 
@@ -206,7 +270,7 @@ const APP_URL = 'https://app.audioask.ai';
 
 <script>
 document.querySelectorAll<HTMLElement>('.faq-item').forEach(item => {
-  item.querySelector('.faq-question')?.addEventListener('click', () => {
+  item.addEventListener('click', () => {
     const wasOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');

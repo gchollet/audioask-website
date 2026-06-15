@@ -2,130 +2,169 @@
 import Layout from '../layouts/Layout.astro';
 const APP_URL = 'https://app.audioask.ai';
 ---
-
-<Layout
-  title="AudioAsk Pro — L'arsenal complet pour exploiter vos podcasts à l'échelle"
-  description="Plan Pro AudioAsk : transcription à l'usage, IA cross-épisodes, automations illimitées, prompts partagés. 19€/mois + usage."
-  activePage="pro"
->
+<Layout title="Audioask Pro — Le plan pour les pros du podcast" description="Plan Pro Audioask : transcription à l'échelle, IA cross-épisodes, automations illimitées, prompts partagés. 19€/mois + usage." activePage="pro">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero dotbg">
     <div class="container">
-      <div class="hero-split">
-        <div>
-          <div class="eyebrow">Plan Pro</div>
-          <h1>AudioAsk sous stéroïdes : le plan pro.</h1>
-          <p class="lede">Si vous transcrivez à l'échelle d'un métier, analysez des channels entiers ou produisez des livrables à partir de podcasts — le plan Pro est fait pour vous.</p>
-          <div class="hero-ctas" style="margin-top: 28px;">
-            <a class="btn btn-primary btn-lg arrow" href="/tarifs">Voir les tarifs Pro</a>
-            <a class="btn btn-lg" href={`${APP_URL}/signup?plan=pro`}>Essayer gratuitement</a>
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <span class="pill">PRO</span>
+          <span>19€/mois + usage · 10h transcription &amp; 25M chars IA inclus</span>
+        </div>
+        <h1>
+          Audioask sous <span class="em-serif">stéroïdes</span>&nbsp;:<br>
+          le plan pro.
+        </h1>
+        <p class="lede">
+          Pour les équipes qui veulent exploiter tout le savoir que les podcast ont à offrir. Transcription à l'échelle, IA cross-épisodes, automations sans limite.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary lg" href={`${APP_URL}/signup?plan=pro`}>Démarrer le plan Pro <span class="arrow">→</span></a>
+          <a class="btn lg" href="/tarifs">Voir les tarifs</a>
+        </div>
+        <div class="hero-meta">
+          <span class="dotcheck">Facturation transparente</span>
+          <span class="dotcheck">Sans engagement</span>
+        </div>
+      </div>
+
+      <!-- Animated feature tour -->
+      <div class="product-stage" style="margin-top: 60px;">
+        <div class="app-card pro-tour" id="pro-tour">
+          <div class="app-toolbar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">audioask.ai · plan pro</span>
           </div>
-          <p style="margin-top: 14px; font-size: 13px; color: var(--ink-3);">19€/mois + usage · 10h transcription incluses</p>
-        </div>
-        <div class="card" style="padding: 28px; background: var(--bg-alt);">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px;">Ce que vous gagnez en Pro</div>
-          <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 14px;">
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--accent); font-weight: 700; font-size: 16px; margin-top: 1px;">✓</span>
-              <div><strong>Transcription à l'usage</strong><br><span style="color: var(--ink-3); font-size: 13px;">10h incluses, puis 2€/h — jamais bloqué</span></div>
-            </li>
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--accent); font-weight: 700; font-size: 16px; margin-top: 1px;">✓</span>
-              <div><strong>IA cross-épisodes</strong><br><span style="color: var(--ink-3); font-size: 13px;">Interrogez un channel entier d'un coup</span></div>
-            </li>
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--accent); font-weight: 700; font-size: 16px; margin-top: 1px;">✓</span>
-              <div><strong>Automations illimitées</strong><br><span style="color: var(--ink-3); font-size: 13px;">Channels surveillés, email automatique, webhook</span></div>
-            </li>
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--accent); font-weight: 700; font-size: 16px; margin-top: 1px;">✓</span>
-              <div><strong>Prompts personnalisés partagés</strong><br><span style="color: var(--ink-3); font-size: 13px;">Bibliothèque d'équipe, exports illimités</span></div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="pro-tour-body">
+            <aside class="pro-tour-rail">
+              <button class="pro-tour-tab on" data-scene="0">
+                <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h11l3 3v13H5z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+                <span><b>Prompts illimités</b><small>enregistrés &amp; réutilisables</small></span>
+                <span class="prog"></span>
+              </button>
+              <button class="pro-tour-tab" data-scene="1">
+                <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3z"/></svg></span>
+                <span><b>IA cross-épisodes</b><small>tout un channel</small></span>
+                <span class="prog"></span>
+              </button>
+              <button class="pro-tour-tab" data-scene="2">
+                <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+                <span><b>Automations</b><small>illimitées</small></span>
+                <span class="prog"></span>
+              </button>
+              <button class="pro-tour-tab" data-scene="3">
+                <span class="ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h18v12H3z"/><path d="M8 21h8M9 9l3 2-3 2"/></svg></span>
+                <span><b>Widget Embed</b><small>IA sur votre site</small></span>
+                <span class="prog"></span>
+              </button>
+            </aside>
 
-  <!-- HUB FEATURES -->
-  <section class="section alt">
-    <div class="container">
-      <div class="row between" style="align-items: flex-end; margin-bottom: 40px;">
-        <div>
-          <h2>L'arsenal complet<br>pour exploiter vos podcasts à l'échelle</h2>
-          <p class="lede" style="margin: 0;">Quatre outils. Une seule plateforme. Construit pour les équipes qui transforment l'écoute en livrable.</p>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="eyebrow">01 · Transcription</div>
-          <h3>Sans plafond mensuel</h3>
-          <p>10h incluses par mois, puis 2€/h de dépassement. Pas de tier supérieur à acheter. Vous transcrivez autant que votre mois le demande.</p>
-          <a class="btn btn-sm arrow" href="/fonctionnalites/transcrire" style="margin-top: 16px;">En savoir plus</a>
-        </div>
-        <div class="card">
-          <div class="eyebrow">02 · IA cross-épisodes</div>
-          <h3>Interrogez tout un channel d'un coup</h3>
-          <p>Posez une question sur l'ensemble d'un podcast — toutes saisons confondues. Détecter des tendances, comparer des invités, croiser des thèmes.</p>
-          <a class="btn btn-sm arrow" href="/fonctionnalites/interroger" style="margin-top: 16px;">En savoir plus</a>
-        </div>
-        <div class="card">
-          <div class="eyebrow">03 · Automations</div>
-          <h3>Channels illimités en pilote automatique</h3>
-          <p>Surveillance RSS, transcription automatique, analyse IA, email de résumé — ou webhook vers votre outil préféré. Configurez une fois, recevez toujours.</p>
-          <a class="btn btn-sm arrow" href="/fonctionnalites/automatiser" style="margin-top: 16px;">En savoir plus</a>
-        </div>
-        <div class="card">
-          <div class="eyebrow">04 · Prompts & export</div>
-          <h3>Vos formats, votre bibliothèque</h3>
-          <p>Créez et partagez vos prompts avec votre équipe. Exportez transcripts (TXT, SRT, VTT), signets (CSV) et résultats IA en un clic.</p>
-          <a class="btn btn-sm arrow" href="/fonctionnalites/interroger" style="margin-top: 16px;">En savoir plus</a>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="pro-tour-stage">
+              <!-- SCENE 0 · Prompts illimités -->
+              <div class="pro-scene on" data-scene="0">
+                <div class="pro-scene-head">
+                  <span class="lbl">Mes prompts sauvegardés · 12</span>
+                  <span class="chip accent-soft" style="font-size: 11px;">∞ ILLIMITÉ</span>
+                </div>
+                <div class="stagger s1 tour-prow" style="display: flex; gap: 10px; align-items: center; padding: 11px 14px; border-color: var(--accent);">
+                  <span style="color: var(--accent);">★</span>
+                  <span style="flex: 1; font-size: 13px;">Brief client — angles &amp; insights</span>
+                  <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">▶ Lancer</span>
+                </div>
+                <div class="stagger s2 tour-prow" style="display: flex; gap: 10px; align-items: center; padding: 11px 14px;">
+                  <span style="color: var(--ink-3);">○</span>
+                  <span style="flex: 1; font-size: 13px;">Résumé exécutif 5 points</span>
+                  <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">42×</span>
+                </div>
+                <div class="stagger s3 tour-prow" style="display: flex; gap: 10px; align-items: center; padding: 11px 14px;">
+                  <span style="color: var(--ink-3);">○</span>
+                  <span style="flex: 1; font-size: 13px;">Citations clés horodatées</span>
+                  <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">31×</span>
+                </div>
+                <div class="stagger s4 tour-prow" style="display: flex; gap: 10px; align-items: center; padding: 11px 14px;">
+                  <span style="color: var(--ink-3);">○</span>
+                  <span style="flex: 1; font-size: 13px;">Fact-check — sources &amp; chiffres</span>
+                  <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">14×</span>
+                </div>
+                <div style="margin-top: 12px; font-size: 12px; color: var(--accent-ink); display: flex; align-items: center; gap: 8px;"><span>+</span> Nouveau prompt — aucune limite</div>
+              </div>
 
-  <!-- NETWORK EFFECT -->
-  <section class="section dark">
-    <div class="container">
-      <div style="max-width: 720px;">
-        <h2 style="color: white;">Tous les utilisateurs contribuent à enrichir les transcriptions de vos podcasts</h2>
-        <p class="lede" style="color: #b0a898;">AudioAsk fonctionne comme une bibliothèque partagée. Quand un utilisateur transcrit un épisode, toute la communauté en bénéficie. Plus vous êtes nombreux, moins vous dépensez de crédits.</p>
-      </div>
-      <div style="margin-top: 40px; display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap;">
-        <div class="stat-big">+185 millions</div>
-        <div style="font-size: 18px; color: #b0a898; max-width: 22ch;">d'épisodes à disposition</div>
-      </div>
-    </div>
-  </section>
+              <!-- SCENE 1 · IA cross-épisodes -->
+              <div class="pro-scene" data-scene="1">
+                <div class="pro-scene-head">
+                  <span class="lbl">Audioask · 142 épisodes interrogés</span>
+                  <span class="chip" style="font-size: 11px;">CHANNEL · ACQUIRED</span>
+                </div>
+                <div class="ai-reveal r1 ai-bubble q" style="background: var(--cream-2); align-self: flex-end; max-width: 80%; margin-left: auto; padding: 11px 14px; border-radius: 14px 14px 4px 14px; font-size: 13px;">
+                  Comment la thèse des hôtes sur l'IA a-t-elle évolué sur 3 saisons&nbsp;?
+                </div>
+                <div class="ai-reveal r2" style="margin-top: 10px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 13px; line-height: 1.55;">
+                  <div>En <b>S1</b>, l'IA est vue comme un pari risqué. En <b>S2</b>, elle devient le fil conducteur. En <b>S3</b>, c'est la thèse centrale d'investissement.</div>
+                  <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line-2); font-size: 11px; color: var(--ink-3); display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span>↩ 6 citations ·</span>
+                    <span style="font-family: var(--mono); color: var(--accent-ink);">#88 · 1:12:04</span>
+                    <span style="font-family: var(--mono); color: var(--accent-ink);">#104 · 41:18</span>
+                    <span style="font-family: var(--mono); color: var(--accent-ink);">#119 · 52:10</span>
+                  </div>
+                </div>
+              </div>
 
-  <!-- PERSONAS -->
-  <section class="section">
-    <div class="container">
-      <h2 class="center" style="margin: 0 auto 12px;">Construit pour vos métiers</h2>
-      <p class="lede center" style="margin: 0 auto 36px;">Trois profils pro. Une même promesse : transformer du temps d'écoute en livrable actionnable.</p>
+              <!-- SCENE 2 · Automations -->
+              <div class="pro-scene" data-scene="2">
+                <div class="pro-scene-head">
+                  <span class="lbl">Configurer l'automation · Acquired</span>
+                  <span class="chip accent" style="font-size: 11px;">⚡ AUTO</span>
+                </div>
+                <div class="stagger s1 tour-prow" style="display: flex; gap: 11px; align-items: center; padding: 11px 14px;">
+                  <span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">⚡</span>
+                  <span style="flex: 1; font-size: 13px; font-weight: 600;">Automatisation</span>
+                  <span style="width: 38px; height: 21px; border-radius: 999px; background: var(--accent); position: relative;"><span style="position: absolute; top: 2px; right: 2px; width: 17px; height: 17px; border-radius: 50%; background: white;"></span></span>
+                </div>
+                <div class="stagger s2 tour-prow" style="display: flex; gap: 11px; align-items: center; padding: 11px 14px;">
+                  <span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">✦</span>
+                  <span style="flex: 1; font-size: 13px; font-weight: 600;">Prompt appliqué</span>
+                  <span class="chip" style="height: 24px; font-size: 11px; padding: 0 10px; background: var(--cream-2); border-color: var(--line);">Brief client ▾</span>
+                </div>
+                <div class="stagger s3 tour-prow" style="display: flex; gap: 11px; align-items: center; padding: 11px 14px;">
+                  <span style="width: 28px; height: 28px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">✉</span>
+                  <span style="flex: 1; font-size: 13px; font-weight: 600;">Envoi par email</span>
+                  <span style="width: 38px; height: 21px; border-radius: 999px; background: var(--accent); position: relative;"><span style="position: absolute; top: 2px; right: 2px; width: 17px; height: 17px; border-radius: 50%; background: white;"></span></span>
+                </div>
+                <div class="stagger s4 tour-prow" style="display: flex; gap: 11px; align-items: center; padding: 11px 14px;">
+                  <span style="width: 28px; height: 28px; border-radius: 8px; background: var(--cream-2); color: var(--ink-3); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">📚</span>
+                  <span style="flex: 1; font-size: 13px; font-weight: 600;">Enregistrer le résultat</span>
+                  <span style="width: 38px; height: 21px; border-radius: 999px; background: var(--cream-3); position: relative;"><span style="position: absolute; top: 2px; left: 2px; width: 17px; height: 17px; border-radius: 50%; background: white;"></span></span>
+                </div>
+              </div>
 
-      <div class="persona-tabs" id="persona-tabs" role="tablist">
-        <button class="persona-tab on" data-tab="0" role="tab">Éditeurs de podcast</button>
-        <button class="persona-tab" data-tab="1" role="tab">Agences de communication</button>
-        <button class="persona-tab" data-tab="2" role="tab">Journalistes et médias</button>
-      </div>
-
-      <div id="persona-body">
-        <div class="grid-2" style="align-items: center;">
-          <div>
-            <div class="eyebrow" id="persona-eyebrow">Éditeurs de podcast</div>
-            <h3 id="persona-title" style="font-size: 28px; margin: 0 0 14px; letter-spacing: -0.02em; max-width: 22ch;">Rendez votre catalogue cherchable, partageable et réutilisable.</h3>
-            <p class="lede" id="persona-text" style="margin: 0 0 20px;">Transcrivez automatiquement vos épisodes pour booster votre SEO, alimenter vos newsletters et permettre à vos auditeurs de retrouver n'importe quel passage en quelques secondes.</p>
-            <a class="btn btn-primary arrow" href={`${APP_URL}/signup?plan=pro`}>Démarrer avec le plan Pro</a>
-          </div>
-          <div class="card" style="background: var(--bg-alt);" id="persona-visual">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;">Cas d'usage typique</div>
-            <div id="persona-usecase" style="font-size: 14px; color: var(--ink-2); line-height: 1.65;">
-              <p style="margin: 0 0 10px;">→ 50 épisodes transcrits automatiquement dès leur sortie</p>
-              <p style="margin: 0 0 10px;">→ Newsletter hebdo générée par IA à partir des résumés</p>
-              <p style="margin: 0;">→ Auditeurs qui cherchent directement dans le catalogue</p>
+              <!-- SCENE 3 · Widget Embed -->
+              <div class="pro-scene" data-scene="3">
+                <div class="pro-scene-head">
+                  <span class="lbl">Widget embarqué · votre site</span>
+                  <span class="chip accent-soft" style="font-size: 11px;">NOUVEAU</span>
+                </div>
+                <div class="embed-browser">
+                  <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="addr">🔒 votresite.com/podcast</span></div>
+                  <div class="embed-site" style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="skel" style="width: 42%;"></div>
+                    <div class="embed-widget">
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="/assets/acquired-cover.jpg" alt="" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">
+                        <div style="flex: 1; min-width: 0;"><div style="font-size: 12.5px; font-weight: 600;">#119 — Nvidia</div><div style="font-size: 11px; color: var(--ink-3);">Acquired</div></div>
+                        <span style="width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 11px;">▶</span>
+                      </div>
+                      <div style="margin-top: 10px; height: 4px; background: var(--cream-2); border-radius: 2px; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 34%; background: var(--accent); border-radius: 2px;"></div></div>
+                      <div style="margin-top: 10px; background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; font-size: 11.5px; color: var(--ink-3); display: flex; align-items: center; gap: 8px;">
+                        <span style="color: var(--accent);">✦</span> Posez une question sur cet épisode…
+                        <span style="margin-left: auto; font-family: var(--mono); font-size: 9px; background: var(--accent-tint); color: var(--accent-ink); padding: 2px 6px; border-radius: 4px;">IA</span>
+                      </div>
+                    </div>
+                    <div class="skel" style="width: 88%;"></div>
+                    <div class="skel" style="width: 64%;"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -133,56 +172,322 @@ const APP_URL = 'https://app.audioask.ai';
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- FEATURES — alternating blocks -->
+  <section class="section paper">
     <div class="container">
-      <h2>Passez à l'échelle pro</h2>
-      <p class="lede">Plan Pro — 19€/mois + usage. 10h de transcription &amp; 25M caractères d'IA inclus. Facturation transparente.</p>
-      <a class="btn btn-primary btn-lg arrow" href="/tarifs">Voir les tarifs Pro</a>
-      <p style="margin-top: 16px; font-size: 13px; color: #6a6058;">Vous êtes un amateur de podcasts ? <a href="/" style="color: var(--accent);">Voir la version grand public</a></p>
+      <div class="row between" style="align-items: flex-end; flex-wrap: wrap; gap: 32px;">
+        <div>
+          <div class="eyebrow"><span class="dot">●</span> L'arsenal complet</div>
+          <h2 style="margin-top: 16px;">Tout ce qu'il faut
+pour donner de la valeur à vos podcasts.</h2>
+        </div>
+        <p class="lede" style="max-width: 38ch;">Des fonctionnalités pensées pour valoriser les contenus du vos podcasts ou ceux des autres.</p>
+      </div>
+
+      <!-- Feature 1 : Prompts illimités -->
+      <div class="feature-alt" style="margin-top: 48px;">
+        <div>
+          <div class="eyebrow"><span style="color: var(--accent);">01</span> · Prompts illimités</div>
+          <h3 style="margin-top: 12px;">Vos prompts, enregistrés et réutilisables à l'infini.</h3>
+          <p>Créez, nommez et sauvegardez autant de prompts que vous voulez&nbsp;: brief client, synthèse exécutive, extraction de citations… Lancez-les en un clic sur n'importe quel épisode ou channel.</p>
+          <div style="margin-top: 24px; display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: var(--accent-ink);">∞</span>
+            <span style="font-size: 14px; color: var(--ink-3);">prompts personnalisés &amp; partagés</span>
+          </div>
+        </div>
+        <div class="demo" style="padding: 22px; aspect-ratio: auto; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 4px;">MES PROMPTS SAUVEGARDÉS · 12</div>
+          <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--accent);">★</span>
+            <span style="flex: 1;">Brief client — angles &amp; insights actionnables</span>
+            <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">▶ Lancer</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Résumé exécutif 5 points</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 42×</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Citations clés horodatées</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 31×</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Liste de livres &amp; outils mentionnés</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 19×</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Fact-check — sources &amp; chiffres</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 14×</span>
+          </div>
+          <div style="margin-top: 2px; font-size: 11.5px; color: var(--accent-ink); display: flex; align-items: center; gap: 8px;"><span>+</span> Nouveau prompt — aucune limite</div>
+        </div>
+      </div>
+
+      <!-- Feature 2 : IA cross-épisodes -->
+      <div class="feature-alt reverse">
+        <div>
+          <div class="eyebrow"><span style="color: var(--accent);">02</span> · IA cross-épisodes</div>
+          <h3 style="margin-top: 12px;">Interrogez tout un channel, pas juste un épisode.</h3>
+          <p>Posez une question à l'intégralité d'un podcast — toutes saisons confondues. Tendances, comparaison d'invités, évolution dans le temps. Chaque réponse est citée et horodatée.</p>
+          <div style="margin-top: 24px; display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: var(--accent-ink);">25M</span>
+            <span style="font-size: 14px; color: var(--ink-3);">caractères d'IA inclus / mois</span>
+          </div>
+        </div>
+        <div class="demo" style="padding: 22px; aspect-ratio: auto;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">142 ÉPISODES INTERROGÉS · ACQUIRED</div>
+          <div style="background: var(--cream-2); border-radius: 14px 14px 4px 14px; padding: 11px 14px; font-size: 13px; max-width: 82%; margin-left: auto;">
+            Comment la thèse des hôtes sur l'IA a-t-elle évolué sur 3 saisons&nbsp;?
+          </div>
+          <div style="margin-top: 10px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: 13px; line-height: 1.55;">
+            <div>En <b>S1</b>, l'IA est vue comme un pari risqué. En <b>S2</b>, elle devient le fil conducteur. En <b>S3</b>, c'est la thèse centrale d'investissement.</div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line-2); font-size: 11px; color: var(--ink-3); display: flex; gap: 8px; flex-wrap: wrap;">
+              <span>↩ 6 citations ·</span>
+              <span style="font-family: var(--mono); color: var(--accent-ink);">#88 · 1:12:04</span>
+              <span style="font-family: var(--mono); color: var(--accent-ink);">#104 · 41:18</span>
+              <span style="font-family: var(--mono); color: var(--accent-ink);">#119 · 52:10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3 : Automations -->
+      <div class="feature-alt">
+        <div>
+          <div class="eyebrow"><span style="color: var(--accent);">03</span> · Automations</div>
+          <h3 style="margin-top: 12px;">Automations illimitées, livrées où vous voulez.</h3>
+          <p>Chaque nouvel épisode déclenche votre workflow&nbsp;: transcription, prompt personnalisé, puis livraison automatique (email, Slack, webhook). Vous configurez une fois, ça tourne toute l'année.</p>
+        </div>
+        <div class="demo" style="padding: 22px; aspect-ratio: auto;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">CONFIGURER L'AUTOMATION · ACQUIRED</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+              <span style="width: 30px; height: 30px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">⚡</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13px; font-weight: 600;">Automatisation</div><div style="font-size: 11px; color: var(--ink-3);">Traiter chaque nouvel épisode</div></div>
+              <span style="width: 40px; height: 22px; border-radius: 999px; background: var(--accent); position: relative; flex-shrink: 0;"><span style="position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: white;"></span></span>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+              <span style="width: 30px; height: 30px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">✦</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13px; font-weight: 600;">Prompt appliqué</div><div style="font-size: 11px; color: var(--ink-3);">Choisissez parmi vos prompts</div></div>
+              <span class="chip" style="height: 26px; font-size: 11.5px; padding: 0 11px; background: var(--cream-2); border-color: var(--line);">Brief client ▾</span>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+              <span style="width: 30px; height: 30px; border-radius: 8px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">✉</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13px; font-weight: 600;">Envoi par email</div><div style="font-size: 11px; color: var(--ink-3);">Dès que le résultat est prêt</div></div>
+              <span style="width: 40px; height: 22px; border-radius: 999px; background: var(--accent); position: relative; flex-shrink: 0;"><span style="position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: white;"></span></span>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+              <span style="width: 30px; height: 30px; border-radius: 8px; background: var(--cream-2); color: var(--ink-3); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">📚</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13px; font-weight: 600;">Enregistrer le résultat</div><div style="font-size: 11px; color: var(--ink-3);">Dans votre bibliothèque</div></div>
+              <span style="width: 40px; height: 22px; border-radius: 999px; background: var(--cream-3); position: relative; flex-shrink: 0;"><span style="position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: white;"></span></span>
+            </div>
+          </div>
+          <div style="margin-top: 12px; display: flex; justify-content: flex-end; gap: 8px;">
+            <span class="chip" style="height: 30px; font-size: 12.5px; padding: 0 13px;">Annuler</span>
+            <span class="chip accent" style="height: 30px; font-size: 12.5px; padding: 0 13px;">✓ Enregistrer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4 : Widget Embed (NEW) -->
+      <div class="feature-alt reverse" style="background: var(--cream-2); border-radius: 24px; padding: 48px; margin-top: 32px; border: 1px solid var(--line);">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 10px;">
+            <span style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 999px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;">NOUVEAU</span>
+            <span class="eyebrow"><span style="color: var(--accent);">04</span> · Widget Embed</span>
+          </div>
+          <h3 style="margin-top: 16px;">Votre podcast sur votre site, avec l'IA intégrée.</h3>
+          <p>Collez un lecteur intelligent sur n'importe quelle page — en deux minutes, sans développeur. Vos visiteurs écoutent, lisent la transcription et interrogent l'IA, sans jamais quitter votre site.</p>
+          <div class="embed-chips" style="margin-top: 20px;">
+            <span>🎨 Aux couleurs de votre marque</span>
+            <span>🔍 Recherche plein-texte</span>
+            <span>🤖 IA plafonnée en CHF</span>
+            <span>📊 Analytics intégrés</span>
+            <span>⚡ Une ligne de code</span>
+          </div>
+          <a class="btn btn-primary" href={`${APP_URL}/signup?plan=pro`} style="margin-top: 24px;">Voir le widget en action <span class="arrow">→</span></a>
+        </div>
+        <div class="demo" style="padding: 0; border: 0; box-shadow: none; background: transparent; aspect-ratio: auto;">
+          <div class="embed-browser">
+            <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="addr">🔒 votresite.com/podcast</span></div>
+            <div class="embed-site" style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="skel" style="width: 44%;"></div>
+              <div class="skel" style="width: 72%; opacity: 0.6;"></div>
+              <div class="embed-widget" style="margin: 6px 0;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <span class="embed-tag">✦ PROPULSÉ PAR AUDIOASK</span>
+                  <div style="display: flex; gap: 4px;"><span style="width: 14px; height: 14px; border-radius: 4px; background: var(--accent);"></span><span style="width: 14px; height: 14px; border-radius: 4px; background: var(--ink);"></span><span style="width: 14px; height: 14px; border-radius: 4px; background: var(--cream-3);"></span></div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <img src="/assets/acquired-cover.jpg" alt="" style="width: 48px; height: 48px; border-radius: 10px; object-fit: cover;">
+                  <div style="flex: 1; min-width: 0;"><div style="font-size: 13px; font-weight: 600;">#119 — Nvidia&nbsp;: la décennie</div><div style="font-size: 11.5px; color: var(--ink-3);">Acquired · 2h 47min</div></div>
+                  <span style="width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center;">▶</span>
+                </div>
+                <div style="margin-top: 12px; height: 4px; background: var(--cream-2); border-radius: 2px; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 34%; background: var(--accent); border-radius: 2px;"></div><div style="position: absolute; top: 50%; left: 34%; transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; background: var(--accent);"></div></div>
+                <div style="margin-top: 10px; display: flex; gap: 6px;">
+                  <div style="flex: 1; background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: 11.5px; color: var(--ink-3); display: flex; align-items: center; gap: 8px;">
+                    <span style="color: var(--accent);">✦</span> Posez une question sur cet épisode…
+                  </div>
+                  <span style="width: 32px; border-radius: 8px; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">→</span>
+                </div>
+                <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 10.5px; color: var(--ink-3);">
+                  <span style="font-family: var(--mono); background: var(--accent-tint); color: var(--accent-ink); padding: 2px 7px; border-radius: 4px;">Budget IA · 4.20 / 10 CHF aujourd'hui</span>
+                </div>
+              </div>
+              <div class="skel" style="width: 88%;"></div>
+              <div class="skel" style="width: 56%; opacity: 0.6;"></div>
+            </div>
+          </div>
+          <div style="margin-top: 14px; background: var(--ink); border-radius: 10px; padding: 12px 14px; font-family: var(--mono); font-size: 11px; color: var(--cream); display: flex; align-items: center; gap: 10px;">
+            <span style="color: var(--accent-2);">&lt;script&gt;</span>
+            <span style="opacity: 0.85;">audioask.embed("votre-podcast")</span>
+            <span style="margin-left: auto; background: rgba(255,255,255,0.12); padding: 2px 8px; border-radius: 5px; cursor: pointer;">copier</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EFFET RÉSEAU -->
+  <section class="section dark">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
+        <div>
+          <div class="eyebrow" style="color: var(--accent);"><span class="dot">●</span> Effet réseau</div>
+          <h2 style="margin-top: 20px;">Tous les utilisateurs <span class="serif-it" style="color: var(--accent);">contribuent</span> à enrichir les transcriptions.</h2>
+          <p class="lede" style="font-size: 18px; margin-top: 20px;">Audioask fonctionne comme une bibliothèque partagée. Quand un utilisateur transcrit un épisode, toute la communauté en bénéficie. Plus vous êtes nombreux, moins vous dépensez de crédits.</p>
+        </div>
+        <div style="text-align: right;">
+          <div class="bignum">+185M</div>
+          <div style="font-size: 18px; color: var(--night-text-2); margin-top: 12px; max-width: 24ch; margin-left: auto;">épisodes <span class="serif-it">déjà</span> à disposition</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAS -->
+  <section class="section alt">
+    <div class="container">
+      <div class="center" style="max-width: 720px; margin: 0 auto;">
+        <div class="eyebrow center" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> Personas Pro</div>
+        <h2 style="margin-top: 16px;">Construit pour <span class="serif-it">vos métiers.</span></h2>
+        <p class="lede" style="margin: 18px auto 0; text-align: center;">Trois profils. Une même promesse&nbsp;: transformer du temps d'écoute en livrable actionnable.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <div class="persona-tabs">
+          <button class="on" data-tab="0">Éditeurs de podcast</button>
+          <button data-tab="1">Agences de communication</button>
+          <button data-tab="2">Journalistes &amp; médias</button>
+        </div>
+      </div>
+
+      <div class="persona-pane" id="persona-pane">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section dark cta-final">
+    <div class="container">
+      <h2>Passez à <span class="em-serif">l'échelle pro.</span></h2>
+      <p class="lede" style="margin: 0 auto 36px; max-width: 54ch; color: var(--night-text-2);">
+        Plan Pro — 19€/mois + usage. 10h de transcription &amp; 25M caractères d'IA inclus. Facturation transparente.
+      </p>
+      <a class="btn btn-primary lg" href="/tarifs" style="height: 56px; font-size: 16px; padding: 0 28px;">Voir les tarifs Pro <span class="arrow">→</span></a>
+      <p style="margin-top: 20px; font-size: 13.5px; color: var(--night-text-3);">
+        Vous êtes un amateur de podcasts&nbsp;? <a href="/" style="color: var(--accent); border-bottom: 1px solid currentColor;">Voir la version grand public</a>
+      </p>
     </div>
   </section>
 
 </Layout>
 
 <script>
+// --- Animated Pro feature tour (auto-cycling + clickable)
+(function () {
+  const tour = document.getElementById('pro-tour');
+  if (!tour) return;
+  const tabs = [...tour.querySelectorAll('.pro-tour-tab')];
+  const scenes = [...tour.querySelectorAll('.pro-scene')];
+  const DUR = 4600;
+  let idx = 0, timer = null;
+  tour.style.setProperty('--tour-dur', DUR + 'ms');
+
+  function show(n, restart) {
+    idx = n;
+    tabs.forEach((t, i) => t.classList.toggle('on', i === n));
+    // re-trigger the rail progress animation by reflow
+    const onTab = tabs[n];
+    if (onTab) { const p = onTab.querySelector('.prog'); if (p) { p.style.display = 'none'; void p.offsetWidth; p.style.display = ''; } }
+    scenes.forEach((s, i) => s.classList.toggle('on', i === n));
+    if (restart !== false) schedule();
+  }
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(() => show((idx + 1) % scenes.length), DUR);
+  }
+  tabs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+  show(0);
+})();
+
 const PERSONAS = [
   {
-    eyebrow: "Éditeurs de podcast",
-    title: "Rendez votre catalogue cherchable, partageable et réutilisable.",
-    text: "Transcrivez automatiquement vos épisodes pour booster votre SEO, alimenter vos newsletters et permettre à vos auditeurs de retrouver n'importe quel passage en quelques secondes.",
-    usecase: `<p style="margin:0 0 10px">→ 50 épisodes transcrits automatiquement dès leur sortie</p><p style="margin:0 0 10px">→ Newsletter hebdo générée par IA à partir des résumés</p><p style="margin:0">→ Auditeurs qui cherchent directement dans le catalogue</p>`
+    title: 'Gardez l\'historique complet de vos épisodes — et exploitez-le.',
+    body: 'Toute votre back-catalog devient une bibliothèque indexable : cherchez une citation à travers 200 épisodes, ressortez un sujet de saison 2 en 10 secondes, alimentez vos newsletters à partir de votre propre archive. Plus rien ne se perd.',
+    quote: '« On a indexé 380 épisodes en 2 semaines. Notre back-catalog n\'est plus un cimetière, c\'est un actif. »',
+    quoteFrom: 'Éditeur · podcast quotidien',
+    illuLabel: 'CATALOGUE INDEXÉ',
+    illuStat: '380 épisodes · 142h audio',
   },
   {
-    eyebrow: "Agences de communication",
-    title: "Produisez des briefs clients en minutes, plus en demi-journées.",
-    text: "Votre veille concurrentielle, vos analyses de tendances, vos synthèses de podcasts sectoriels — tout cela en automatique. Vos équipes se concentrent sur la valeur ajoutée.",
-    usecase: `<p style="margin:0 0 10px">→ 10 channels de veille surveillés en continu</p><p style="margin:0 0 10px">→ Brief client généré automatiquement chaque semaine</p><p style="margin:0">→ Bibliothèque partagée accessible à toute l'équipe</p>`
+    title: 'Faites la veille de vos clients — sans écouter 40 heures par semaine.',
+    body: 'Chaque fois qu\'un de vos clients (ou leurs concurrents) est cité dans un podcast, vous le savez. Suivi de marques, citations horodatées, veille concurrentielle automatisée. Vos consultants livrent en heures ce qu\'ils faisaient en jours.',
+    quote: '« Mes consultants reprennent leur métier : penser. Plus à ré-écouter pour traquer une citation. »',
+    quoteFrom: 'Directrice · agence de comm',
+    illuLabel: 'CITATIONS DE CLIENTS · 7 J',
+    illuStat: '42 mentions · 14 podcasts',
   },
   {
-    eyebrow: "Journalistes et médias",
-    title: "Citez précisément. Vérifiez en 10 secondes.",
-    text: "Fact-check instantané, citations horodatées exportables, sources manipulables comme du texte. AudioAsk devient votre outil de travail journalistique quotidien.",
-    usecase: `<p style="margin:0 0 10px">→ Citation exacte avec horodatage en 10 secondes</p><p style="margin:0 0 10px">→ Cross-check sur 200 épisodes en une seule question</p><p style="margin:0">→ Export SRT pour sous-titrage direct</p>`
-  }
+    title: 'Citez précisément. Vérifiez en 10 secondes.',
+    body: 'Fact-checking, citations horodatées, sources manipulables. Chaque phrase de votre article peut être tracée à la seconde près de l\'interview.',
+    quote: '« Plus une seule citation approximative depuis qu\'on a Audioask. »',
+    quoteFrom: 'Rédactrice en chef · média indépendant',
+    illuLabel: 'CITATIONS HORODATÉES',
+    illuStat: '14 sources · 1 article',
+  },
 ];
 
-const tabs = document.querySelectorAll<HTMLElement>('.persona-tab');
-const eyebrowEl = document.getElementById('persona-eyebrow');
-const titleEl = document.getElementById('persona-title');
-const textEl = document.getElementById('persona-text');
-const usecaseEl = document.getElementById('persona-usecase');
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const idx = parseInt(tab.dataset.tab || '0');
-    tabs.forEach(t => t.classList.remove('on'));
-    tab.classList.add('on');
-    const p = PERSONAS[idx];
-    if (eyebrowEl) eyebrowEl.textContent = p.eyebrow;
-    if (titleEl) titleEl.textContent = p.title;
-    if (textEl) textEl.textContent = p.text;
-    if (usecaseEl) usecaseEl.innerHTML = p.usecase;
+function renderPersona(i) {
+  const p = PERSONAS[i];
+  document.getElementById('persona-pane').innerHTML = `
+    <div>
+      <div class="eyebrow"><span style="color: var(--accent);">0${i+1}</span> · Persona</div>
+      <h3 style="font-size: 30px; margin-top: 14px; max-width: 22ch;">${p.title}</h3>
+      <p style="color: var(--ink-2); margin-top: 16px; max-width: 50ch; font-size: 16px;">${p.body}</p>
+      <div class="persona-quote">${p.quote}<div style="font-family: var(--sans); font-size: 12px; color: var(--ink-3); font-style: normal; margin-top: 8px; letter-spacing: 0;">— ${p.quoteFrom}</div></div>
+      <a class="btn btn-primary" href="#" style="margin-top: 24px;">Cas d'usage détaillé <span class="arrow">→</span></a>
+    </div>
+    <div style="background: var(--cream-2); border-radius: 18px; padding: 28px; aspect-ratio: 5/4; position: relative; border: 1px solid var(--line);">
+      <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">${p.illuLabel}</div>
+      <div style="margin-top: 14px; font-family: var(--serif); font-size: 38px; line-height: 1.05; letter-spacing: -0.03em; color: var(--accent-ink);">${p.illuStat}</div>
+      <div style="position: absolute; bottom: 28px; left: 28px; right: 28px; padding: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px;">
+        <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.08em;">AUTOMATION ACTIVE</div>
+        <div style="margin-top: 6px; font-size: 13px; color: var(--ink);">Chaque nouvel épisode → traité automatiquement.</div>
+      </div>
+    </div>
+  `;
+}
+renderPersona(0);
+document.querySelectorAll('.persona-tabs button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.persona-tabs button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    renderPersona(+b.dataset.tab);
   });
 });
 </script>

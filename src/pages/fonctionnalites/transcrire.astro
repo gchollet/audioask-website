@@ -3,51 +3,84 @@ import Layout from '../../layouts/Layout.astro';
 const APP_URL = 'https://app.audioask.ai';
 ---
 
-<Layout
-  title="Transcrire — AudioAsk"
-  description="Convertissez n'importe quel podcast en texte précis, horodaté et consultable. Chapitres automatiques, intervenants identifiés, recherche plein-texte."
-  activePage="features"
->
+<Layout title="Transcrire — Audioask" description="Transcrivez n'importe quel podcast en quelques minutes. Texte précis, horodaté et consultable. Intervenants identifiés, recherche plein-texte, effet réseau communautaire." activePage="features">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero dotbg">
     <div class="container">
-      <div class="hero-split">
-        <div>
-          <span class="page-intro">Fonctionnalité 01 · Transcrire</span>
-          <h1>Transcrivez n'importe quel podcast en quelques minutes.</h1>
-          <p class="lede">Fini de rembobiner. Fini de prendre des notes à la volée. AudioAsk transforme vos épisodes en texte précis, horodaté et consultable.</p>
-          <div class="hero-ctas" style="margin-top: 28px;">
-            <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Transcrire mon premier épisode — gratuit</a>
+      <div class="hero-copy" style="text-align: left; max-width: 1280px;">
+        <div class="page-intro">Fonctionnalité 01 · Transcrire</div>
+        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;">
+          <div>
+            <h1 style="text-align: left;">
+              Transcrivez n'importe quel podcast en <span class="em-serif">quelques minutes.</span>
+            </h1>
+            <p class="lede" style="margin-top: 24px; text-align: left;">
+              Fini de rembobiner. Fini de prendre des notes à la volée. Audioask transforme vos épisodes en texte précis, horodaté et consultable.
+            </p>
+            <div class="hero-ctas" style="margin-top: 32px;">
+              <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Transcrire mon premier épisode <span class="arrow">→</span></a>
+              <a class="btn lg" href="#">Voir un exemple</a>
+            </div>
+            <div class="hero-meta" style="margin-top: 18px;">
+              <span class="dotcheck">2 transcriptions offertes</span>
+              <span class="dotcheck">Sans carte</span>
+            </div>
           </div>
-          <p style="margin-top: 14px; font-size: 13px; color: var(--ink-3);">Transcriptions offertes pour commencer, sans carte.</p>
-        </div>
-        <div class="app-mock">
-          <div class="app-mock-bar">
-            <div class="app-mock-dot" style="background: #ff5f56;"></div>
-            <div class="app-mock-dot" style="background: #febc2e;"></div>
-            <div class="app-mock-dot" style="background: #27c93f;"></div>
-          </div>
-          <div style="padding: 18px; display: flex; flex-direction: column; gap: 14px;">
-            <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase;">En cours</div>
-            <div style="border: 1.5px solid oklch(0.80 0.08 38); padding: 12px; background: var(--accent-soft); border-radius: 6px;">
-              <div style="font-size: 12px; font-weight: 600;">The Knowledge Project · #218</div>
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); margin: 6px 0;">Transcription 67% · 1m 12s restants</div>
-              <div style="height: 4px; background: var(--paper); border-radius: 999px; border: 1px solid oklch(0.80 0.08 38);">
-                <div style="width: 67%; height: 100%; background: var(--accent); border-radius: 999px;"></div>
+
+          <!-- Hero visual : transcription in progress -->
+          <div style="position: relative;">
+            <div class="app-card" style="max-width: 100%;">
+              <div class="app-toolbar">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="url">audioask.ai · transcription</span>
+              </div>
+              <div style="padding: 22px 24px; background: var(--cream);">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div class="ep-cover" style="width: 56px; height: 56px; background: linear-gradient(135deg, #B5915B, #8C6A38); font-size: 11px;">
+                    <span class="label" style="font-size: 7px;">TKP</span>
+                    <span style="font-family: var(--serif); font-size: 14px; font-style: italic;">218</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="font-size: 14px; font-weight: 600; letter-spacing: -0.015em;">The Knowledge Project · #218</div>
+                    <div style="font-size: 11.5px; color: var(--ink-3); margin-top: 2px;">Shane Parrish · 1h 06min</div>
+                  </div>
+                  <span class="chip accent-soft"><span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse 1.4s ease-in-out infinite;"></span>En cours</span>
+                </div>
+
+                <!-- Progress card -->
+                <div style="margin-top: 14px; padding: 14px 16px; background: var(--paper); border: 1px solid var(--accent); border-radius: 12px;">
+                  <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--accent-ink);">
+                    <span>TRANSCRIPTION · 67%</span><span>1m 12s restants</span>
+                  </div>
+                  <div style="margin-top: 8px; height: 6px; background: var(--accent-tint); border-radius: 3px;">
+                    <div style="height: 100%; width: 67%; background: var(--accent); border-radius: 3px;"></div>
+                  </div>
+                  <div style="margin-top: 10px; font-size: 12px; color: var(--ink-2); display: flex; flex-direction: column; gap: 4px;">
+                    <div style="display: flex; gap: 8px;"><span style="color: var(--accent);">✓</span> Audio analysé · 1h 06min</div>
+                    <div style="display: flex; gap: 8px;"><span style="color: var(--accent);">✓</span> Horodatage synchronisé</div>
+                    <div style="display: flex; gap: 8px;"><span style="color: var(--accent); animation: pulse 1.4s infinite;">●</span> <span>Transcription du texte en cours…</span></div>
+                  </div>
+                </div>
+
+                <!-- Transcript preview (live) -->
+                <div style="margin-top: 14px;">
+                  <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 8px;">TRANSCRIPTION · EN DIRECT</div>
+                  <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.5;">
+                    <div style="display: grid; grid-template-columns: 56px 1fr; gap: 10px;"><span style="font-family: var(--mono); color: var(--ink-3); font-size: 10.5px; padding-top: 1px;">00:00</span><span>Bienvenue dans cet épisode. Aujourd'hui, on va parler de prise de décision…</span></div>
+                    <div style="display: grid; grid-template-columns: 56px 1fr; gap: 10px;"><span style="font-family: var(--mono); color: var(--ink-3); font-size: 10.5px; padding-top: 1px;">02:14</span><span>Merci de m'accueillir. La première chose que j'ai apprise, c'est qu'il faut…</span></div>
+                    <div style="display: grid; grid-template-columns: 56px 1fr; gap: 10px;"><span style="font-family: var(--mono); color: var(--ink-3); font-size: 10.5px; padding-top: 1px;">04:18</span><span>Revenons sur ton parcours et tes premières entreprises…</span></div>
+                    <div style="display: grid; grid-template-columns: 56px 1fr; gap: 10px; opacity: 0.4;"><span style="font-family: var(--mono); font-size: 10.5px; padding-top: 1px;">…</span><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 5px; height: 14px; background: var(--accent); display: inline-block; animation: pulse 1s infinite;"></span> transcription en cours…</span></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase;">Chapitres (auto)</div>
-            <div style="display: grid; gap: 5px; font-size: 11px;">
-              <div style="display: flex; gap: 8px;"><span class="ts">00:00</span><span>Intro &amp; présentation invité</span></div>
-              <div style="display: flex; gap: 8px;"><span class="ts">04:18</span><span>Parcours et premières entreprises</span></div>
-              <div style="display: flex; gap: 8px;"><span class="ts">12:42</span><span>Méthode de décision long-terme</span></div>
-              <div style="display: flex; gap: 8px;"><span class="ts">28:05</span><span>Les 3 livres essentiels</span></div>
-            </div>
-            <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase;">Intervenants</div>
-            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-              <span style="padding: 3px 10px; border: 1px solid oklch(0.80 0.08 38); color: var(--accent-ink); border-radius: 4px; font-size: 11px;">● Hôte</span>
-              <span style="padding: 3px 10px; border: 1px solid #4a8; color: #2a6; border-radius: 4px; font-size: 11px;">● Invité</span>
+
+            <!-- Floating annotation -->
+            <div class="float" style="bottom: -28px; right: -28px; max-width: 200px;">
+              <span class="lbl">Temps moyen</span>
+              <span class="val" style="font-family: var(--serif); font-size: 26px; line-height: 1; letter-spacing: -0.02em;">~3 min</span>
+              <span style="font-size: 11px; color: var(--ink-3);">pour 1h d'audio</span>
             </div>
           </div>
         </div>
@@ -55,25 +88,77 @@ const APP_URL = 'https://app.audioask.ai';
     </div>
   </section>
 
+  <style>
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  </style>
+
   <!-- HOW IT WORKS -->
   <section class="section alt">
     <div class="container">
-      <h2>3 étapes. Aucune compétence technique.</h2>
-      <div class="steps" style="margin-top: 36px;">
-        <div class="step card">
-          <span class="step-num">Étape 01</span>
+      <div class="row between" style="align-items: flex-end; flex-wrap: wrap; gap: 32px;">
+        <div>
+          <div class="eyebrow"><span class="dot">●</span> Comment ça marche</div>
+          <h2 style="margin-top: 16px;">3 étapes.<br><span class="serif-it">Aucune compétence technique.</span></h2>
+        </div>
+        <p class="lede" style="max-width: 36ch;">Collez un lien, lancez, lisez. Vraiment.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">ÉTAPE 01</span>
           <h4>Ajoutez un channel ou un épisode</h4>
-          <p>Collez l'URL RSS ou cherchez directement dans AudioAsk parmi des milliers de podcasts.</p>
+          <p style="font-size: 14px; color: var(--ink-2);">Cherchez directement dans Audioask parmi des milliers de podcasts ou collez l'URL du RSS.</p>
+          <div class="step-illu" style="padding: 16px 18px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; display: flex; align-items: center; gap: 8px; font-size: 13px;">
+              <span style="color: var(--ink-3);">⌕</span>
+              <span style="color: var(--ink);">acquired</span>
+              <span style="margin-left: auto; width: 5px; height: 16px; background: var(--accent); display: inline-block; animation: pulse 1s infinite;"></span>
+            </div>
+            <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 5px;">
+              <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 8px; padding: 7px 10px; display: flex; align-items: center; gap: 9px;">
+                <span style="width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); flex-shrink: 0;"></span>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 12px; font-weight: 600;">Acquired</div>
+                  <div style="font-size: 10px; color: var(--ink-3);">Ben Gilbert &amp; David Rosenthal</div>
+                </div>
+                <span style="font-size: 10px; padding: 3px 8px; background: var(--accent); color: white; border-radius: 6px;">Suivre</span>
+              </div>
+              <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; display: flex; align-items: center; gap: 9px;">
+                <span style="width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, #C44A5F, #8E2C40); flex-shrink: 0;"></span>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 12px; font-weight: 600;">Acquired LP Show</div>
+                  <div style="font-size: 10px; color: var(--ink-3);">Bonus &amp; interviews</div>
+                </div>
+                <span style="font-size: 10px; padding: 3px 8px; background: var(--cream-2); color: var(--ink-2); border: 1px solid var(--line); border-radius: 6px;">Suivre</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="step card">
-          <span class="step-num">Étape 02</span>
+        <div class="step">
+          <span class="step-num">ÉTAPE 02</span>
           <h4>Lancez la transcription</h4>
-          <p>Un clic. Notre moteur traite l'audio en 2 à 5 minutes pour un épisode de 60 min.</p>
+          <p style="font-size: 14px; color: var(--ink-2);">Un clic. Notre moteur traite l'audio en 2 à 5 minutes pour un épisode de 60 min.</p>
+          <div class="step-illu" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 24px;">✦</div>
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--accent-ink);">Transcription · 41%</div>
+            <div style="width: 60%; height: 4px; background: var(--cream-3); border-radius: 2px;">
+              <div style="width: 41%; height: 100%; background: var(--accent); border-radius: 2px;"></div>
+            </div>
+          </div>
         </div>
-        <div class="step card">
-          <span class="step-num">Étape 03</span>
+        <div class="step">
+          <span class="step-num">ÉTAPE 03</span>
           <h4>Lisez, cherchez, partagez</h4>
-          <p>Transcription complète avec chapitres, intervenants et horodatage. Exportable en 1 clic.</p>
+          <p style="font-size: 14px; color: var(--ink-2);">Transcription complète avec, intervenants et horodatage. Exportable en 1 clic.</p>
+          <div class="step-illu" style="padding: 14px;">
+            <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px;">
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px;"><span style="font-family: var(--mono); color: var(--accent); font-size: 9.5px;">00:00</span><span style="color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bienvenue dans cet épisode où…</span></div>
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px;"><span style="font-family: var(--mono); color: var(--accent); font-size: 9.5px;">04:18</span><span style="color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Avant Nvidia, le marché des GPU…</span></div>
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px;"><span style="font-family: var(--mono); color: var(--accent); font-size: 9.5px;">12:42</span><span style="background: var(--accent-soft); color: var(--accent-ink); padding: 1px 4px; border-radius: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">« On a parié sur CUDA quand… »</span></div>
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px;"><span style="font-family: var(--mono); color: var(--accent); font-size: 9.5px;">28:05</span><span style="color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Et c'est exactement à ce moment…</span></div>
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px;"><span style="font-family: var(--mono); color: var(--accent); font-size: 9.5px;">38:50</span><span style="color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Le marché des datacenters…</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -82,73 +167,120 @@ const APP_URL = 'https://app.audioask.ai';
   <!-- FEATURES DÉTAILLÉES -->
   <section class="section">
     <div class="container">
-      <h2 style="margin-bottom: 8px;">Ce que la transcription AudioAsk fait pour vous</h2>
+      <div style="max-width: 720px;">
+        <div class="eyebrow"><span class="dot">●</span> Sous le capot</div>
+        <h2 style="margin-top: 16px;">Ce que la transcription Audioask <span class="serif-it">fait vraiment</span> pour vous.</h2>
+      </div>
 
-      <div class="feature-alt">
+      <!-- Feature 1 : Vitesse -->
+      <div class="feature-alt" style="margin-top: 48px;">
         <div>
-          <span class="eyebrow">01 · Vitesse</span>
-          <h3>De l'audio au texte en quelques minutes</h3>
-          <p class="lede">Notre moteur traite un épisode de 60 minutes en 2 à 5 minutes. Le résultat est structuré en chapitres thématiques automatiques, sans aucune intervention manuelle.</p>
-        </div>
-        <div class="card" style="background: var(--bg-alt); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;">
-          <div style="text-align: center; color: var(--ink-3);">
-            <div style="font-size: 32px; margin-bottom: 10px;">⚡</div>
-            <div style="font-family: var(--mono); font-size: 12px;">60 min d'audio → ~3 min de traitement</div>
+          <div class="eyebrow"><span style="color: var(--accent);">01</span> · Vitesse</div>
+          <h3 style="margin-top: 12px;">De l'audio au texte en quelques minutes.</h3>
+          <p>Notre moteur traite un épisode de 60 minutes en 2 à 5 minutes. Le résultat est structuré avec intervenants identifiés et horodatage cliquable, sans aucune intervention manuelle.</p>
+          <div style="margin-top: 24px; display: flex; gap: 18px; flex-wrap: wrap;">
+            <div>
+              <div style="font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: var(--accent-ink);">~3 min</div>
+              <div style="font-size: 12px; color: var(--ink-3); margin-top: 4px; font-family: var(--mono); letter-spacing: 0.05em;">POUR 1h D'AUDIO</div>
+            </div>
+            <div style="width: 1px; background: var(--line);"></div>
+            <div>
+              <div style="font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.03em;">98.4%</div>
+              <div style="font-size: 12px; color: var(--ink-3); margin-top: 4px; font-family: var(--mono); letter-spacing: 0.05em;">PRÉCISION FR / EN</div>
+            </div>
           </div>
+        </div>
+        <div class="demo" style="background: var(--cream-2); padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">PROGRESSION · ÉPISODE #218</div>
+          <div style="background: var(--paper); border-radius: 10px; padding: 14px 16px; border: 1px solid var(--line);">
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-2); margin-bottom: 8px;"><span>Analyse audio</span><span style="font-family: var(--mono); color: var(--accent);">✓ 0:14s</span></div>
+            <div style="height: 4px; background: var(--cream-3); border-radius: 2px; overflow: hidden;"><div style="width: 100%; height: 100%; background: var(--accent);"></div></div>
+          </div>
+          <div style="background: var(--paper); border-radius: 10px; padding: 14px 16px; border: 1px solid var(--line);">
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-2); margin-bottom: 8px;"><span>Transcription</span><span style="font-family: var(--mono); color: var(--accent);">✓ 1:42</span></div>
+            <div style="height: 4px; background: var(--cream-3); border-radius: 2px; overflow: hidden;"><div style="width: 100%; height: 100%; background: var(--accent);"></div></div>
+          </div>
+          <div style="background: var(--paper); border-radius: 10px; padding: 14px 16px; border: 1px solid var(--accent);">
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--accent-ink); margin-bottom: 8px;"><span style="font-weight: 600;">horodatage &amp; mise en forme</span><span style="font-family: var(--mono);">0:48</span></div>
+            <div style="height: 4px; background: var(--accent-tint); border-radius: 2px; overflow: hidden;"><div style="width: 64%; height: 100%; background: var(--accent);"></div></div>
+          </div>
+          <div style="margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--line-2); font-size: 11.5px; color: var(--ink-3);">Temps écoulé&nbsp;: <span style="color: var(--ink); font-family: var(--mono);">2:44</span> · 1h 06min d'audio traité</div>
         </div>
       </div>
 
+      <!-- Feature 2 : Recherche -->
       <div class="feature-alt reverse">
         <div>
-          <span class="eyebrow">02 · Recherche</span>
-          <h3>Retrouvez n'importe quel passage en 5 secondes</h3>
-          <p class="lede">La transcription est entièrement cherchable. Cliquez sur n'importe quelle ligne pour réécouter exactement ce passage dans le player audio.</p>
+          <div class="eyebrow"><span style="color: var(--accent);">02</span> · Recherche</div>
+          <h3 style="margin-top: 12px;">Retrouvez n'importe quel passage en 5 secondes.</h3>
+          <p>La transcription est entièrement cherchable. Cliquez sur n'importe quelle ligne pour réécouter exactement ce passage dans le player audio.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); aspect-ratio: 16/10; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 24px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <input style="flex: 1; border: 1.5px solid var(--line-soft); padding: 8px 12px; border-radius: 6px; font-family: var(--mono); font-size: 12px; background: var(--paper);" value="Jensen Huang" readonly />
+        <div class="demo" style="padding: 22px;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">RECHERCHE DANS LA TRANSCRIPTION</div>
+          <div style="background: var(--cream); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; gap: 8px; align-items: center; font-size: 13px;">
+            <span style="color: var(--ink-3);">⌕</span>
+            <span style="color: var(--ink);">CUDA</span>
+            <span style="margin-left: auto; font-size: 10px; color: var(--ink-3); padding: 2px 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; font-family: var(--mono);">4 résultats</span>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <div class="transcript-line" style="background: var(--paper); padding: 6px 8px; border-radius: 4px; border: 1px solid var(--line-soft);">
-              <span class="ts">14:22</span><span>"<mark style="background: var(--accent-soft);">Jensen Huang</mark> a mentionné que…"</span>
+          <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: 50px 1fr; gap: 10px; cursor: pointer;">
+              <span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10.5px;">12:42</span>
+              <span style="color: var(--ink-2);">« On a parié sur <span style="background: var(--accent-soft); padding: 0 4px; border-radius: 3px;">CUDA</span> quand personne n'y croyait. »</span>
             </div>
-            <div class="transcript-line" style="background: var(--paper); padding: 6px 8px; border-radius: 4px; border: 1px solid var(--line-soft);">
-              <span class="ts">38:07</span><span>"…ce que <mark style="background: var(--accent-soft);">Jensen Huang</mark> avait anticipé…"</span>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: 50px 1fr; gap: 10px; cursor: pointer;">
+              <span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10.5px;">28:14</span>
+              <span style="color: var(--ink-2);">« <span style="background: var(--accent-soft); padding: 0 4px; border-radius: 3px;">CUDA</span> est devenu le fossé. »</span>
             </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: 50px 1fr; gap: 10px; cursor: pointer;">
+              <span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10.5px;">1:14:08</span>
+              <span style="color: var(--ink-2);">« Sans <span style="background: var(--accent-soft); padding: 0 4px; border-radius: 3px;">CUDA</span>, l'IA mettait dix ans. »</span>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: 50px 1fr; gap: 10px; cursor: pointer;">
+              <span style="font-family: var(--mono); color: var(--accent-ink); font-size: 10.5px;">2:18:33</span>
+              <span style="color: var(--ink-2);">« <span style="background: var(--accent-soft); padding: 0 4px; border-radius: 3px;">CUDA</span> 13 ouvre la voie au quantique. »</span>
+            </div>
+          </div>
+          <div style="margin-top: 14px; padding: 10px 12px; background: var(--cream); border-radius: 8px; font-size: 11.5px; color: var(--ink-3); display: flex; gap: 8px; align-items: center;">
+            <span style="color: var(--accent);">▶</span> Cliquez sur un résultat pour sauter à l'instant exact dans le player.
           </div>
         </div>
       </div>
 
-      <div class="feature-alt">
+      <!-- Feature 3 : Effet réseau — highlighted -->
+      <div class="feature-alt reverse" style="background: var(--cream-2); border-radius: 24px; padding: 48px; margin-top: 32px; border: 1px solid var(--line);">
         <div>
-          <span class="eyebrow">03 · Intervenants</span>
-          <h3>Chaque intervenant identifié automatiquement</h3>
-          <p class="lede">AudioAsk distingue l'hôte des invités et attribue chaque prise de parole à son interlocuteur. Vous savez toujours qui a dit quoi.</p>
-        </div>
-        <div class="card" style="background: var(--bg-alt); aspect-ratio: 16/10; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 24px;">
-          <div style="display: flex; gap: 6px; margin-bottom: 8px;">
-            <span style="padding: 3px 10px; border: 1px solid oklch(0.80 0.08 38); color: var(--accent-ink); border-radius: 4px; font-size: 11px; font-family: var(--mono);">● Hôte</span>
-            <span style="padding: 3px 10px; border: 1px solid #4a8; color: #2a6; border-radius: 4px; font-size: 11px; font-family: var(--mono);">● Invité</span>
+          <div style="display: inline-flex; align-items: center; gap: 10px;">
+            <span style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 999px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;">EFFET RÉSEAU</span>
+            <span class="eyebrow"><span style="color: var(--accent);">03</span> · Communauté</span>
           </div>
-          <div class="transcript-line"><span class="ts" style="color: var(--accent-ink);">04:02</span><span style="color: var(--accent-ink);">Hôte : "Parlez-nous de vos débuts…"</span></div>
-          <div class="transcript-line"><span class="ts" style="color: #2a6;">04:12</span><span style="color: #2a6;">Invité : "Tout a commencé en 1993…"</span></div>
-          <div class="transcript-line"><span class="ts" style="color: var(--accent-ink);">06:30</span><span style="color: var(--accent-ink);">Hôte : "Et comment avez-vous su que…"</span></div>
-        </div>
-      </div>
-
-      <div class="feature-alt reverse highlight">
-        <div>
-          <div class="eyebrow">
-            <span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 3px; font-size: 10px;">EFFET RÉSEAU</span>
-            {' '}04 · Communauté
+          <h3 style="margin-top: 16px;">Profitez du travail de toute la communauté.</h3>
+          <p>Si un autre utilisateur Audioask a déjà transcrit l'épisode que vous cherchez, vous y accédez directement — sans consommer vos crédits. Plus la communauté grandit, plus votre bibliothèque grandit sans effort.</p>
+          <div style="margin-top: 24px; display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: var(--serif); font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: var(--accent-ink);">+185M</span>
+            <span style="font-size: 14px; color: var(--ink-3);">épisodes déjà transcrits</span>
           </div>
-          <h3 style="margin-top: 12px;">Profitez du travail de toute la communauté</h3>
-          <p class="lede">Si un autre utilisateur AudioAsk a déjà transcrit l'épisode que vous cherchez, vous y accédez directement — sans consommer vos crédits. Plus la communauté grandit, plus votre bibliothèque grandit sans effort.</p>
         </div>
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding: 24px;">
-          <div class="badge accent" style="font-size: 12px; padding: 8px 16px;">✓ Déjà dans la bibliothèque</div>
-          <div style="font-family: var(--mono); font-size: 11px; color: var(--accent-ink);">0 crédits consommés</div>
-          <p style="text-align: center; font-size: 13px; color: var(--ink-2); max-width: 22ch;">Accès instantané à des milliers d'épisodes transcrits par la communauté</p>
+        <div class="demo" style="aspect-ratio: 4 / 3; padding: 22px;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">BIBLIOTHÈQUE COMMUNAUTAIRE</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+            <div style="position: relative;"><img src="/assets/pod-acquired.jpg" alt="Acquired" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-tkp.jpg" alt="The Knowledge Project" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-lex.jpg" alt="Lex Fridman" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-huberman.jpg" alt="Huberman Lab" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-timferriss.jpg" alt="Tim Ferriss" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-founders.jpg" alt="Founders" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-a16z.jpg" alt="a16z" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+            <div style="position: relative;"><img src="/assets/pod-allin.jpg" alt="All-In" style="aspect-ratio: 1; width: 100%; border-radius: 8px; object-fit: cover; display: block;" /><span style="position: absolute; top: 4px; right: 4px; background: var(--accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 6px;">✓</span></div>
+          </div>
+          <div style="margin-top: 14px; background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; padding: 12px 14px;">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span style="width: 28px; height: 28px; border-radius: 6px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center;">✓</span>
+              <div style="flex: 1;">
+                <div style="font-size: 13px; font-weight: 600;">#119 — Nvidia · Acquired</div>
+                <div style="font-size: 11px; color: var(--accent-ink);">Déjà dans la bibliothèque · 0 crédit consommé</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -157,22 +289,25 @@ const APP_URL = 'https://app.audioask.ai';
   <!-- POUR QUI -->
   <section class="section alt">
     <div class="container">
-      <h2>Conçu pour celles et ceux qui ne veulent plus rien manquer</h2>
-      <div class="grid-3" style="margin-top: 32px;">
-        <div class="card">
-          <div class="icon-sq">💼</div>
-          <h3>Le professionnel pressé</h3>
-          <p>Vous suivez 8 podcasts sectoriels. Vous en écoutez 2 par semaine. AudioAsk transforme les 6 autres en lecture rapide.</p>
+      <div style="max-width: 720px;">
+        <div class="eyebrow"><span class="dot">●</span> Pour qui ?</div>
+        <h2 style="margin-top: 16px;">Conçu pour celles et ceux qui <span class="serif-it">ne veulent plus</span> rien manquer.</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;">
+        <div class="feat-card">
+          <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg></div>
+          <h3 style="font-size: 19px;">Les amateurs de podcast</h3>
+          <p style="font-size: 14px;">Suivez vos podcasts, retrouvez du contenu plus facilement et testez nos autres fonctionnalités.</p>
         </div>
-        <div class="card">
-          <div class="icon-sq">📰</div>
-          <h3>Le journaliste / chercheur</h3>
-          <p>Citez précisément, vérifiez en 10 secondes, exportez la citation avec sa référence horodatée.</p>
+        <div class="feat-card">
+          <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg></div>
+          <h3 style="font-size: 19px;">Les journalistes</h3>
+          <p style="font-size: 14px;">Recherchez des citations. Vérifiez vos sources et disposez d'un contenu quasiment infini.</p>
         </div>
-        <div class="card">
-          <div class="icon-sq">👥</div>
-          <h3>L'équipe en veille</h3>
-          <p>Une transcription faite par un membre profite à toute l'équipe. Plus de doublons, plus d'oublis.</p>
+        <div class="feat-card">
+          <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 style="font-size: 19px;">L'agence média</h3>
+          <p style="font-size: 14px;">Recherchez et monitorez automatiquement les citations d'une marque.</p>
         </div>
       </div>
     </div>
@@ -180,39 +315,72 @@ const APP_URL = 'https://app.audioask.ai';
 
   <!-- FAQ -->
   <section class="section">
-    <div class="container-narrow">
-      <h2>Questions fréquentes sur la transcription</h2>
-      <div style="margin-top: 28px;">
+    <div class="container">
+      <div style="max-width: 720px;">
+        <div class="eyebrow"><span class="dot">●</span> Questions fréquentes</div>
+        <h2 style="margin-top: 16px;">Tout ce que vous voulez savoir sur <span class="serif-it">la transcription.</span></h2>
+      </div>
+      <div class="faq" style="margin-top: 48px;">
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Combien de temps prend une transcription ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">En général, environ 3 à 5 minutes pour 1h d'audio. Les épisodes courts (30 min) sont traités en 1 à 2 minutes. Le traitement dépend de la charge du serveur, mais c'est toujours bien plus rapide que l'écoute en temps réel.</div>
+          <button class="faq-q">
+            <span>Combien de temps prend une transcription ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>En général, environ 3 à 5 minutes pour 1h d'audio. Les épisodes courts (30 min) sont traités en 1 à 2 minutes. Le traitement dépend de la charge du serveur, mais c'est toujours bien plus rapide que l'écoute en temps réel.</p>
+          </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Quelles langues sont supportées ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">AudioAsk transcrit dans plus de 50 langues, dont le français, l'anglais, l'allemand, l'espagnol, l'italien, le portugais, le japonais, le mandarin et bien d'autres. La détection de la langue est automatique.</div>
+          <button class="faq-q">
+            <span>Quelles langues sont supportées ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Audioask transcrit dans plus de 50 langues, dont le français, l'anglais, l'allemand, l'espagnol, l'italien, le portugais, le japonais, le mandarin et bien d'autres. La détection de la langue est automatique.</p>
+          </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">La transcription est-elle précise pour les termes techniques ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Notre moteur utilise un modèle de reconnaissance vocale de pointe, entraîné sur des contenus audio variés. Pour les termes très spécialisés (médical, juridique, technologique), la précision est très bonne mais peut nécessiter de légères corrections.</div>
+          <button class="faq-q">
+            <span>La transcription est-elle précise pour les termes techniques ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Notre moteur utilise un modèle de reconnaissance vocale de pointe, entraîné sur des contenus audio variés. Pour les termes très spécialisés (médical, juridique, technologique), la précision est très bonne mais peut nécessiter de légères corrections.</p>
+          </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Puis-je transcrire un podcast privé ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Oui, vous pouvez importer l'URL directe d'un fichier audio ou RSS privé (avec authentification) depuis votre compte. Les transcriptions de podcasts privés ne sont pas partagées dans la bibliothèque communautaire.</div>
+          <button class="faq-q">
+            <span>Puis-je transcrire un podcast privé ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Oui, vous pouvez importer l'URL directe d'un fichier audio ou RSS privé (avec authentification) depuis votre compte. Les transcriptions de podcasts privés ne sont pas partagées dans la bibliothèque communautaire.</p>
+          </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Les transcriptions sont-elles stockées en sécurité ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Toutes les données sont hébergées en Europe, conformément au RGPD. Les transcriptions de vos épisodes privés ne sont accessibles qu'à vous. Les épisodes publics partagés dans la bibliothèque communautaire sont marqués comme tels.</div>
+          <button class="faq-q">
+            <span>Les transcriptions sont-elles stockées en sécurité ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Toutes les données sont hébergées en Europe, conformément au RGPD. Les transcriptions de vos épisodes privés ne sont accessibles qu'à vous. Les épisodes publics partagés dans la bibliothèque communautaire sont marqués comme tels.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- CTA FINAL -->
+  <section class="section dark cta-final">
     <div class="container">
-      <h2>Transcrivez votre premier épisode dans les 5 prochaines minutes.</h2>
-      <p class="lede">Transcriptions offertes par mois. Aucune carte de crédit requise.</p>
-      <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Commencer maintenant</a>
+      <h2>
+        Transcrivez votre premier épisode<br>
+        dans les <span class="em-serif">5 prochaines minutes.</span>
+      </h2>
+      <p class="lede" style="margin: 0 auto 36px; max-width: 50ch; color: var(--night-text-2);">
+        2 transcriptions offertes par mois. Aucune carte de crédit requise.
+      </p>
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="height: 56px; font-size: 16px; padding: 0 28px;">Commencer maintenant <span class="arrow">→</span></a>
     </div>
   </section>
 
@@ -220,7 +388,7 @@ const APP_URL = 'https://app.audioask.ai';
 
 <script>
 document.querySelectorAll<HTMLElement>('.faq-item').forEach(item => {
-  item.querySelector('.faq-question')?.addEventListener('click', () => {
+  item.querySelector('.faq-q')?.addEventListener('click', () => {
     const wasOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');

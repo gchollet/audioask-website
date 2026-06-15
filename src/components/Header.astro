@@ -1,107 +1,66 @@
 ---
-interface Props {
-  activePage?: string;
-}
 const { activePage = '' } = Astro.props;
 const APP_URL = 'https://app.audioask.ai';
 ---
 
 <header class="site-header">
-  <a href="/" class="site-logo">
-    <span class="site-logo-mark">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <circle cx="7" cy="7" r="4" fill="white" opacity="0.9"/>
-        <path d="M7 3L7 1M7 13L7 11M3 7L1 7M13 7L11 7" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-      </svg>
-    </span>
-    AudioAsk
-  </a>
-
-  <nav class="site-nav">
-    <div class="nav-dropdown">
-      <a href="#" class={activePage === 'features' ? 'active' : ''}>Fonctionnalités</a>
-      <div class="dropdown-menu">
-        <a href="/fonctionnalites/transcrire" class="dropdown-item">
-          <div class="dropdown-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="2" width="12" height="12" rx="2"/>
-              <path d="M4.5 6h7M4.5 8.5h7M4.5 11h5"/>
-            </svg>
-          </div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-title">Transcrire</span>
-            <span class="dropdown-item-desc">Audio vers texte précis en minutes</span>
-          </div>
-        </a>
-        <a href="/fonctionnalites/interroger" class="dropdown-item">
-          <div class="dropdown-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 4h10v8H8l-3 3V12H3V4z"/>
-              <circle cx="6.5" cy="8.5" r="0.75" fill="currentColor"/>
-              <circle cx="8" cy="8.5" r="0.75" fill="currentColor"/>
-              <circle cx="9.5" cy="8.5" r="0.75" fill="currentColor"/>
-            </svg>
-          </div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-title">Interroger (IA)</span>
-            <span class="dropdown-item-desc">Questions en langage naturel</span>
-          </div>
-        </a>
-        <a href="/fonctionnalites/automatiser" class="dropdown-item">
-          <div class="dropdown-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="8" cy="8" r="5"/>
-              <path d="M8 5v3l2 2"/>
-            </svg>
-          </div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-title">Automatiser</span>
-            <span class="dropdown-item-desc">Veille automatique par channel</span>
-          </div>
-        </a>
-        <a href="/fonctionnalites/traduire" class="dropdown-item">
-          <div class="dropdown-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M2 4h6M5 2v2M5 4c0 3 2 5 4 6M9 10c-2-1-3-3-4-6"/>
-              <path d="M9 8h5M11.5 6l2 2-2 2"/>
-            </svg>
-          </div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-title">Traduire</span>
-            <span class="dropdown-item-desc">12 langues, texte + audio</span>
-          </div>
-        </a>
+  <div class="container site-header-inner">
+    <a href="/" class="site-logo">
+      <span class="logo-mark">A</span>
+      <span>Audioask</span>
+    </a>
+    <nav class="site-nav">
+      <span class="nav-dropdown">
+        <a href="/fonctionnalites/transcrire" class="has-caret">Fonctionnalités</a>
+        <div class="nav-submenu">
+          <a href="/fonctionnalites/transcrire">
+            <span class="si"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+            <span><span class="st">Transcrire</span><span class="sd">De l'audio au texte structuré en minutes</span></span>
+          </a>
+          <a href="/fonctionnalites/interroger">
+            <span class="si"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3z"/></svg></span>
+            <span><span class="st">Interroger</span><span class="sd">Posez vos questions, l'épisode répond</span></span>
+          </a>
+          <a href="/fonctionnalites/automatiser">
+            <span class="si"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+            <span><span class="st">Automatiser</span><span class="sd">Chaque nouvel épisode traité tout seul</span></span>
+          </a>
+          <a href="/fonctionnalites/traduire">
+            <span class="si"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h12M9 3v3M11 12L7 6 3 12M16 11h6"/></svg></span>
+            <span><span class="st">Traduire <span class="soon">PROCHAINEMENT</span></span><span class="sd">12 langues + audio doublé</span></span>
+          </a>
+        </div>
+      </span>
+      <a href="/tarifs" class={activePage === 'tarifs' ? 'active' : ''}>Tarifs</a>
+      <a href="#">Blog</a>
+      <a href="/a-propos" class={activePage === 'a-propos' ? 'active' : ''}>À propos</a>
+      <a href="/pro" class={activePage === 'pro' ? 'active' : ''}>Pour les pros</a>
+    </nav>
+    <div class="site-header-right">
+      <div class="lang-switch" data-lang>
+        <span>🇫🇷</span><span>FR</span><span style="opacity:.5;font-size:10px;">▾</span>
+        <div class="lang-menu">
+          <a href="#" class="on">🇫🇷 Français</a>
+          <a href="#">🇬🇧 English</a>
+          <a href="#">🇩🇪 Deutsch</a>
+          <a href="#">🇮🇹 Italiano</a>
+          <a href="#">🇪🇸 Español</a>
+        </div>
       </div>
+      <a class="btn btn-ghost sm" href={`${APP_URL}/login`}>Se connecter</a>
+      <a class="btn btn-primary sm" href={`${APP_URL}/signup`}>Essayer gratuitement</a>
     </div>
-    <a href="/tarifs" class={activePage === 'tarifs' ? 'active' : ''}>Tarifs</a>
-    <a href="/a-propos" class={activePage === 'about' ? 'active' : ''}>À propos</a>
-    <a href="/pro" class={activePage === 'pro' ? 'active' : ''}>Pour les pros</a>
-  </nav>
-
-  <div class="site-header-right">
-    <div class="lang-switch" id="lang-switch">
-      <span>🇫🇷 FR</span>
-      <div class="lang-menu">
-        <a href="#" class="on">🇫🇷 Français</a>
-        <a href="#">🇬🇧 English</a>
-        <a href="#">🇩🇪 Deutsch</a>
-        <a href="#">🇮🇹 Italiano</a>
-        <a href="#">🇪🇸 Español</a>
-      </div>
-    </div>
-    <a class="btn btn-ghost btn-sm" href={`${APP_URL}/login`}>Se connecter</a>
-    <a class="btn btn-primary btn-sm" href={`${APP_URL}/signup`}>Essayer gratuitement</a>
   </div>
 </header>
 
 <script>
-  // Language dropdown
-  const langSwitch = document.getElementById('lang-switch');
-  langSwitch?.addEventListener('click', (e) => {
+document.querySelectorAll('[data-lang]').forEach(d => {
+  d.addEventListener('click', e => {
     e.stopPropagation();
-    langSwitch.classList.toggle('open');
+    (d as HTMLElement).classList.toggle('open');
   });
-  document.addEventListener('click', () => {
-    langSwitch?.classList.remove('open');
-  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('[data-lang].open').forEach(d => d.classList.remove('open'));
+});
 </script>

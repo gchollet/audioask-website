@@ -4,24 +4,38 @@ const APP_URL = 'https://app.audioask.ai';
 ---
 
 <Layout
-  title="À propos — AudioAsk"
-  description="AudioAsk est né d'un constat simple : le contenu des podcasts est une source d'information extrêmement riche, et pourtant rarement disponible facilement. Développé depuis la Suisse."
-  activePage="about"
+  title="À propos — Audioask"
+  description="Audioask est né d'un constat simple : le contenu des podcasts est une source d'information extrêmement riche, et pourtant rarement exploitable facilement. Développé depuis la Suisse."
+  activePage="a-propos"
 >
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero dotbg">
     <div class="container">
-      <div class="hero-split">
+      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
         <div>
-          <span class="page-intro">À propos</span>
-          <h1>Construire l'outil qu'on a toujours souhaité avoir.</h1>
-          <p class="lede">AudioAsk est né d'un constat simple : le contenu des podcasts est une source d'information extrêmement riche, et pourtant rarement disponible facilement.</p>
+          <div class="page-intro">À propos</div>
+          <h1 style="text-align: left;">
+            Construire <span class="em-serif">l'outil</span><br>qu'on a toujours souhaité avoir.
+          </h1>
+          <p class="lede" style="margin-top: 24px;">
+            Audioask est né d'un constat simple&nbsp;: le contenu des podcasts est une source d'information extrêmement riche, et pourtant rarement exploitable facilement.
+          </p>
         </div>
-        <div class="card" style="background: var(--bg-alt); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;">
-          <div style="text-align: center; color: var(--ink-3);">
-            <div style="font-size: 48px; margin-bottom: 12px;">🎙️</div>
-            <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">AudioAsk · 2024</div>
+        <!-- Composition éditoriale -->
+        <div style="position: relative; aspect-ratio: 5/4;">
+          <div style="position: absolute; inset: 0;">
+            <div style="position: absolute; top: 0; right: 0; width: 70%; aspect-ratio: 1; background: var(--accent-tint); border-radius: 24px;"></div>
+            <div style="position: absolute; bottom: 0; left: 0; width: 60%; aspect-ratio: 4/5; background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: var(--shadow-md); display: flex; flex-direction: column;">
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">CARNET · 2024</div>
+              <div style="margin-top: 14px; font-family: var(--serif); font-size: 28px; line-height: 1.2; letter-spacing: -0.02em;">« Pourquoi ne peut-on pas <em>chercher</em> dans un podcast comme on cherche dans un livre&nbsp;? »</div>
+              <div style="margin-top: auto; font-size: 12px; color: var(--ink-3);">— Note d'un fondateur</div>
+            </div>
+            <div style="position: absolute; top: 16%; right: 6%; width: 48%; padding: 16px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-md); transform: rotate(3deg);">
+              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 8px;">PROTOTYPE V0 · MAI 2024</div>
+              <div style="height: 4px; background: var(--cream-2); border-radius: 2px; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 48%; background: var(--accent); border-radius: 2px;"></div></div>
+              <div style="font-size: 11px; color: var(--ink-2); margin-top: 8px;">« Première transcription en 4min 12s »</div>
+            </div>
           </div>
         </div>
       </div>
@@ -29,98 +43,110 @@ const APP_URL = 'https://app.audioask.ai';
   </section>
 
   <!-- NOTRE HISTOIRE -->
-  <section class="section">
+  <section class="section paper">
     <div class="container">
-      <div class="hero-split" style="gap: 64px; align-items: center;">
+      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;">
         <div>
-          <h2>Faire des podcasts une base de connaissance plus accessible</h2>
-          <p class="lede" style="margin-bottom: 20px;">Le podcast est devenu l'un des formats les plus riches d'aujourd'hui : interviews, analyses, retours d'expérience, débats. Mais ce savoir reste piégé dans l'audio — difficile à chercher, à citer, à partager.</p>
-          <p class="lede">AudioAsk libère ce contenu. Transcription, traduction, IA : les podcasts deviennent une vraie bibliothèque, manipulable et réutilisable comme du texte.</p>
+          <div class="eyebrow"><span class="dot">●</span> Notre histoire</div>
+          <h2 style="margin-top: 16px;">Faire des podcasts une base de connaissance <span class="serif-it">plus accessible.</span></h2>
+          <p class="lede" style="margin-top: 20px;">Le podcast est devenu l'un des formats les plus riches d'aujourd'hui&nbsp;: interviews, analyses, retours d'expérience, débats. Mais ce savoir reste piégé dans l'audio — difficile à chercher, à citer, à partager.</p>
+          <p style="margin-top: 14px; color: var(--ink-2); font-size: 16px; max-width: 56ch;">Audioask libère ce contenu. Transcription, traduction, IA&nbsp;: les podcasts deviennent une vraie bibliothèque, manipulable et réutilisable comme du texte.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
-          <div style="text-align: center; color: var(--ink-3);">
-            <div style="font-size: 40px; margin-bottom: 12px;">📻</div>
-            <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.08em;">Genève, Suisse</div>
+        <div style="background: var(--cream-2); border-radius: 24px; padding: 32px; position: relative; aspect-ratio: 1;">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.08em;">TIMELINE</div>
+          <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: grid; grid-template-columns: 72px 1fr; gap: 14px;">
+              <span style="font-family: var(--mono); font-size: 12px; color: var(--accent-ink);">2024 · Q1</span>
+              <span style="font-size: 14px; color: var(--ink); line-height: 1.4;"><b>Prototype</b> — première transcription Audioask, sur un épisode de 28min.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 72px 1fr; gap: 14px;">
+              <span style="font-family: var(--mono); font-size: 12px; color: var(--accent-ink);">2025 · Q2</span>
+              <span style="font-size: 14px; color: var(--ink); line-height: 1.4;"><b>Bêta privée</b> — 50 utilisateurs, 1 200 épisodes transcrits.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 72px 1fr; gap: 14px;">
+              <span style="font-family: var(--mono); font-size: 12px; color: var(--accent-ink);">2025 · Q4</span>
+              <span style="font-size: 14px; color: var(--ink); line-height: 1.4;"><b>Lancement public</b> — Free, Premium, Pro.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 72px 1fr; gap: 14px;">
+              <span style="font-family: var(--mono); font-size: 12px; color: var(--accent);">2026 →</span>
+              <span style="font-size: 14px; color: var(--ink); line-height: 1.4;"><b>Bibliothèque commune</b> — +185M épisodes accessibles.</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MISSION -->
-  <section class="section alt" style="text-align: center; padding: 96px 0;">
+  <!-- MISSION (gros) -->
+  <section class="section alt xl" style="text-align: center;">
     <div class="container">
-      <div class="eyebrow" style="margin-bottom: 20px;">Notre mission</div>
-      <h2 style="font-size: clamp(28px, 4vw, 54px); max-width: 22ch; margin: 0 auto; letter-spacing: -0.025em; line-height: 1.08;">Rendre le savoir audio aussi accessible et exploitable que le texte.</h2>
+      <div class="eyebrow" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> Notre mission</div>
+      <p class="mission-bg" style="margin-top: 24px;">
+        Rendre le savoir audio aussi <em>accessible</em> et <em>exploitable</em> que le texte.
+      </p>
     </div>
   </section>
 
   <!-- VALEURS -->
   <section class="section">
     <div class="container">
-      <h2>Nos valeurs</h2>
-      <div class="grid-2" style="margin-top: 32px;">
-        <div class="card">
-          <div style="font-size: 30px; margin-bottom: 12px;">🇨🇭</div>
-          <h3>Fabriqué en Suisse</h3>
-          <p>AudioAsk est développé et opéré depuis la Suisse. Nos standards de qualité, de confidentialité et de fiabilité sont ceux qu'on attend d'un produit suisse.</p>
+      <div style="max-width: 720px;">
+        <div class="eyebrow"><span class="dot">●</span> Nos valeurs</div>
+        <h2 style="margin-top: 16px;">Quatre principes,<br><span class="serif-it">tenus tous les jours.</span></h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px;">
+        <div class="value-card">
+          <div class="val-num">01 · Fabriqué en Suisse 🇨🇭</div>
+          <h3>Swiss made, vraiment.</h3>
+          <p>Audioask est développé et opéré depuis la Suisse. Nos standards de qualité, de confidentialité et de fiabilité sont ceux qu'on attend d'un produit suisse.</p>
         </div>
-        <div class="card">
-          <div style="font-size: 30px; margin-bottom: 12px;">📚</div>
-          <h3>Donner accès à plus de connaissance</h3>
-          <p>Notre conviction : la connaissance produite chaque jour en audio doit profiter au plus grand nombre, pas seulement à ceux qui ont 10h libres par semaine. C'est pour ça qu'on construit AudioAsk.</p>
+        <div class="value-card">
+          <div class="val-num">02 · Connaissance</div>
+          <h3>Donner accès à plus de connaissance.</h3>
+          <p>La connaissance produite chaque jour en audio doit profiter au plus grand nombre — pas seulement à ceux qui ont 10h libres par semaine. C'est ce qu'on construit&nbsp;: rendre écoute et savoir compatibles avec la vraie vie.</p>
         </div>
-        <div class="card">
-          <div style="font-size: 30px; margin-bottom: 12px;">🤝</div>
-          <h3>La force du collectif</h3>
-          <p>Chaque transcription faite par un utilisateur bénéficie à toute la communauté. C'est notre vision du logiciel utile : précieux pour l'individu, puissant pour le groupe.</p>
+        <div class="value-card">
+          <div class="val-num">03 · Collectif</div>
+          <h3>La force du collectif.</h3>
+          <p>Chaque transcription faite par un utilisateur bénéficie à toute la communauté. C'est notre vision du logiciel utile&nbsp;: précieux pour l'individu, puissant pour le groupe.</p>
         </div>
-        <div class="card">
-          <div style="font-size: 30px; margin-bottom: 12px;">⚡</div>
-          <h3>La simplicité d'abord</h3>
+        <div class="value-card">
+          <div class="val-num">04 · Simplicité</div>
+          <h3>La simplicité d'abord.</h3>
           <p>Nous construisons des outils qui font une chose, et la font très bien. Pas de fonctionnalités inutiles, pas d'interface qui noie l'essentiel.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TARIFS POUR TOUS -->
+  <!-- TARIFS APERÇU -->
   <section class="section alt">
     <div class="container">
-      <div class="feature-alt highlight">
+      <div style="background: var(--paper); border-radius: 24px; padding: 48px; border: 1px solid var(--line); display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;">
         <div>
-          <div class="eyebrow">
-            <span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 3px; font-size: 10px;">TARIFS</span>
-            {' '}Un plan pour chaque usage
+          <div class="eyebrow" style="display: inline-flex; align-items: center; gap: 10px;">
+            <span style="background: var(--accent); color: white; padding: 3px 10px; border-radius: 999px; font-size: 10px; letter-spacing: 0.08em;">TARIFS</span>
+            Un plan pour chaque usage
           </div>
-          <h2 style="margin: 14px 0 16px; max-width: 22ch;">Un accès pour tous les besoins, du curieux au professionnel.</h2>
-          <p class="lede" style="margin: 0 0 24px;">Du plan gratuit à 19€/mois, AudioAsk s'adapte à votre usage. Que vous écoutiez 2 podcasts par mois ou que vous en exploitiez des dizaines pour votre métier, il existe une formule pour vous.</p>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a class="btn btn-primary arrow" href="/tarifs">Découvrir les tarifs</a>
-            <a class="btn arrow" href={`${APP_URL}/signup`}>Commencer gratuitement</a>
+          <h2 style="margin: 16px 0 14px;">Un accès <span class="serif-it">pour tous les besoins,</span><br>du curieux au professionnel.</h2>
+          <p class="lede" style="font-size: 17px;">Du plan gratuit à 19€/mois, Audioask s'adapte à votre usage. Que vous écoutiez 2 podcasts par mois ou que vous en exploitiez des dizaines pour votre métier, il existe une formule pour vous.</p>
+          <div style="display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="/tarifs">Découvrir les tarifs <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href={`${APP_URL}/signup`}>Commencer gratuitement</a>
           </div>
         </div>
-        <div style="display: grid; gap: 12px;">
-          <div style="padding: 16px 20px; background: var(--paper); border: 1.5px solid var(--line-soft); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong>Free</strong>
-              <div style="font-size: 12px; color: var(--ink-3);">Pour découvrir</div>
-            </div>
-            <div style="font-weight: 700; font-size: 24px;">0€</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="padding: 16px 20px; background: var(--cream); border: 1px solid var(--line); border-radius: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <div><b>Free</b><div style="font-size: 12px; color: var(--ink-3); margin-top: 2px;">Pour découvrir</div></div>
+            <div style="font-weight: 600; font-size: 24px; letter-spacing: -0.02em;">0€</div>
           </div>
-          <div style="padding: 16px 20px; background: var(--paper); border: 1.5px solid oklch(0.80 0.08 38); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong>Premium</strong>
-              <div style="font-size: 12px; color: var(--accent-ink);">Pour les passionnés</div>
-            </div>
-            <div style="font-weight: 700; font-size: 24px;">3€<small style="font-size: 13px; font-weight: 400; color: var(--ink-3);"> /mois</small></div>
+          <div style="padding: 16px 20px; background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <div><b>Premium</b><div style="font-size: 12px; color: var(--accent-ink); margin-top: 2px;">Pour les passionnés · Recommandé</div></div>
+            <div style="font-weight: 600; font-size: 24px; letter-spacing: -0.02em;">3€<small style="font-size: 12px; font-weight: 400; color: var(--ink-3);">&nbsp;/mois</small></div>
           </div>
-          <div style="padding: 16px 20px; background: var(--paper); border: 1.5px solid var(--line-soft); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong>Pro</strong>
-              <div style="font-size: 12px; color: var(--ink-3);">Pour les professionnels</div>
-            </div>
-            <div style="font-weight: 700; font-size: 24px;">19€<small style="font-size: 13px; font-weight: 400; color: var(--ink-3);"> /mois + usage</small></div>
+          <div style="padding: 16px 20px; background: var(--cream); border: 1px solid var(--line); border-radius: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <div><b>Pro</b><div style="font-size: 12px; color: var(--ink-3); margin-top: 2px;">Pour les professionnels</div></div>
+            <div style="font-weight: 600; font-size: 24px; letter-spacing: -0.02em;">19€<small style="font-size: 12px; font-weight: 400; color: var(--ink-3);">&nbsp;/mois + usage</small></div>
           </div>
         </div>
       </div>
@@ -128,21 +154,20 @@ const APP_URL = 'https://app.audioask.ai';
   </section>
 
   <!-- CONTACT -->
-  <section class="section tight" style="text-align: center;">
+  <section class="section center" style="text-align: center;">
     <div class="container">
-      <h2 style="margin: 0 auto 14px;">Une question ?</h2>
-      <p class="lede" style="margin: 0 auto 28px;">L'équipe AudioAsk répond personnellement, en 24h ouvrées.</p>
-      <a href="mailto:contact@audioask.ai" class="btn btn-lg" style="font-family: var(--mono);">
-        📧 contact@audioask.ai
-      </a>
+      <div class="eyebrow" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> Contact</div>
+      <h2 style="margin-top: 16px;">Une <span class="serif-it">question</span>&nbsp;?</h2>
+      <p class="lede" style="margin: 18px auto 28px; text-align: center;">L'équipe Audioask répond personnellement, en 24h ouvrées.</p>
+      <a href="mailto:contact@audioask.ai" class="btn btn-ghost lg" style="font-family: var(--mono); font-size: 14px;">✉ contact@audioask.ai</a>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- CTA FINAL -->
+  <section class="section dark cta-final">
     <div class="container">
-      <h2>Rejoignez la communauté qui réinvente l'écoute des podcasts.</h2>
-      <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Créer un compte gratuit</a>
+      <h2>Rejoignez la communauté<br>qui <span class="em-serif">réinvente</span> l'écoute des podcasts.</h2>
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="margin-top: 12px; height: 56px; font-size: 16px; padding: 0 28px;">Créer un compte gratuit <span class="arrow">→</span></a>
     </div>
   </section>
 

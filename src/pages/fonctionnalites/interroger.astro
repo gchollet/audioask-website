@@ -4,35 +4,54 @@ const APP_URL = 'https://app.audioask.ai';
 ---
 
 <Layout
-  title="Interroger (IA) — AudioAsk"
+  title="Interroger — Audioask"
   description="Posez vos questions en langage naturel sur n'importe quel épisode ou channel entier. L'IA répond avec des citations horodatées vérifiables."
   activePage="features"
 >
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero dotbg">
     <div class="container">
-      <div class="hero-split">
+      <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;">
         <div>
-          <span class="page-intro">Fonctionnalité 02 · Interroger</span>
-          <h1>Posez vos questions. L'épisode vous répond.</h1>
-          <p class="lede">Chaque épisode transcrit devient un expert que vous pouvez interroger — en langage naturel, dans votre langue.</p>
-          <div class="hero-ctas" style="margin-top: 28px;">
-            <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Essayer sur un épisode</a>
-            <a class="btn btn-lg" href="/tarifs">Voir les plans</a>
+          <div class="page-intro">Fonctionnalité 02 · Interroger</div>
+          <h1 style="text-align: left;">
+            Posez vos questions.<br>
+            <span class="em-serif">L'épisode</span> vous répond.
+          </h1>
+          <p class="lede" style="margin-top: 24px;">
+            Chaque épisode transcrit devient un contenu que vous pouvez interroger — en langage naturel, dans votre langue.
+          </p>
+          <div class="hero-ctas" style="margin-top: 32px;">
+            <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Essayer sur un épisode <span class="arrow">→</span></a>
+            <a class="btn lg" href="/tarifs">Voir les plans</a>
           </div>
         </div>
-        <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em;">Épisode · Acquired · #119 (62 min)</div>
-          <div class="demo-bubble q">Quelles sont les 3 recommandations de livres mentionnées ?</div>
-          <div class="demo-bubble a">
-            L'invité cite trois ouvrages clés :<br>
-            1. Sur la pensée long-terme<br>
-            2. Biographie de Jensen Huang<br>
-            3. Essai sur la stratégie tech
-            <span class="citation">"Si je devais en lire un seul cette année…" — 24:18</span>
+
+        <!-- Live demo card -->
+        <div class="ask-demo">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="eyebrow" style="font-size: 10px;">Acquired · #119 · 2h 47min</span>
+            <span class="chip accent-soft" style="font-size: 11px;">✦ AUDIOASK</span>
           </div>
-          <div class="demo-bubble q" style="opacity: 0.5; font-style: italic;">Posez votre question…</div>
+          <div class="ask-bubble q">Quelles sont les 3 recommandations de livres mentionnées&nbsp;?</div>
+          <div class="ask-bubble a">
+            L'invité cite trois ouvrages clés&nbsp;:<br>
+            <div style="margin-top: 6px;"><span style="color: var(--accent); font-weight: 600;">1.</span> <b>Poor Charlie's Almanack</b> — sur la pensée long-terme</div>
+            <div><span style="color: var(--accent); font-weight: 600;">2.</span> <b>The Art of Worldly Wisdom</b> — biographie d'idées</div>
+            <div><span style="color: var(--accent); font-weight: 600;">3.</span> <b>Influence</b> — essai sur la persuasion</div>
+            <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line-2); font-size: 11.5px; color: var(--ink-3); display: flex; gap: 8px; align-items: center;">
+              <span>↩ 3 citations</span>
+              <span style="font-family: var(--mono); color: var(--accent-ink);">28:05</span>
+              <span style="font-family: var(--mono); color: var(--accent-ink);">31:42</span>
+              <span style="font-family: var(--mono); color: var(--accent-ink);">36:18</span>
+            </div>
+          </div>
+          <div style="margin-top: 4px; background: var(--cream); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 8px;">
+            <span>✎</span>
+            <span style="font-style: italic;">Tape ta question…</span>
+            <span style="margin-left: auto; width: 28px; height: 24px; border-radius: 6px; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center;">→</span>
+          </div>
         </div>
       </div>
     </div>
@@ -41,117 +60,146 @@ const APP_URL = 'https://app.audioask.ai';
   <!-- EXEMPLES DE QUESTIONS -->
   <section class="section alt">
     <div class="container">
-      <h2 class="center" style="margin: 0 auto 32px; max-width: 28ch;">Quel genre de questions pouvez-vous poser ?</h2>
-      <div class="grid-2" style="max-width: 840px; margin: 0 auto;">
-        <div class="card" style="font-size: 16px; color: var(--ink);">"Résume les 3 points clés de cet épisode."</div>
-        <div class="card" style="font-size: 16px; color: var(--ink);">"Quelles sont les recommandations de livres mentionnées ?"</div>
-        <div class="card" style="font-size: 16px; color: var(--ink);">"Qu'a dit l'invité sur la réglementation IA ?"</div>
-        <div class="card" style="font-size: 16px; color: var(--ink);">"Quels chiffres ont été cités sur la croissance ?"</div>
+      <div class="center" style="max-width: 720px; margin: 0 auto;">
+        <div class="eyebrow center" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> Exemples</div>
+        <h2 style="margin-top: 16px;">Quel genre de questions<br><span class="serif-it">vous pouvez poser&nbsp;?</span></h2>
       </div>
-      <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--ink-3);">Et toute question que vous pouvez formuler en langage naturel</p>
+      <div class="question-grid">
+        <div class="question-card">Résume les 3 points clés de cet épisode.</div>
+        <div class="question-card">Quelles sont les recommandations de livres mentionnées&nbsp;?</div>
+        <div class="question-card">Qu'a dit l'invité sur la réglementation IA&nbsp;?</div>
+        <div class="question-card">Quels chiffres ont été cités sur la croissance&nbsp;?</div>
+        <div class="question-card">À quel moment parle-t-on de Charlie Munger&nbsp;?</div>
+        <div class="question-card">Y a-t-il un débat sur l'open-source vs closed-source&nbsp;?</div>
+      </div>
+      <p class="small center muted" style="margin-top: 18px;">…et toute question que vous pouvez formuler en langage naturel.</p>
     </div>
   </section>
 
   <!-- DEUX MODES -->
   <section class="section">
     <div class="container">
-      <h2>Interrogez un épisode — ou tout un channel d'un coup.</h2>
-      <p class="lede" style="margin-bottom: 36px;">Selon ce que vous cherchez, AudioAsk élargit ou resserre le périmètre. Une seule interface, deux portées.</p>
-      <div class="grid-2">
-        <div class="card">
-          <div class="eyebrow">Mode 01</div>
-          <h3>Un épisode</h3>
-          <p style="margin: 0 0 18px;">Posez vos questions sur une seule transcription. Idéal pour résumer, citer, vérifier un passage précis.</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span class="badge">résumé</span>
-            <span class="badge">citation</span>
-            <span class="badge">fact-check</span>
+      <div style="max-width: 720px;">
+        <div class="eyebrow"><span class="dot">●</span> Deux portées</div>
+        <h2 style="margin-top: 16px;">Interrogez un épisode —<br><span class="serif-it">ou tout un channel</span> d'un coup.</h2>
+        <p class="lede" style="margin-top: 18px;">Selon ce que vous cherchez, Audioask élargit ou resserre le périmètre. Une seule interface, deux portées.</p>
+      </div>
+
+      <div class="modes-grid">
+        <div class="mode-card">
+          <div class="eyebrow"><span style="color: var(--accent);">MODE 01</span></div>
+          <h3 style="font-size: 28px; margin-top: 6px;">Un épisode.</h3>
+          <p style="color: var(--ink-2); font-size: 15px; max-width: 44ch;">Posez vos questions sur une seule transcription. Idéal pour résumer, citer, vérifier un passage précis.</p>
+          <div style="margin-top: 16px; padding: 18px; background: var(--cream-2); border-radius: 14px; border: 1px solid var(--line); display: flex; align-items: center; gap: 14px;">
+            <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 11px;">#119</div>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 600;">Nvidia · la décennie</div>
+              <div style="font-size: 11.5px; color: var(--ink-3);">Acquired · 2h 47min · 1 épisode</div>
+            </div>
+            <span class="chip accent-soft">✦ Audioask</span>
+          </div>
+          <div class="mode-tags">
+            <span class="mode-tag">● résumé</span>
+            <span class="mode-tag">● citation</span>
+            <span class="mode-tag">● fact-check</span>
           </div>
         </div>
-        <div class="card" style="border-color: oklch(0.80 0.08 38); background: var(--accent-soft);">
-          <div class="eyebrow">Mode 02 · Pro</div>
-          <h3>Un channel entier</h3>
-          <p style="margin: 0 0 18px; color: var(--ink-2);">Interrogez l'intégralité d'un podcast — toutes saisons confondues — pour détecter des tendances, comparer des invités, croiser des thèmes.</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span class="badge accent">tendances</span>
-            <span class="badge accent">cross-épisodes</span>
-            <span class="badge accent">évolution</span>
+
+        <div class="mode-card accent">
+          <div class="eyebrow"><span style="color: var(--accent);">MODE 02 · PRO</span></div>
+          <h3 style="font-size: 28px; margin-top: 6px;">Un channel entier. <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: var(--cream); vertical-align: middle;">PRO</span></h3>
+          <p style="color: var(--accent-deep); font-size: 15px; max-width: 44ch;">Interrogez l'intégralité d'un podcast — toutes saisons confondues — pour détecter des tendances, comparer des invités, croiser des thèmes.</p>
+          <div style="margin-top: 16px; padding: 18px; background: var(--paper); border-radius: 14px; border: 1px solid var(--accent); display: flex; align-items: center; gap: 14px;">
+            <div style="display: flex;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); border: 2px solid var(--paper); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 10px;">119</div>
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); border: 2px solid var(--paper); margin-left: -10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 10px;">118</div>
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); border: 2px solid var(--paper); margin-left: -10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 10px;">117</div>
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--accent); border: 2px solid var(--paper); margin-left: -10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 9px;">+139</div>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 600;">Acquired · saisons complètes</div>
+              <div style="font-size: 11.5px; color: var(--accent-ink);">142 épisodes · 312h audio</div>
+            </div>
+          </div>
+          <div class="mode-tags">
+            <span class="mode-tag">● tendances</span>
+            <span class="mode-tag">● cross-épisodes</span>
+            <span class="mode-tag">● évolution temporelle</span>
           </div>
         </div>
       </div>
-      <p style="margin-top: 16px; font-size: 13px; color: var(--ink-3);">Même barre de question — vous changez juste le périmètre.</p>
     </div>
   </section>
 
-  <!-- FEATURES DÉTAILLÉES -->
+  <!-- PROMPTS & BIBLIOTHÈQUE -->
   <section class="section alt">
     <div class="container">
-      <div class="feature-alt">
+      <div class="feature-alt" style="border-top: 0; padding-top: 0;">
         <div>
-          <span class="eyebrow">01 · Résumés</span>
-          <h3>L'essentiel de l'épisode en quelques secondes</h3>
-          <p class="lede">Demandez un résumé, les points clés, les citations notables ou les recommandations. L'IA structure sa réponse selon votre demande.</p>
+          <div class="eyebrow"><span style="color: var(--accent);">01</span> · Prompts enregistrés</div>
+          <h3 style="margin-top: 12px;">Vos prompts enregistrés et prêts au réemploi.</h3>
+          <p>Sauvegardez les questions que vous posez régulièrement&nbsp;: «&nbsp;Résume cet épisode&nbsp;», «&nbsp;Quelles citations clés&nbsp;?&nbsp;», «&nbsp;Quelles recommandations de lecture&nbsp;?&nbsp;». Cliquez, c'est lancé.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 10px; padding: 24px;">
-          <div class="demo-bubble q">Résume cet épisode en 3 points.</div>
-          <div class="demo-bubble a">
-            <strong>Points clés :</strong><br>
-            1. Jensen Huang parie sur CUDA dès 2006<br>
-            2. L'acquisition de Mellanox en 2020<br>
-            3. Le tournant datacenter 2022–2024
-            <span class="citation">"On a parié sur CUDA…" — 12:42</span>
+        <div class="demo" style="padding: 22px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 6px;">MES PROMPTS SAUVEGARDÉS · 8</div>
+          <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--accent);">★</span>
+            <span style="flex: 1;">Brief client &mdash; angles &amp; insights actionnables</span>
+            <span class="chip accent-soft" style="height: 22px; font-size: 10.5px; padding: 0 8px;">▶</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Résumé exécutif 5 points</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 42×</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Citations clés horodatées</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 31×</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Liste de livres &amp; outils mentionnés</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 19×</span>
+          </div>
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px;">
+            <span style="color: var(--ink-3);">○</span>
+            <span style="flex: 1;">Fact-check &mdash; sources &amp; chiffres</span>
+            <span style="font-size: 11px; color: var(--ink-3); font-family: var(--mono);">utilisé 14×</span>
           </div>
         </div>
       </div>
 
       <div class="feature-alt reverse">
         <div>
-          <span class="eyebrow">02 · Prompts personnalisés</span>
-          <h3>Enregistrez vos prompts pour les réutiliser</h3>
-          <p class="lede">AudioAsk vous permet d'enregistrer vos prompts favoris et de les associer à des channels pour faciliter leur réutilisation automatique.</p>
+          <div class="eyebrow"><span style="color: var(--accent);">02</span> · Résultats enregistrés</div>
+          <h3 style="margin-top: 12px;">Enregistrez les résultats de prompts.</h3>
+          <p>Chaque réponse IA est sauvegardée dans votre bibliothèque, taguée par épisode et par prompt. Retrouvez-la en deux clics.</p>
         </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 10px; padding: 24px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em;">Mes prompts enregistrés</div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="padding: 8px 12px; border: 1.5px solid oklch(0.80 0.08 38); border-radius: 6px; background: var(--paper); font-size: 12px; font-weight: 500;">Résumé exécutif — points clés + citations</div>
-            <div style="padding: 8px 12px; border: 1px solid var(--line-soft); border-radius: 6px; font-size: 12px; color: var(--ink-2);">Recommandations de livres</div>
-            <div style="padding: 8px 12px; border: 1px solid var(--line-soft); border-radius: 6px; font-size: 12px; color: var(--ink-2);">Chiffres et statistiques mentionnés</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature-alt">
-        <div>
-          <span class="eyebrow">03 · Résultats enregistrés</span>
-          <h3>Sauvegardez et retrouvez facilement vos résultats</h3>
-          <p class="lede">Chaque réponse intéressante peut être archivée dans votre bibliothèque. Retrouvez-la plus tard, partagez-la avec votre équipe ou exportez-la en un clic.</p>
-        </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 8px; padding: 24px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em;">Mes résultats sauvegardés</div>
-          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
-            <div style="padding: 8px 12px; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 6px; display: flex; justify-content: space-between;">
-              <span>Acquired #119 · Résumé exécutif</span>
-              <span style="color: var(--ink-3);">hier</span>
+        <div class="demo" style="padding: 22px;">
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 12px;">MA BIBLIOTHÈQUE · RÉPONSES</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b>Résumé exécutif · #119 Acquired</b>
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">15 MAI</span>
+              </div>
+              <div style="color: var(--ink-3); font-size: 12px; margin-top: 4px;">3 paris clés · CUDA, Mellanox, IA générative…</div>
             </div>
-            <div style="padding: 8px 12px; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 6px; display: flex; justify-content: space-between;">
-              <span>TKP #218 · Livres mentionnés</span>
-              <span style="color: var(--ink-3);">il y a 3j</span>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b>Citations clés · #218 The Knowledge Project</b>
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">12 MAI</span>
+              </div>
+              <div style="color: var(--ink-3); font-size: 12px; margin-top: 4px;">5 citations horodatées · décisions long-terme</div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature-alt reverse">
-        <div>
-          <span class="eyebrow">04 · Cross-langue</span>
-          <h3>Interrogez sans barrière de langue</h3>
-          <p class="lede">Posez votre question en français sur un podcast en anglais. AudioAsk comprend les deux, répond dans votre langue et cite le texte original.</p>
-        </div>
-        <div class="card" style="background: var(--bg-alt); display: flex; flex-direction: column; gap: 10px; padding: 24px;">
-          <div class="demo-bubble q" style="font-size: 12px;">Qu'a dit l'invité sur la réglementation IA ?</div>
-          <div class="demo-bubble a" style="font-size: 12px;">
-            L'invité pense que la réglementation arrivera trop lentement par rapport à la vitesse d'adoption.
-            <span class="citation">"Regulation will always lag adoption…" — 38:07 (original EN)</span>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b>Brief client · 14 épisodes Lex Fridman</b>
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink);">CROSS-CHANNEL</span>
+              </div>
+              <div style="color: var(--ink-3); font-size: 12px; margin-top: 4px;">Tendances IA Q1 2026 · 2 200 mots livrés</div>
+            </div>
           </div>
         </div>
       </div>
@@ -160,35 +208,44 @@ const APP_URL = 'https://app.audioask.ai';
 
   <!-- FAQ -->
   <section class="section">
-    <div class="container-narrow">
-      <h2>Questions sur l'IA</h2>
-      <div style="margin-top: 28px;">
+    <div class="container">
+      <div class="center" style="max-width: 720px; margin: 0 auto;">
+        <div class="eyebrow center" style="justify-content: center; display: inline-flex;"><span class="dot">●</span> FAQ</div>
+        <h2 style="margin-top: 16px;">Questions sur <span class="serif-it">l'interrogation IA.</span></h2>
+      </div>
+      <div class="faq">
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">L'IA peut-elle se tromper ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Comme tout modèle d'IA, AudioAsk peut faire des erreurs, notamment sur des questions très factuelles. C'est pourquoi chaque réponse est ancrée dans la transcription avec des citations horodatées — vous pouvez toujours vérifier la source directement.</div>
+          <span>L'IA répond-elle en français&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Oui. Quelle que soit la langue d'origine du podcast, vous pouvez poser vos questions en français et recevoir la réponse en français. Audioask comprend les deux, répond dans votre langue et cite le texte original.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Quelle IA est utilisée ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">AudioAsk utilise plusieurs modèles de pointe selon la taille du contexte et le type de requête (DeepSeek, Gemini). Nous mettons régulièrement à jour notre sélection de modèles pour vous offrir les meilleures performances.</div>
+          <span>D'où viennent les réponses&nbsp;? Sont-elles vérifiables&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Les réponses sont générées à partir de la transcription de l'épisode. Chaque réponse est ancrée dans des citations horodatées — vous pouvez toujours vérifier la source directement dans l'épisode.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Peut-on interroger plusieurs épisodes à la fois ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Oui, avec le plan Pro. Le mode "channel entier" vous permet d'interroger tous les épisodes d'un podcast en une seule question. C'est idéal pour des analyses de tendances ou des comparaisons d'invités sur plusieurs saisons.</div>
+          <span>Puis-je interroger plusieurs épisodes en même temps&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Oui, avec le plan Pro. Le mode "channel entier" vous permet d'interroger tous les épisodes d'un podcast en une seule question. Idéal pour des analyses de tendances ou des comparaisons d'invités sur plusieurs saisons.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span class="faq-q">Les questions sont-elles privées ?</span><div class="faq-icon">+</div></div>
-          <div class="faq-answer">Oui, vos questions et les réponses générées sont privées et accessibles uniquement à vous. Elles ne sont ni partagées, ni utilisées pour entraîner des modèles d'IA.</div>
+          <span>Quel modèle d'IA utilisez-vous&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Audioask utilise plusieurs modèles de pointe selon la taille du contexte et le type de requête (DeepSeek, Gemini). Nous mettons régulièrement à jour notre sélection pour vous offrir les meilleures performances.</div>
+        </div>
+        <div class="faq-item">
+          <span>Mes prompts et résultats sont-ils privés&nbsp;?</span><span class="plus">+</span>
+          <div class="faq-answer">Oui. Vos questions et les réponses générées sont privées et accessibles uniquement à vous. Elles ne sont ni partagées, ni utilisées pour entraîner des modèles d'IA.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="section dark cta-final">
     <div class="container">
-      <h2>Essayez Ask sur votre prochain épisode.</h2>
-      <p class="lede">Transcriptions + questions illimitées la première semaine.</p>
-      <a class="btn btn-primary btn-lg arrow" href={`${APP_URL}/signup`}>Créer un compte gratuit</a>
+      <h2>Posez votre première question<br><span class="em-serif">dans les 2 prochaines minutes.</span></h2>
+      <p class="lede" style="margin: 0 auto 36px; max-width: 50ch; color: var(--night-text-2);">
+        3 analyses IA offertes par mois. Aucune carte de crédit requise.
+      </p>
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="height: 56px; font-size: 16px; padding: 0 28px;">Essayer maintenant <span class="arrow">→</span></a>
     </div>
   </section>
 
@@ -196,10 +253,11 @@ const APP_URL = 'https://app.audioask.ai';
 
 <script>
 document.querySelectorAll<HTMLElement>('.faq-item').forEach(item => {
-  item.querySelector('.faq-question')?.addEventListener('click', () => {
+  const toggle = () => {
     const wasOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');
-  });
+  };
+  item.addEventListener('click', toggle);
 });
 </script>

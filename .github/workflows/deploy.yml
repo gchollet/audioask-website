@@ -1,0 +1,61 @@
+name: Deploy to Infomaniak (www.audioask.ai)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Deploy dist/ via rsync
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p 22 \
+                -o StrictHostKeyChecking=yes \
+                -o BatchMode=yes \
+                -o ConnectTimeout=10 \
+                -o ConnectionAttempts=3" \
+            --chmod=D755,F644 \
+            ./dist/ ndnt_adminssh2@ndnt.ftp.infomaniak.com:/home/clients/a361fec3167a4f2c677767e866fb0394/sites/audioask.ai/
+
+      - name: Fix file permissions
+        run: |
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -p 22 \
+            -o StrictHostKeyChecking=yes \
+            -o BatchMode=yes \
+            -o ConnectTimeout=10 \
+            -o ConnectionAttempts=3 \
+            ndnt_adminssh2@ndnt.ftp.infomaniak.com \
+            "find /home/clients/a361fec3167a4f2c677767e866fb0394/sites/audioask.ai \
+              \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.jpg' -o -name '*.png' -o -name '*.svg' \) \
+              -exec chmod 644 {} \; && \
+             find /home/clients/a361fec3167a4f2c677767e866fb0394/sites/audioask.ai \
+              -type d -exec chmod 755 {} \;"
