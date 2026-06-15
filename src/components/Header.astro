@@ -49,6 +49,39 @@ const APP_URL = 'https://dev-app.audioask.ai';
       <a class="btn btn-ghost sm" href={`${APP_URL}/login`}>Se connecter</a>
       <a class="btn btn-primary sm" href={`${APP_URL}/signup`}>Essayer gratuitement</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg class="ico-menu" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="19" y2="6"/>
+        <line x1="3" y1="11" x2="19" y2="11"/>
+        <line x1="3" y1="16" x2="19" y2="16"/>
+      </svg>
+      <svg class="ico-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="4" x2="18" y2="18"/>
+        <line x1="18" y1="4" x2="4" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <div class="mobile-section-label">Fonctionnalités</div>
+        <a href="/fonctionnalites/transcrire" class="mobile-nav-link">Transcrire</a>
+        <a href="/fonctionnalites/interroger" class="mobile-nav-link">Interroger</a>
+        <a href="/fonctionnalites/automatiser" class="mobile-nav-link">Automatiser</a>
+        <a href="/fonctionnalites/traduire" class="mobile-nav-link">Traduire</a>
+        <div class="mobile-divider"></div>
+        <a href="/pro" class="mobile-nav-link">Pour les pros</a>
+        <a href="/tarifs" class="mobile-nav-link">Tarifs</a>
+        <a href="/a-propos" class="mobile-nav-link">À propos</a>
+        <a href="/blog" class="mobile-nav-link">Blog</a>
+      </nav>
+      <div class="mobile-cta">
+        <a class="btn btn-ghost" href={`${APP_URL}/login`} style="width:100%;justify-content:center;">Se connecter</a>
+        <a class="btn btn-primary" href={`${APP_URL}/signup`} style="width:100%;justify-content:center;">Essayer gratuitement</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -61,5 +94,14 @@ document.querySelectorAll('[data-lang]').forEach(d => {
 });
 document.addEventListener('click', () => {
   document.querySelectorAll('[data-lang].open').forEach(d => d.classList.remove('open'));
+});
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger?.addEventListener('click', () => {
+  const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+  hamburger.setAttribute('aria-expanded', String(!isOpen));
+  mobileMenu?.classList.toggle('open', !isOpen);
+  document.body.classList.toggle('menu-open', !isOpen);
 });
 </script>

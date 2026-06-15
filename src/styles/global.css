@@ -1329,3 +1329,173 @@ p { margin: 0; text-wrap: pretty; }
 }
 .divider-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .divider-label::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+
+/* ================================================================
+   HAMBURGER & MOBILE MENU
+   ================================================================ */
+.hamburger {
+  display: none;
+  align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  background: none; border: 1px solid var(--line);
+  border-radius: 10px; cursor: pointer; color: var(--ink);
+  flex-shrink: 0;
+}
+.hamburger .ico-close { display: none; }
+.hamburger[aria-expanded="true"] .ico-menu { display: none; }
+.hamburger[aria-expanded="true"] .ico-close { display: block; }
+
+.mobile-menu {
+  display: none;
+  position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+  background: var(--cream); overflow-y: auto; z-index: 999;
+  border-top: 1px solid var(--line);
+  transform: translateY(-8px); opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.mobile-menu.open {
+  opacity: 1; transform: none; pointer-events: auto;
+}
+body.menu-open { overflow: hidden; }
+
+.mobile-menu-inner {
+  display: flex; flex-direction: column; gap: 0;
+  padding: 16px 0 40px;
+  min-height: calc(100dvh - 64px);
+}
+.mobile-nav { display: flex; flex-direction: column; flex: 1; }
+.mobile-section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  color: var(--ink-3); text-transform: uppercase;
+  padding: 20px 20px 8px;
+}
+.mobile-nav-link {
+  display: block; padding: 13px 20px;
+  font-size: 17px; font-weight: 500; color: var(--ink);
+  border-bottom: 1px solid var(--line); text-decoration: none;
+}
+.mobile-nav-link:active { background: var(--cream-2); }
+.mobile-divider { height: 1px; background: var(--line-2); margin: 8px 0; }
+.mobile-cta {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 24px 20px 0;
+}
+
+/* ================================================================
+   RESPONSIVE — 768px (tablette / mobile large)
+   ================================================================ */
+@media (max-width: 768px) {
+  /* Layout */
+  .container, .container-wide { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .section.xl { padding: 80px 0; }
+
+  /* Header */
+  .site-nav, .site-header-right { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: block; }
+
+  /* Hero */
+  .hero { padding: 56px 0 64px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-ctas .btn { justify-content: center; }
+
+  /* App shell mockup */
+  .app-card { min-width: 700px; overflow-x: auto; }
+  .app-shell { grid-template-columns: 220px minmax(0,1fr); }
+  .app-side { display: none; }
+  .app-ai { display: none; }
+
+  /* Feature alt — empile texte + image */
+  .feature-alt { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .feature-alt.reverse > div:first-child { order: 0 !important; }
+
+  /* Grilles globales */
+  .feat-grid { grid-template-columns: 1fr !important; }
+  .steps { grid-template-columns: 1fr !important; }
+  .usage-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .lang-grid { grid-template-columns: repeat(4, 1fr) !important; }
+  .question-grid { grid-template-columns: 1fr !important; }
+  .modes-grid { grid-template-columns: 1fr !important; }
+
+  /* Banner free */
+  .banner-free { grid-template-columns: 1fr !important; gap: 24px; padding: 28px 24px !important; }
+
+  /* Pro card */
+  .pro-card { grid-template-columns: 1fr !important; gap: 36px !important; padding: 32px !important; }
+
+  /* Price grids */
+  .price-grid { grid-template-columns: 1fr !important; }
+  .price-grid-3 { grid-template-columns: 1fr !important; }
+
+  /* Compare table — scroll horizontal */
+  .compare { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare table { min-width: 600px; }
+
+  /* Persona tabs */
+  .persona-tabs { flex-wrap: wrap !important; border-radius: 16px !important; width: 100% !important; }
+  .persona-tabs button { flex: 1 1 auto; text-align: center; min-width: 120px; }
+  .persona-pane { grid-template-columns: 1fr !important; gap: 32px !important; padding: 28px !important; }
+
+  /* Auto flow (3 étapes + flèches) */
+  .auto-flow { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .auto-arrow { transform: rotate(90deg); display: flex; justify-content: center; padding: 4px 0; }
+
+  /* Pro tour */
+  .pro-tour-body { grid-template-columns: 1fr !important; }
+  .pro-tour-rail { display: flex; flex-direction: row; overflow-x: auto; gap: 8px; padding-bottom: 8px; border-right: none !important; border-bottom: 1px solid var(--line); padding-right: 0 !important; margin-bottom: 8px; }
+  .pro-tour-tab { min-width: 140px; white-space: nowrap; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .footer-bot { flex-direction: column !important; gap: 8px !important; text-align: center; }
+
+  /* Floating cards */
+  .float { display: none !important; }
+}
+
+/* ================================================================
+   RESPONSIVE — 480px (mobile)
+   ================================================================ */
+@media (max-width: 480px) {
+  /* Layout */
+  .container, .container-wide { padding: 0 16px; }
+  .section { padding: 48px 0; }
+  .section.xl { padding: 56px 0; }
+
+  /* Hero */
+  .hero { padding: 40px 0 48px; }
+  .hero .lede { font-size: 17px; }
+  .hero-meta { flex-wrap: wrap; gap: 8px 16px; }
+
+  /* App shell — scroll horizontal complet */
+  .app-card { min-width: 600px; }
+
+  /* Feature alt fonts */
+  .feature-alt h3 { font-size: 26px !important; }
+
+  /* Feat card padding */
+  .feat-card { padding: 20px; }
+
+  /* Banner */
+  .banner-free h3 { font-size: 24px; }
+
+  /* Pricing */
+  .plan { padding: 24px 20px; }
+
+  /* Usage grid */
+  .usage-grid { grid-template-columns: 1fr !important; }
+
+  /* Langues */
+  .lang-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Footer simplifié */
+  .footer-grid { grid-template-columns: 1fr !important; }
+
+  /* BigNum */
+  .bignum { font-size: clamp(56px, 18vw, 80px) !important; }
+
+  /* CTA final */
+  .cta-final { padding: 64px 0 !important; }
+}

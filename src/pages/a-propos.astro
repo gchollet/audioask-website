@@ -12,7 +12,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
   <!-- HERO -->
   <section class="hero dotbg">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
+      <div class="about-hero-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
         <div>
           <div class="page-intro">À propos</div>
           <h1 style="text-align: left;">
@@ -23,7 +23,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
           </p>
         </div>
         <!-- Composition éditoriale -->
-        <div style="position: relative; aspect-ratio: 5/4;">
+        <div class="about-hero-deco" style="position: relative; aspect-ratio: 5/4;">
           <div style="position: absolute; inset: 0;">
             <div style="position: absolute; top: 0; right: 0; width: 70%; aspect-ratio: 1; background: var(--accent-tint); border-radius: 24px;"></div>
             <div style="position: absolute; bottom: 0; left: 0; width: 60%; aspect-ratio: 4/5; background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: var(--shadow-md); display: flex; flex-direction: column;">
@@ -45,7 +45,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
   <!-- NOTRE HISTOIRE -->
   <section class="section paper">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;">
+      <div class="about-story-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;">
         <div>
           <div class="eyebrow"><span class="dot">●</span> Notre histoire</div>
           <h2 style="margin-top: 16px;">Faire des podcasts une base de connaissance <span class="serif-it">plus accessible.</span></h2>
@@ -94,7 +94,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
         <div class="eyebrow"><span class="dot">●</span> Nos valeurs</div>
         <h2 style="margin-top: 16px;">Quatre principes,<br><span class="serif-it">tenus tous les jours.</span></h2>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px;">
+      <div class="about-values-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px;">
         <div class="value-card">
           <div class="val-num">01 · Fabriqué en Suisse 🇨🇭</div>
           <h3>Swiss made, vraiment.</h3>
@@ -122,7 +122,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
   <!-- TARIFS APERÇU -->
   <section class="section alt">
     <div class="container">
-      <div style="background: var(--paper); border-radius: 24px; padding: 48px; border: 1px solid var(--line); display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;">
+      <div class="about-tarifs-grid" style="background: var(--paper); border-radius: 24px; padding: 48px; border: 1px solid var(--line); display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;">
         <div>
           <div class="eyebrow" style="display: inline-flex; align-items: center; gap: 10px;">
             <span style="background: var(--accent); color: white; padding: 3px 10px; border-radius: 999px; font-size: 10px; letter-spacing: 0.08em;">TARIFS</span>
@@ -170,5 +170,18 @@ const APP_URL = 'https://dev-app.audioask.ai';
       <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="margin-top: 12px; height: 56px; font-size: 16px; padding: 0 28px;">Créer un compte gratuit <span class="arrow">→</span></a>
     </div>
   </section>
+
+
+<style>
+  /* Responsive overrides */
+  @media (max-width: 768px) {
+    .about-hero-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .about-hero-deco { display: none; }
+    .about-story-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .about-values-grid { grid-template-columns: 1fr !important; }
+    .about-tarifs-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .mission-bg { font-size: clamp(32px, 9vw, 48px) !important; }
+  }
+</style>
 
 </Layout>

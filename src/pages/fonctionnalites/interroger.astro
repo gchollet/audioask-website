@@ -12,7 +12,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
   <!-- HERO -->
   <section class="hero dotbg">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;">
+      <div class="interroger-hero-grid" style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;">
         <div>
           <div class="page-intro">Fonctionnalité 02 · Interroger</div>
           <h1 style="text-align: left;">
@@ -29,7 +29,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
         </div>
 
         <!-- Live demo card -->
-        <div class="ask-demo">
+        <div class="ask-demo interroger-hero-visual">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <span class="eyebrow" style="font-size: 10px;">Acquired · #119 · 2h 47min</span>
             <span class="chip accent-soft" style="font-size: 11px;">✦ AUDIOASK</span>
@@ -248,6 +248,15 @@ const APP_URL = 'https://dev-app.audioask.ai';
       <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="height: 56px; font-size: 16px; padding: 0 28px;">Essayer maintenant <span class="arrow">→</span></a>
     </div>
   </section>
+
+
+<style>
+  /* Responsive overrides */
+  @media (max-width: 768px) {
+    .interroger-hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .interroger-hero-visual { display: none; }
+  }
+</style>
 
 </Layout>
 

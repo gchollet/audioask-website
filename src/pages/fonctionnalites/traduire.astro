@@ -12,7 +12,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
 <!-- HERO -->
 <section class="hero dotbg">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;">
+    <div class="traduire-hero-grid" style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;">
       <div>
         <div class="page-intro">Fonctionnalité 04 · Traduire</div>
         <h1 style="text-align: left;">
@@ -29,7 +29,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
       </div>
 
       <!-- Translation card -->
-      <div class="app-card" style="max-width: 100%;">
+      <div class="app-card traduire-hero-visual" style="max-width: 100%;">
         <div class="app-toolbar">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           <span class="url">audioask.ai · traduction</span>
@@ -324,6 +324,15 @@ const APP_URL = 'https://dev-app.audioask.ai';
     <a class="btn btn-primary lg" href={`${APP_URL}/signup`} style="height: 56px; font-size: 16px; padding: 0 28px;">Essayer maintenant <span class="arrow">→</span></a>
   </div>
 </section>
+
+
+<style>
+  /* Responsive overrides */
+  @media (max-width: 768px) {
+    .traduire-hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .traduire-hero-visual { display: none; }
+  }
+</style>
 
 </Layout>
 

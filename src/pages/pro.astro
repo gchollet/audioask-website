@@ -355,7 +355,7 @@ pour donner de la valeur à vos podcasts.</h2>
   <!-- EFFET RÉSEAU -->
   <section class="section dark">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
+      <div class="pro-bignum-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
         <div>
           <div class="eyebrow" style="color: var(--accent);"><span class="dot">●</span> Effet réseau</div>
           <h2 style="margin-top: 20px;">Tous les utilisateurs <span class="serif-it" style="color: var(--accent);">contribuent</span> à enrichir les transcriptions.</h2>
@@ -407,6 +407,12 @@ pour donner de la valeur à vos podcasts.</h2>
   </section>
 
 </Layout>
+
+<style>
+@media (max-width: 768px) {
+  .pro-bignum-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
+</style>
 
 <script>
 // --- Animated Pro feature tour (auto-cycling + clickable)

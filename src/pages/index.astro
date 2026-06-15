@@ -365,7 +365,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
       </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;">
+    <div class="discover-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;">
       <a href="/fonctionnalites/transcrire" class="discover-card">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
         <h4>Transcrire</h4>
@@ -398,7 +398,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
 <!-- BIBLIOTHÈQUE PARTAGÉE — DARK -->
 <section class="section dark xl">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
+    <div class="bignum-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
       <div>
         <div class="eyebrow" style="color: var(--accent);"><span class="dot">●</span> Effet réseau</div>
         <h2 style="margin-top: 20px;">
@@ -519,6 +519,18 @@ const APP_URL = 'https://dev-app.audioask.ai';
 </section>
 
 </Layout>
+
+<style>
+@media (max-width: 768px) {
+  .discover-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .bignum-grid { grid-template-columns: 1fr !important; gap: 40px !important; text-align: left !important; }
+  .bignum { text-align: left !important; }
+  .home-tarifs-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+}
+@media (max-width: 480px) {
+  .discover-grid { grid-template-columns: 1fr !important; }
+}
+</style>
 
 <script>
 (function () {

@@ -10,7 +10,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
     <div class="container">
       <div class="hero-copy" style="text-align: left; max-width: 1280px;">
         <div class="page-intro">Fonctionnalité 01 · Transcrire</div>
-        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;">
+        <div class="transcrire-hero-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;">
           <div>
             <h1 style="text-align: left;">
               Transcrivez n'importe quel podcast en <span class="em-serif">quelques minutes.</span>
@@ -29,7 +29,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
           </div>
 
           <!-- Hero visual : transcription in progress -->
-          <div style="position: relative;">
+          <div class="transcrire-hero-visual" style="position: relative;">
             <div class="app-card" style="max-width: 100%;">
               <div class="app-toolbar">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -90,6 +90,15 @@ const APP_URL = 'https://dev-app.audioask.ai';
 
   <style>
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* Responsive overrides */
+    @media (max-width: 768px) {
+      .transcrire-hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .transcrire-hero-visual { display: none; }
+    }
+    @media (max-width: 480px) {
+      .transcrire-hero { padding: 48px 0 40px !important; }
+    }
   </style>
 
   <!-- HOW IT WORKS -->
