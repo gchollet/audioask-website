@@ -1355,7 +1355,7 @@ p { margin: 0; text-wrap: pretty; }
   pointer-events: none;
 }
 .mobile-menu.open {
-  opacity: 1; transform: none; pointer-events: auto;
+  display: block; opacity: 1; transform: none; pointer-events: auto;
 }
 body.menu-open { overflow: hidden; }
 
