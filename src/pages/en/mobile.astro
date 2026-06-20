@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MobileTease from '../../components/MobileTease.astro';
+---
+
+<Layout
+  title="Audioask mobile app — iOS & Android — Coming soon"
+  description="Audioask is coming to your phone. Listen, transcribe, and ask AI about any podcast — on iOS and Android. Join the waitlist."
+  activePage=""
+  lang="en"
+  alternatePath="/app-mobile"
+>
+
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container" style="max-width: 760px; text-align: center;">
+    <div class="eyebrow" style="justify-content: center;"><span class="dot">●</span> Mobile app <span style="margin-left: 8px; font-family: var(--mono); font-size: 10px; padding: 3px 9px; background: var(--ink); color: var(--cream); border-radius: 999px; letter-spacing: 0.06em;">COMING SOON</span></div>
+    <h1 style="margin-top: 18px;">Audioask<br><span class="em-serif">in your pocket.</span></h1>
+    <p class="lede" style="margin: 20px auto 0; max-width: 48ch;">The full Audioask experience — listening, transcription, AI Q&A — on iOS and Android. Be the first to know when it launches.</p>
+
+    <!-- NOTIFY FORM -->
+    <form action="/ajax/notify-mobile.php" method="POST" style="display: flex; gap: 10px; justify-content: center; margin-top: 36px; flex-wrap: wrap;" id="notify-form">
+      <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" required placeholder="Your email address" style="padding: 12px 18px; border: 1px solid var(--line); border-radius: 12px; font-size: 14px; background: var(--paper); color: var(--ink); outline: none; min-width: 260px; font-family: var(--sans);">
+      <button type="submit" class="btn btn-primary" style="height: 48px; padding: 0 24px;">Notify me at launch <span class="arrow">→</span></button>
+    </form>
+    <p style="margin-top: 14px; font-size: 13px; color: var(--ink-3);">No spam — one email when we launch. That's it.</p>
+  </div>
+</section>
+
+<!-- PHONE PREVIEW -->
+<MobileTease uid="mobile" lang="en" />
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> What's coming</div>
+    <h2 style="text-align: center; margin-top: 16px;">Everything you love<br><span class="serif-it">on your phone.</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;">
+      {[
+        { icon: "🎧", title: "Native podcast player", desc: "Variable speed playback, sleep timer, smart chapter navigation — everything you expect from a great mobile podcast app." },
+        { icon: "📄", title: "Transcription on demand", desc: "Tap to transcribe any episode. Get the full text with timestamps and speaker labels — searchable instantly." },
+        { icon: "✦", title: "AI in your pocket", desc: "Ask questions about any episode while you're on the go. Get cited answers without being near a computer." },
+        { icon: "🔖", title: "Bookmarks while listening", desc: "One tap to pin a moment. Revisit your bookmarks later with full transcript context." },
+        { icon: "⚡", title: "Automations", desc: "New episodes from your automated channels land in your mobile library as soon as they're processed." },
+        { icon: "🔄", title: "Full sync with web", desc: "Your library, bookmarks, saved prompts, and AI results — all in sync between web and mobile in real time." },
+      ].map(f => (
+        <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 24px;">
+          <div style="font-size: 26px; margin-bottom: 14px;">{f.icon}</div>
+          <h3 style="font-size: 16px; margin: 0 0 10px;">{f.title}</h3>
+          <p style="color: var(--ink-2); font-size: 14px; line-height: 1.6; margin: 0;">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- SYNC SECTION — DARK -->
+<section class="section dark">
+  <div class="container" style="max-width: 760px; text-align: center;">
+    <div class="eyebrow" style="color: var(--accent); justify-content: center;"><span class="dot">●</span> Seamless sync</div>
+    <h2 style="margin-top: 16px;">Start on web.<br><span class="serif-it">Continue on mobile.</span></h2>
+    <p class="lede" style="margin: 20px auto 0; max-width: 48ch; color: var(--night-text-2);">Everything stays in sync. Pick up an episode mid-sentence. Your bookmarks, transcripts, and AI results follow you everywhere.</p>
+  </div>
+</section>
+
+<!-- SECOND NOTIFY FORM -->
+<section class="section paper">
+  <div class="container" style="max-width: 640px; text-align: center;">
+    <h2>Be among the first<br><span class="serif-it">to try it.</span></h2>
+    <p style="color: var(--ink-2); font-size: 15px; margin: 16px 0 28px;">Leave your email and we'll reach out as soon as the beta opens.</p>
+    <form action="/ajax/notify-mobile.php" method="POST" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;" id="notify-form-2">
+      <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" required placeholder="Your email address" style="padding: 12px 18px; border: 1px solid var(--line); border-radius: 12px; font-size: 14px; background: var(--paper); color: var(--ink); outline: none; min-width: 240px; font-family: var(--sans);">
+      <button type="submit" class="btn btn-primary" style="height: 48px; padding: 0 22px;">Join waitlist <span class="arrow">→</span></button>
+    </form>
+  </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+  [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+}
+</style>
+</Layout>

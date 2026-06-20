@@ -1,9 +1,108 @@
 ---
-interface Props { uid?: string; }
-const { uid = 'tease' } = Astro.props;
+interface Props { uid?: string; lang?: 'fr' | 'en'; }
+const { uid = 'tease', lang = 'fr' } = Astro.props;
+const isFr = lang === 'fr';
 const phId   = `aa-${uid}-ph`;
 const scrId  = `aa-${uid}-scr`;
 const dotsId = `aa-${uid}-dots`;
+
+const copy = isFr ? {
+  eyebrow: 'Prochainement · iOS & Android',
+  heading: 'Audioask dans<br><span class="serif-it">votre poche.</span>',
+  lede: 'Toute votre bibliothèque, vos signets et vos automations dans une vraie app mobile. Même compte, même expérience — partout.',
+  cta: "Découvrir l'app mobile",
+  ctaHref: '/app-mobile',
+} : {
+  eyebrow: 'Coming soon · iOS & Android',
+  heading: 'Audioask in<br><span class="serif-it">your pocket.</span>',
+  lede: 'Your full library, bookmarks, and automations in a native mobile app. Same account, same experience — everywhere.',
+  cta: 'Discover the mobile app',
+  ctaHref: '/en/mobile',
+};
+
+const t = isFr ? {
+  tabFeed: 'Feed', tabSearch: 'Recherche', tabPlay: 'Playlists', tabLib: 'Ma lib.',
+  feedKick: 'Vos abonnements', feedTitle: 'Feed', chipAll: 'Tous',
+  ep1: 'Construire la bonne chose, pas seulement bien la construire',
+  ep2: 'Patagonia : bâtir une marque qui dit non à la croissance',
+  ep3: 'La semaine de 4 jours, on a vraiment testé',
+  ep4: 'Le goût comme compétence qui s\'entraîne',
+  searchPlaceholder: '⌕ Podcasts, épisodes, sujets…',
+  recentSearches: 'Recherches récentes',
+  discover: 'Découvrir',
+  follow: '+ Suivre',
+  libTitle: 'Bibliothèque',
+  chipCh: 'Channels', chipEp: 'Episodes', chipPr: 'Prompt',
+  pod1: 'GDIY', pod1ep: '412 épisodes',
+  pod2: 'Loycocracy', pod2ep: '38 épisodes',
+  pod3: 'Acquired', pod3ep: '56 épisodes',
+  pod4: 'Le Super Daily', pod4ep: '1009 épisodes',
+  nowPlaying: 'EN LECTURE',
+  artist: 'GDIY · Matthieu Stefani',
+  tabTranscript: 'Transcript', tabBookmarks: 'Signets', tabAnswers: 'Réponses',
+  transcribed: '● TRANSCRIT · suit la lecture',
+  excerptIntro: "Bienvenue dans cet épisode. Aujourd'hui on s'attaque à une question qui revient sans cesse chez les fondateurs.",
+  excerptQuote: 'La patience est un verbe : continuer, pas attendre.',
+  askLabel: 'Ask',
+  askCtx: 'Construire la bonne chose…',
+  askQ: 'Quels sont les points clés et arguments principaux ?',
+  askSumLabel: 'En une phrase',
+  askSum: 'Un épisode sur la différence entre <b style="color:var(--ink);">vitesse</b> et <b style="color:var(--ink);">progrès</b>.',
+  askKeyLabel: 'Points clés',
+  askBullet1: '• Vitesse ≠ progrès — productif dans la mauvaise direction.',
+  askBullet2: '• La patience est un verbe : continuer, pas attendre.',
+  askCitations: '↩ 4 citations · 06:30 · 17:41 · 34:02',
+  askInput: 'Posez une question…',
+  miniTitle: 'Construire la bonne ch…',
+  miniTime: '17:41 / 52:00',
+  searchRecent1: '⟲ patagonia', searchRecent2: '⟲ instagram', searchRecent3: '⟲ patience',
+  pod5: 'Culture IA', pod5sub: 'Anthony Morel · BFM',
+  pod6: 'Culture Générale', pod6sub: 'Choses à savoir · 320 ép.',
+  nowPlayingLabel: 'EN LECTURE',
+  infoTab: 'Info',
+  searchInTranscript: '⌕ Rechercher dans la transcription…',
+} : {
+  tabFeed: 'Feed', tabSearch: 'Search', tabPlay: 'Playlists', tabLib: 'Library',
+  feedKick: 'Your subscriptions', feedTitle: 'Feed', chipAll: 'All',
+  ep1: 'Build the right thing, not just build it right',
+  ep2: 'Patagonia: building a brand that says no to growth',
+  ep3: 'The 4-day work week: we actually tested it',
+  ep4: 'Taste as a trainable skill',
+  searchPlaceholder: '⌕ Podcasts, episodes, topics…',
+  recentSearches: 'Recent searches',
+  discover: 'Discover',
+  follow: '+ Follow',
+  libTitle: 'Library',
+  chipCh: 'Channels', chipEp: 'Episodes', chipPr: 'Prompts',
+  pod1: 'GDIY', pod1ep: '412 episodes',
+  pod2: 'Loycocracy', pod2ep: '38 episodes',
+  pod3: 'Acquired', pod3ep: '56 episodes',
+  pod4: 'Le Super Daily', pod4ep: '1009 episodes',
+  nowPlaying: 'NOW PLAYING',
+  artist: 'GDIY · Matthieu Stefani',
+  tabTranscript: 'Transcript', tabBookmarks: 'Bookmarks', tabAnswers: 'Answers',
+  transcribed: '● TRANSCRIBED · follows playback',
+  excerptIntro: 'Welcome to this episode. Today we tackle a question founders keep coming back to.',
+  excerptQuote: 'Patience is a verb: keep going, not waiting.',
+  askLabel: 'Ask',
+  askCtx: 'Build the right thing…',
+  askQ: 'What are the key takeaways and main arguments?',
+  askSumLabel: 'In one sentence',
+  askSum: 'An episode on the difference between <b style="color:var(--ink);">speed</b> and <b style="color:var(--ink);">progress</b>.',
+  askKeyLabel: 'Key points',
+  askBullet1: '• Speed ≠ progress — being productive in the wrong direction.',
+  askBullet2: '• Patience is a verb: keep going, not waiting.',
+  askCitations: '↩ 4 citations · 06:30 · 17:41 · 34:02',
+  askInput: 'Ask a question…',
+  miniTitle: 'Build the right thing…',
+  miniTime: '17:41 / 52:00',
+  searchRecent1: '⟲ patagonia', searchRecent2: '⟲ instagram', searchRecent3: '⟲ patience',
+  pod5: 'AI Culture', pod5sub: 'Anthony Morel · BFM',
+  pod6: 'General Knowledge', pod6sub: 'Choses à savoir · 320 ep.',
+  nowPlayingLabel: 'NOW PLAYING',
+  infoTab: 'Info',
+  searchInTranscript: '⌕ Search in transcript…',
+};
 ---
 
 <!-- APP MOBILE TEASER -->
@@ -11,11 +110,11 @@ const dotsId = `aa-${uid}-dots`;
   <div class="container">
     <div class="mobile-tease">
       <div class="mobile-tease-copy">
-        <div class="eyebrow"><span class="dot">●</span> Prochainement · iOS &amp; Android</div>
-        <h2 style="margin-top: 16px;">Audioask dans<br><span class="serif-it">votre poche.</span></h2>
-        <p class="lede" style="max-width: 38ch; margin-top: 20px;">Toute votre bibliothèque, vos signets et vos automations dans une vraie app mobile. Même compte, même expérience — partout.</p>
+        <div class="eyebrow"><span class="dot">●</span> {copy.eyebrow}</div>
+        <h2 style="margin-top: 16px;" set:html={copy.heading}></h2>
+        <p class="lede" style="max-width: 38ch; margin-top: 20px;">{copy.lede}</p>
         <div style="margin-top: 32px;">
-          <a class="btn btn-primary" href="/app-mobile">Découvrir l'app mobile <span class="arrow">→</span></a>
+          <a class="btn btn-primary" href={copy.ctaHref}>{copy.cta} <span class="arrow">→</span></a>
         </div>
       </div>
       <div class="mobile-tease-visual">
@@ -80,7 +179,7 @@ const dotsId = `aa-${uid}-dots`;
 }
 </style>
 
-<script define:vars={{ phId, scrId, dotsId }}>
+<script define:vars={{ phId, scrId, dotsId, t }}>
 (function () {
   var AA_CONFIG = { screenMs: 4200, pauseOffscreen: true };
   var ICON = {
@@ -90,21 +189,21 @@ const dotsId = `aa-${uid}-dots`;
     lib:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4v16M9 4l4 16M13 4v16M17 6l3 14"/></svg>',
   };
   function tabs(active) {
-    var t = [['feed','Feed'],['search','Recherche'],['play','Playlists'],['lib','Ma lib.']];
-    return '<div class="aa-tabs">' + t.map(function(a) {
+    var tabDefs = [['feed', t.tabFeed], ['search', t.tabSearch], ['play', t.tabPlay], ['lib', t.tabLib]];
+    return '<div class="aa-tabs">' + tabDefs.map(function(a) {
       return '<span class="aa-tab' + (active===a[0]?' on':'') + '">' + ICON[a[0]] + a[1] + '</span>';
     }).join('') + '</div>';
   }
-  var mini = '<div class="aa-mini"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:31px;height:31px;"><div><div style="font-size:11px;font-weight:600;color:var(--cream);">Construire la bonne ch…</div><div style="font-size:9px;color:rgba(255,255,255,0.4);font-family:var(--mono);">17:41 / 52:00</div></div><span class="pl">&#9658;</span></div>';
+  var mini = '<div class="aa-mini"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:31px;height:31px;"><div><div style="font-size:11px;font-weight:600;color:var(--cream);">' + t.miniTitle + '</div><div style="font-size:9px;color:rgba(255,255,255,0.4);font-family:var(--mono);">' + t.miniTime + '</div></div><span class="pl">&#9658;</span></div>';
   var sb = '<div class="aa-sb"><span>9:41</span><span style="color:var(--ink);">●●● ⌃ ▭</span></div>';
 
   var SCREENS = [
-    { screen: sb+'<div class="aa-pad"><div class="aa-kick">Vos abonnements</div><div class="aa-h">Feed</div><div class="aa-chips"><span class="aa-chip on">Tous</span><span class="aa-chip"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:15px;height:15px;border-radius:4px;">GDIY</span><span class="aa-chip">Loycocracy</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:38px;height:38px;"><span class="t">Construire la bonne chose, pas seulement bien la construire</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-acquired.jpg" style="width:38px;height:38px;"><span class="t">Patagonia : bâtir une marque qui dit non à la croissance</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-lex.jpg" style="width:38px;height:38px;"><span class="t">La semaine de 4 jours, on a vraiment testé</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-huberman.jpg" style="width:38px;height:38px;"><span class="t">Le goût comme compétence qui s’entraîne</span></div></div>'+mini+tabs('feed') },
-    { screen: sb+'<div class="aa-pad"><div class="aa-h">Recherche</div><div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--ink-3);margin:11px 0 13px;">⌕ Podcasts, épisodes, sujets…</div><div class="aa-kick" style="margin-bottom:7px;">Recherches récentes</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px;"><span class="aa-chip">⟲ patagonia</span><span class="aa-chip">⟲ instagram</span><span class="aa-chip">⟲ patience</span></div><div class="aa-kick" style="margin-bottom:7px;">Découvrir</div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-a16z.jpg" style="width:38px;height:38px;"><div style="flex:1;"><div class="t">Culture IA</div><div style="font-size:9px;color:var(--ink-3);">Anthony Morel · BFM</div></div><span class="aa-badge soft" style="font-size:10px;">+ Suivre</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-founders.jpg" style="width:38px;height:38px;"><div style="flex:1;"><div class="t">Culture Générale</div><div style="font-size:9px;color:var(--ink-3);">Choses à savoir · 320 ép.</div></div><span class="aa-badge soft" style="font-size:10px;">+ Suivre</span></div></div>'+mini+tabs('search') },
-    { screen: sb+'<div class="aa-pad"><div class="aa-h">Bibliothèque</div><div class="aa-chips"><span class="aa-chip on">Channels</span><span class="aa-chip">Episodes</span><span class="aa-chip">Prompt</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;"><div><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">GDIY</div><div style="font-size:9px;color:var(--ink-3);">412 épisodes</div></div><div><img class="aa-cover" src="/assets/pod-huberman.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">Loycocracy</div><div style="font-size:9px;color:var(--ink-3);">38 épisodes</div></div><div><img class="aa-cover" src="/assets/pod-acquired.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">Acquired</div><div style="font-size:9px;color:var(--ink-3);">56 épisodes</div></div><div><img class="aa-cover" src="/assets/pod-lex.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">Le Super Daily</div><div style="font-size:9px;color:var(--ink-3);">1009 épisodes</div></div></div></div>'+mini+tabs('lib') },
-    { screen: sb+'<div class="aa-pad" style="align-items:center;text-align:center;"><div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin:2px 0 14px;"><span style="color:var(--ink-3);font-size:16px;">⌄</span><span style="font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:var(--ink-3);">EN LECTURE</span><span style="color:var(--accent);">♥</span></div><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:196px;height:196px;border-radius:18px;box-shadow:0 22px 46px -16px rgba(26,22,20,0.4);"><div style="font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-top:16px;">Construire la bonne chose, pas seulement bien la construire</div><div style="font-size:11px;color:var(--accent-ink);font-weight:600;margin-top:6px;">GDIY · Matthieu Stefani</div><div style="width:100%;margin-top:14px;"><div style="height:4px;background:var(--cream-3);border-radius:2px;position:relative;"><div style="position:absolute;left:0;top:0;bottom:0;width:34%;background:var(--accent);border-radius:2px;"></div><div style="position:absolute;left:34%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--accent);"></div></div><div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-3);margin-top:5px;"><span>17:41</span><span>−34:19</span></div></div><div style="display:flex;align-items:center;gap:18px;margin-top:14px;"><span style="color:var(--ink-2);font-size:13px;">↺15</span><span style="font-size:18px;">⏮</span><span style="width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;">▶</span><span style="font-size:18px;">⏭</span><span style="color:var(--ink-2);font-size:13px;">30↻</span></div></div><div style="height:12px;"></div>' },
-    { screen: sb+'<div class="aa-pad"><div style="display:flex;align-items:center;gap:9px;margin:4px 0 9px;"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:44px;height:44px;border-radius:10px;"><div><div style="font-size:12.5px;font-weight:600;line-height:1.2;">Construire la bonne chose</div><div style="font-size:9px;color:var(--ink-3);font-family:var(--mono);">28 MAI · 52 MIN</div></div></div><div style="display:flex;gap:7px;margin-bottom:9px;"><span style="font-size:11px;color:var(--ink-3);">Info</span><span style="font-size:11px;font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:5px;">Transcript</span><span style="font-size:11px;color:var(--ink-3);">Signets</span><span style="font-size:11px;color:var(--ink-3);">Réponses</span></div><div style="background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 11px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-3);margin-bottom:10px;">⌕ Rechercher dans la transcription…</div><div style="display:flex;align-items:center;gap:6px;font-size:9px;color:var(--accent);font-family:var(--mono);margin-bottom:7px;">● TRANSCRIT · suit la lecture</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-3);margin-bottom:3px;">0:00 · SPEAKER_00</div><div style="font-size:11.5px;line-height:1.5;color:var(--ink-2);margin-bottom:9px;">Bienvenue dans cet épisode. Aujourd’hui on s’attaque à une question qui revient sans cesse chez les fondateurs.</div><div style="font-family:var(--mono);font-size:9px;color:var(--accent-ink);margin-bottom:3px;">6:30 · SPEAKER_01</div><div style="font-size:11.5px;line-height:1.5;color:var(--ink);background:var(--accent-soft);padding:5px 8px;border-radius:6px;">La patience est un verbe : continuer, pas attendre.</div></div>'+mini+tabs('feed') },
-    { screen: sb+'<div class="aa-pad"><div style="display:flex;align-items:center;gap:9px;margin:4px 0 11px;"><span style="width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;">✦</span><div style="flex:1;"><b style="font-size:13px;">Ask</b><div style="font-size:9px;color:var(--ink-3);">Construire la bonne chose…</div></div><span style="color:var(--ink-3);">✕</span></div><div style="align-self:flex-end;margin-left:auto;background:var(--cream-2);padding:9px 12px;border-radius:13px 13px 4px 13px;font-size:11.5px;max-width:80%;">Quels sont les points clés et arguments principaux ?</div><div style="margin-top:9px;background:var(--paper);border:1px solid var(--line);border-radius:13px 13px 13px 4px;padding:11px 13px;font-size:11.5px;line-height:1.5;"><b>En une phrase</b><div style="color:var(--ink-2);margin-top:3px;">Un épisode sur la différence entre <b style="color:var(--ink);">vitesse</b> et <b style="color:var(--ink);">progrès</b>.</div><b style="display:block;margin-top:8px;">Points clés</b><div style="color:var(--ink-2);margin-top:4px;">• Vitesse ≠ progrès — productif dans la mauvaise direction.</div><div style="color:var(--ink-2);margin-top:3px;">• La patience est un verbe : continuer, pas attendre.</div><div style="margin-top:8px;font-size:9px;font-family:var(--mono);color:var(--accent-ink);">↩ 4 citations · 06:30 · 17:41 · 34:02</div></div></div><div style="padding:0 16px 8px;"><div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-3);">Posez une question…<span style="margin-left:auto;" class="aa-badge soft">Ask</span></div></div>'+tabs('feed') },
+    { screen: sb+'<div class="aa-pad"><div class="aa-kick">'+t.feedKick+'</div><div class="aa-h">'+t.feedTitle+'</div><div class="aa-chips"><span class="aa-chip on">'+t.chipAll+'</span><span class="aa-chip"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:15px;height:15px;border-radius:4px;">GDIY</span><span class="aa-chip">Loycocracy</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:38px;height:38px;"><span class="t">'+t.ep1+'</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-acquired.jpg" style="width:38px;height:38px;"><span class="t">'+t.ep2+'</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-lex.jpg" style="width:38px;height:38px;"><span class="t">'+t.ep3+'</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-huberman.jpg" style="width:38px;height:38px;"><span class="t">'+t.ep4+'</span></div></div>'+mini+tabs('feed') },
+    { screen: sb+'<div class="aa-pad"><div class="aa-h">'+t.tabSearch+'</div><div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--ink-3);margin:11px 0 13px;">'+t.searchPlaceholder+'</div><div class="aa-kick" style="margin-bottom:7px;">'+t.recentSearches+'</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px;"><span class="aa-chip">'+t.searchRecent1+'</span><span class="aa-chip">'+t.searchRecent2+'</span><span class="aa-chip">'+t.searchRecent3+'</span></div><div class="aa-kick" style="margin-bottom:7px;">'+t.discover+'</div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-a16z.jpg" style="width:38px;height:38px;"><div style="flex:1;"><div class="t">'+t.pod5+'</div><div style="font-size:9px;color:var(--ink-3);">'+t.pod5sub+'</div></div><span class="aa-badge soft" style="font-size:10px;">'+t.follow+'</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-founders.jpg" style="width:38px;height:38px;"><div style="flex:1;"><div class="t">'+t.pod6+'</div><div style="font-size:9px;color:var(--ink-3);">'+t.pod6sub+'</div></div><span class="aa-badge soft" style="font-size:10px;">'+t.follow+'</span></div></div>'+mini+tabs('search') },
+    { screen: sb+'<div class="aa-pad"><div class="aa-h">'+t.libTitle+'</div><div class="aa-chips"><span class="aa-chip on">'+t.chipCh+'</span><span class="aa-chip">'+t.chipEp+'</span><span class="aa-chip">'+t.chipPr+'</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;"><div><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">'+t.pod1+'</div><div style="font-size:9px;color:var(--ink-3);">'+t.pod1ep+'</div></div><div><img class="aa-cover" src="/assets/pod-huberman.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">'+t.pod2+'</div><div style="font-size:9px;color:var(--ink-3);">'+t.pod2ep+'</div></div><div><img class="aa-cover" src="/assets/pod-acquired.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">'+t.pod3+'</div><div style="font-size:9px;color:var(--ink-3);">'+t.pod3ep+'</div></div><div><img class="aa-cover" src="/assets/pod-lex.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">'+t.pod4+'</div><div style="font-size:9px;color:var(--ink-3);">'+t.pod4ep+'</div></div></div></div>'+mini+tabs('lib') },
+    { screen: sb+'<div class="aa-pad" style="align-items:center;text-align:center;"><div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin:2px 0 14px;"><span style="color:var(--ink-3);font-size:16px;">⌄</span><span style="font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:var(--ink-3);">'+t.nowPlayingLabel+'</span><span style="color:var(--accent);">♥</span></div><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:196px;height:196px;border-radius:18px;box-shadow:0 22px 46px -16px rgba(26,22,20,0.4);"><div style="font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-top:16px;">'+t.ep1+'</div><div style="font-size:11px;color:var(--accent-ink);font-weight:600;margin-top:6px;">'+t.artist+'</div><div style="width:100%;margin-top:14px;"><div style="height:4px;background:var(--cream-3);border-radius:2px;position:relative;"><div style="position:absolute;left:0;top:0;bottom:0;width:34%;background:var(--accent);border-radius:2px;"></div><div style="position:absolute;left:34%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--accent);"></div></div><div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-3);margin-top:5px;"><span>17:41</span><span>−34:19</span></div></div><div style="display:flex;align-items:center;gap:18px;margin-top:14px;"><span style="color:var(--ink-2);font-size:13px;">↺15</span><span style="font-size:18px;">⏮</span><span style="width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;">▶</span><span style="font-size:18px;">⏭</span><span style="color:var(--ink-2);font-size:13px;">30↻</span></div></div><div style="height:12px;"></div>' },
+    { screen: sb+'<div class="aa-pad"><div style="display:flex;align-items:center;gap:9px;margin:4px 0 9px;"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:44px;height:44px;border-radius:10px;"><div><div style="font-size:12.5px;font-weight:600;line-height:1.2;">'+t.ep1+'</div><div style="font-size:9px;color:var(--ink-3);font-family:var(--mono);">28 MAY · 52 MIN</div></div></div><div style="display:flex;gap:7px;margin-bottom:9px;"><span style="font-size:11px;color:var(--ink-3);">'+t.infoTab+'</span><span style="font-size:11px;font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:5px;">'+t.tabTranscript+'</span><span style="font-size:11px;color:var(--ink-3);">'+t.tabBookmarks+'</span><span style="font-size:11px;color:var(--ink-3);">'+t.tabAnswers+'</span></div><div style="background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 11px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-3);margin-bottom:10px;">'+t.searchInTranscript+'</div><div style="display:flex;align-items:center;gap:6px;font-size:9px;color:var(--accent);font-family:var(--mono);margin-bottom:7px;">'+t.transcribed+'</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-3);margin-bottom:3px;">0:00 · SPEAKER_00</div><div style="font-size:11.5px;line-height:1.5;color:var(--ink-2);margin-bottom:9px;">'+t.excerptIntro+'</div><div style="font-family:var(--mono);font-size:9px;color:var(--accent-ink);margin-bottom:3px;">6:30 · SPEAKER_01</div><div style="font-size:11.5px;line-height:1.5;color:var(--ink);background:var(--accent-soft);padding:5px 8px;border-radius:6px;">'+t.excerptQuote+'</div></div>'+mini+tabs('feed') },
+    { screen: sb+'<div class="aa-pad"><div style="display:flex;align-items:center;gap:9px;margin:4px 0 11px;"><span style="width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;">✦</span><div style="flex:1;"><b style="font-size:13px;">'+t.askLabel+'</b><div style="font-size:9px;color:var(--ink-3);">'+t.askCtx+'</div></div><span style="color:var(--ink-3);">✕</span></div><div style="align-self:flex-end;margin-left:auto;background:var(--cream-2);padding:9px 12px;border-radius:13px 13px 4px 13px;font-size:11.5px;max-width:80%;">'+t.askQ+'</div><div style="margin-top:9px;background:var(--paper);border:1px solid var(--line);border-radius:13px 13px 13px 4px;padding:11px 13px;font-size:11.5px;line-height:1.5;"><b>'+t.askSumLabel+'</b><div style="color:var(--ink-2);margin-top:3px;">'+t.askSum+'</div><b style="display:block;margin-top:8px;">'+t.askKeyLabel+'</b><div style="color:var(--ink-2);margin-top:4px;">'+t.askBullet1+'</div><div style="color:var(--ink-2);margin-top:3px;">'+t.askBullet2+'</div><div style="margin-top:8px;font-size:9px;font-family:var(--mono);color:var(--accent-ink);">'+t.askCitations+'</div></div></div><div style="padding:0 16px 8px;"><div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-3);">'+t.askInput+'<span style="margin-left:auto;" class="aa-badge soft">'+t.askLabel+'</span></div></div>'+tabs('feed') },
   ];
 
   var scrEl  = document.getElementById(scrId);

@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — Audioask"
+  description="A question, a bug, a partnership? We read every message. Reach out to the Audioask team."
+  activePage=""
+  lang="en"
+  alternatePath="/contact"
+>
+
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container" style="max-width: 640px; text-align: center;">
+    <div class="eyebrow" style="justify-content: center;"><span class="dot">●</span> Contact</div>
+    <h1 style="margin-top: 18px;">Get in touch.<br><span class="em-serif">We read everything.</span></h1>
+    <p class="lede" style="margin: 20px auto 0; max-width: 44ch;">Feedback, feature requests, bug reports, partnerships — we're listening.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section paper">
+  <div class="container" style="max-width: 600px;">
+    <form action="/contact-handler.php" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+      <!-- Honeypot anti-spam -->
+      <input type="text" name="website" id="website" style="display:none;" tabindex="-1" autocomplete="off">
+
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+      </div>
+
+      <div class="field">
+        <label for="sujet">Subject</label>
+        <select id="sujet" name="sujet" required>
+          <option value="" disabled selected>Select a subject</option>
+          <option value="feedback">Product feedback</option>
+          <option value="bug">Bug report</option>
+          <option value="feature">Feature request</option>
+          <option value="partnership">Partnership</option>
+          <option value="billing">Billing question</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required rows="6" placeholder="Tell us what's on your mind…"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 0 28px; height: 48px;">
+        Send message <span class="arrow">→</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<style>
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 13px; font-weight: 600; color: var(--ink); }
+.field input, .field select, .field textarea {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  transition: border-color 0.15s;
+  outline: none;
+  width: 100%;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+.field textarea { resize: vertical; }
+</style>
+</Layout>

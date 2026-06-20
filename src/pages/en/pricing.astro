@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const APP_URL = 'https://dev-app.audioask.ai';
+---
+
+<Layout
+  title="Pricing — Audioask"
+  description="Start for free. Upgrade from €3/month. Full feature comparison and transparent usage pricing."
+  activePage="tarifs"
+  lang="en"
+  alternatePath="/tarifs"
+>
+
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container" style="max-width: 760px; text-align: center;">
+    <div class="eyebrow" style="justify-content: center;"><span class="dot">●</span> Pricing</div>
+    <h1 style="margin-top: 18px;">Start for free.<br><span class="em-serif">Upgrade when you're ready.</span></h1>
+    <p class="lede" style="margin: 20px auto 0; max-width: 48ch;">No commitment, no credit card to get started. 1h of transcription included in the free plan.</p>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="section paper">
+  <div class="container" style="max-width: 960px;">
+    <div class="price-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+      <!-- FREE -->
+      <div class="plan">
+        <div class="plan-head">
+          <div class="plan-name">Free</div>
+          <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">TO EXPLORE</span>
+        </div>
+        <div class="price">€0<small>&nbsp;/month</small></div>
+        <ul class="plan-feats">
+          <li>1h of transcription / month</li>
+          <li>3 AI episode analyses / month</li>
+          <li>Community library access</li>
+          <li>Full-text search</li>
+          <li>Timestamped bookmarks</li>
+          <li>Player · variable speed</li>
+        </ul>
+        <a class="btn btn-ghost" href={`${APP_URL}/signup`} style="justify-content: center;">Get started free <span class="arrow">→</span></a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan featured">
+        <div class="plan-head">
+          <div class="plan-name">Premium</div>
+          <span class="plan-tag">RECOMMENDED</span>
+        </div>
+        <div class="price">€3<small>&nbsp;/month</small></div>
+        <div class="plan-sub">For enthusiasts</div>
+        <ul class="plan-feats">
+          <li>5h of transcription / month</li>
+          <li>30 AI episode analyses / month</li>
+          <li>Multilingual translation <span style="font-family: var(--mono); font-size: 9px; padding: 1px 6px; border-radius: 999px; background: var(--ink); color: var(--cream); letter-spacing: 0.06em;">COMING SOON</span></li>
+          <li>1 automated channel</li>
+          <li>Saved prompts</li>
+          <li>Saved AI results</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn btn-primary" href={`${APP_URL}/signup?plan=premium`} style="justify-content: center;">Try Premium <span class="arrow">→</span></a>
+      </div>
+
+      <!-- PRO -->
+      <div class="plan">
+        <div class="plan-head">
+          <div class="plan-name">Pro</div>
+          <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">FOR PROFESSIONALS</span>
+        </div>
+        <div class="price">€19<small>&nbsp;/month</small><span style="font-size: 13px; color: var(--ink-3); font-family: var(--sans); font-weight: 400;"> + usage</span></div>
+        <ul class="plan-feats">
+          <li>20h of transcription / month <em style="color: var(--ink-3); font-style: normal; font-size: 12px;">then €2/h</em></li>
+          <li>25M AI characters / month <em style="color: var(--ink-3); font-style: normal; font-size: 12px;">then €2/M chars</em></li>
+          <li>Cross-episode AI (full channels)</li>
+          <li>Unlimited automated channels</li>
+          <li>Unlimited saved prompts</li>
+          <li>Export PDF / MD / SRT</li>
+          <li>Widget Embed</li>
+          <li>Dedicated support</li>
+        </ul>
+        <a class="btn btn-ghost" href={`${APP_URL}/signup?plan=pro`} style="justify-content: center;">Start Pro trial <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section">
+  <div class="container" style="max-width: 860px;">
+    <div class="eyebrow center"><span class="dot">●</span> Full comparison</div>
+    <h2 style="text-align: center; margin-top: 16px;">Feature by feature.</h2>
+
+    <div style="margin-top: 48px; overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--line);">
+            <th style="text-align: left; padding: 12px 16px; color: var(--ink-3); font-weight: 500; width: 44%;">Feature</th>
+            <th style="text-align: center; padding: 12px; color: var(--ink); font-weight: 700;">Free</th>
+            <th style="text-align: center; padding: 12px; color: var(--accent-ink); font-weight: 700; background: var(--accent-tint); border-radius: 8px 8px 0 0;">Premium</th>
+            <th style="text-align: center; padding: 12px; color: var(--ink); font-weight: 700;">Pro</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            { label: "Transcription", free: "1h / month", premium: "5h / month", pro: "20h / month" },
+            { label: "Additional transcription", free: "–", premium: "–", pro: "€2 / hour" },
+            { label: "AI episode analyses", free: "3 / month", premium: "30 / month", pro: "25M chars / month" },
+            { label: "Additional AI analyses", free: "–", premium: "–", pro: "€2 / M chars" },
+            { label: "Community library", free: "✓", premium: "✓", pro: "✓" },
+            { label: "Full-text search", free: "✓", premium: "✓", pro: "✓" },
+            { label: "Bookmarks", free: "✓", premium: "✓", pro: "✓" },
+            { label: "Player · variable speed", free: "✓", premium: "✓", pro: "✓" },
+            { label: "Saved prompts", free: "–", premium: "✓", pro: "Unlimited" },
+            { label: "Saved AI results", free: "–", premium: "✓", pro: "✓" },
+            { label: "Automated channels", free: "–", premium: "1", pro: "Unlimited" },
+            { label: "Translation (12 languages)", free: "–", premium: "Coming soon", pro: "Coming soon" },
+            { label: "Cross-episode AI", free: "–", premium: "–", pro: "✓" },
+            { label: "Export PDF / MD / SRT", free: "–", premium: "–", pro: "✓" },
+            { label: "Widget Embed", free: "–", premium: "–", pro: "✓" },
+            { label: "Support", free: "Community", premium: "Priority", pro: "Dedicated" },
+          ].map((row, i) => (
+            <tr style={`border-bottom: 1px solid var(--line); ${i % 2 === 0 ? 'background: var(--cream);' : ''}`}>
+              <td style="padding: 12px 16px; color: var(--ink-2);">{row.label}</td>
+              <td style="text-align: center; padding: 12px; color: var(--ink-2);">{row.free}</td>
+              <td style="text-align: center; padding: 12px; background: var(--accent-tint); color: var(--ink); font-weight: row.premium === '✓' ? '600' : '400';">{row.premium}</td>
+              <td style="text-align: center; padding: 12px; color: var(--ink-2);">{row.pro}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section paper">
+  <div class="container" style="max-width: 720px;">
+    <div class="eyebrow center"><span class="dot">●</span> FAQ</div>
+    <h2 style="text-align: center; margin-top: 16px;">Billing questions.</h2>
+    <div class="faq" style="margin-top: 48px;">
+      <details class="faq-item">
+        <summary>Is the free plan really free, forever?</summary>
+        <p>Yes. No credit card, no trial period. The free plan gives you access to the core features permanently. Upgrade only when you want more quota.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is billing handled?</summary>
+        <p>Subscription billing is monthly, via Paddle (our payment processor). You can cancel at any time from your account settings — your plan stays active until the end of the paid period.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if I exceed my monthly quota?</summary>
+        <p>On Free and Premium, processing stops until the next monthly reset. On Pro, usage continues at the pay-per-use rates (€2/h transcription, €2/M AI characters).</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do unused credits roll over?</summary>
+        <p>No. Monthly quotas reset on your billing date each month.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I switch plans at any time?</summary>
+        <p>Yes — upgrade or downgrade at any time. Upgrades take effect immediately; downgrades apply at the next billing cycle.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark cta-final">
+  <div class="container">
+    <h2>Ready to get started?</h2>
+    <p class="lede" style="margin: 0 auto 36px; max-width: 46ch; color: var(--night-text-2);">Free account — 1h of transcription included. No card needed.</p>
+    <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Create a free account <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+  .price-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+</Layout>

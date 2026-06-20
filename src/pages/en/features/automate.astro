@@ -1,0 +1,183 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+const APP_URL = 'https://dev-app.audioask.ai';
+---
+
+<Layout
+  title="Automate podcast processing — Audioask"
+  description="Set up automation on any channel: every new episode is automatically transcribed, analyzed by AI, and delivered to your library or inbox."
+  activePage="features"
+  lang="en"
+  alternatePath="/fonctionnalites/automatiser"
+>
+
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container" style="max-width: 860px; text-align: center;">
+    <div class="eyebrow" style="justify-content: center;"><span class="dot">●</span> Automate</div>
+    <h1 style="margin-top: 18px;">New episodes processed<br><span class="em-serif">while you sleep.</span></h1>
+    <p class="lede" style="margin: 20px auto 0; max-width: 54ch;">Set it once. Every new episode from a channel is transcribed, analyzed by AI, and delivered where you want it — your library, email, or Slack.</p>
+    <div class="hero-ctas" style="justify-content: center; margin-top: 32px;">
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Try for free <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP FLOW -->
+<section class="section paper">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> Setup in 3 steps</div>
+    <h2 style="text-align: center; margin-top: 16px;">Configure once,<br><span class="serif-it">forget forever.</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px;">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Pick a channel</h3>
+        <p>Choose which podcast channel to automate. Audioask watches for new episodes in real time — no RSS polling needed on your end.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Define your prompt</h3>
+        <p>Choose what you want AI to do with each new episode: executive brief, key quotes, bullet points. Pick from your saved prompts or write a custom one.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Choose delivery</h3>
+        <p>Results go to your Audioask library, your inbox (formatted email), or a Slack channel of your choice. Mix and match.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> How it works</div>
+    <h2 style="text-align: center; margin-top: 16px;">Automation that<br><span class="serif-it">works like you do.</span></h2>
+
+    <div class="feat-grid" style="margin-top: 56px; grid-template-columns: repeat(3, 1fr);">
+
+      <div class="feat-card">
+        <div class="feat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        </div>
+        <h3>Activate, adjust, or pause at any time</h3>
+        <p>Toggle automation per channel with one click. Pause when you're on holiday, resume on your return. No subscription changes needed.</p>
+        <div class="feat-visual" style="background: var(--cream-2);">
+          <div style="position: absolute; inset: 20px; display: flex; flex-direction: column; gap: 8px;">
+            {[
+              { name: "Acquired", active: true },
+              { name: "The Knowledge Project", active: true },
+              { name: "Lex Fridman", active: false },
+            ].map(ch => (
+              <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 12.5px;">
+                <span style={`width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: ${ch.active ? 'var(--accent)' : 'var(--ink-3)'};`}></span>
+                <span style="flex: 1;">{ch.name}</span>
+                <span style={`font-family: var(--mono); font-size: 9px; padding: 2px 7px; border-radius: 999px; ${ch.active ? 'background: var(--accent-soft); color: var(--accent-ink);' : 'background: var(--cream-3); color: var(--ink-3);'}`}>{ch.active ? 'ACTIVE' : 'PAUSED'}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h18v4H3zM3 10h18M3 14h18v4H3z"/></svg>
+        </div>
+        <h3>Detects new episodes within minutes</h3>
+        <p>Audioask checks RSS feeds every hour. A new episode published this morning? It's in your library — transcribed and analyzed — before lunch.</p>
+        <div class="feat-visual">
+          <div style="position: absolute; inset: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">AUTOMATION LOG · ACQUIRED</div>
+            {[
+              { ep: "#119 — Nvidia", time: "34 min ago", status: "✓ Delivered" },
+              { ep: "#118 — Costco", time: "Yesterday", status: "✓ Delivered" },
+              { ep: "#117 — Hermès", time: "May 10", status: "✓ Delivered" },
+            ].map(log => (
+              <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; display: flex; gap: 10px; align-items: center; font-size: 11.5px;">
+                <span style="color: var(--accent); font-size: 9px;">●</span>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{log.ep}</div>
+                  <div style="color: var(--ink-3); font-size: 10px;">{log.time}</div>
+                </div>
+                <span style="font-family: var(--mono); font-size: 9px; color: var(--accent); flex-shrink: 0;">{log.status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </div>
+        <h3>Results delivered where you work</h3>
+        <p>Library, formatted email, or Slack — pick one or all three. The email includes the AI analysis, key quotes, and a link back to the full transcript.</p>
+        <div class="feat-visual" style="background: var(--cream-2);">
+          <div style="position: absolute; inset: 16px;">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;">
+              <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); margin-bottom: 10px;">EMAIL PREVIEW</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 4px;">✦ Audioask · Acquired #119</div>
+              <div style="font-size: 10.5px; color: var(--ink-2); line-height: 1.5; margin-bottom: 8px;">New episode transcribed &amp; analyzed · Nvidia: the decade that changed everything</div>
+              <div style="font-size: 11px; color: var(--ink-2); line-height: 1.6; padding-top: 8px; border-top: 1px dashed var(--line);">
+                <div><b style="color: var(--accent);">1.</b> Bet on CUDA in 2006</div>
+                <div><b style="color: var(--accent);">2.</b> Acquired Mellanox in 2019</div>
+                <div><b style="color: var(--accent);">3.</b> Bet on generative AI in 2018</div>
+              </div>
+              <div style="margin-top: 10px; padding: 6px 12px; background: var(--accent); color: white; border-radius: 6px; text-align: center; font-size: 11px; font-weight: 600;">Read the full transcript →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section paper">
+  <div class="container" style="max-width: 720px;">
+    <div class="eyebrow center"><span class="dot">●</span> FAQ</div>
+    <h2 style="text-align: center; margin-top: 16px;">Questions about<br><span class="serif-it">automation.</span></h2>
+    <div class="faq" style="margin-top: 48px;">
+      <details class="faq-item">
+        <summary>How long after publication does an episode get processed?</summary>
+        <p>Our system checks feeds every hour. Once a new episode is detected, transcription and AI analysis run back-to-back. Total delay: typically under 2 hours after the episode publishes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many channels can I automate?</summary>
+        <p>Premium plan: 1 automated channel. Pro plan: unlimited channels.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What credits does automation consume?</summary>
+        <p>Each automated episode consumes transcription credits (per hour of audio) and AI analysis credits (per analysis run). These come from your monthly quota. You'll be notified if you run low.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I automate different prompts for different channels?</summary>
+        <p>Yes — each channel has its own automation config: its own prompt, delivery destinations, and on/off toggle. Fully independent.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What delivery options are available?</summary>
+        <p>Library (always), email (your account email), and Slack (via webhook — copy your workspace webhook URL in settings). More integrations coming soon.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark cta-final">
+  <div class="container">
+    <h2>Your first automation,<br><span class="em-serif">in 2 minutes.</span></h2>
+    <p class="lede" style="margin: 0 auto 36px; max-width: 48ch; color: var(--night-text-2);">1 automated channel included in the Premium plan from €3/month.</p>
+    <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Get started free <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<style>
+.step-card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px; }
+.step-num { font-family: var(--mono); font-size: 11px; color: var(--accent-ink); letter-spacing: 0.1em; margin-bottom: 16px; }
+.step-card h3 { font-size: 18px; margin: 0 0 12px; }
+.step-card p { color: var(--ink-2); font-size: 14px; line-height: 1.6; margin: 0; }
+@media (max-width: 768px) {
+  [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+}
+</style>
+</Layout>

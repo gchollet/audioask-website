@@ -1,46 +1,76 @@
 ---
+const { lang = 'fr' } = Astro.props;
+const isFr = lang === 'fr';
+
+const links = isFr ? {
+  transcribe: '/fonctionnalites/transcrire',
+  ask:        '/fonctionnalites/interroger',
+  automate:   '/fonctionnalites/automatiser',
+  translate:  '/fonctionnalites/traduire',
+  mobile:     '/app-mobile',
+  pricing:    '/tarifs',
+  about:      '/a-propos',
+  blog:       '/blog',
+  contact:    '/contact',
+  privacy:    '/confidentialite',
+  legal:      '/mentions-legales',
+  home:       '/',
+} : {
+  transcribe: '/en/features/transcribe',
+  ask:        '/en/features/ask',
+  automate:   '/en/features/automate',
+  translate:  '/en/features/translate',
+  mobile:     '/en/mobile',
+  pricing:    '/en/pricing',
+  about:      '/en/about',
+  blog:       '/blog',
+  contact:    '/en/contact',
+  privacy:    '/en/privacy',
+  legal:      '/en/legal',
+  home:       '/en/',
+};
 ---
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
       <div>
-        <a href="/" class="site-logo" style="color: var(--night-text);">
+        <a href={links.home} class="site-logo" style="color: var(--night-text);">
           <span class="logo-mark">A</span><span>Audioask</span>
         </a>
         <p style="color: var(--night-text-3); max-width: 32ch; margin-top: 14px; font-size: 13.5px; line-height: 1.5;">
-          Le savoir audio, aussi accessible que le texte.
+          {isFr ? 'Le savoir audio, aussi accessible que le texte.' : 'Audio knowledge, as accessible as text.'}
         </p>
         <div class="trust-row">
           <span>🇨🇭 Swiss Made</span>
           <span>🇪🇺 EU Hosted</span>
-          <span>🔒 RGPD</span>
+          <span>🔒 {isFr ? 'RGPD' : 'GDPR'}</span>
         </div>
       </div>
       <div>
-        <h5>Produit</h5>
+        <h5>{isFr ? 'Produit' : 'Product'}</h5>
         <ul>
-          <li><a href="/fonctionnalites/transcrire">Transcrire</a></li>
-          <li><a href="/fonctionnalites/interroger">Interroger</a></li>
-          <li><a href="/fonctionnalites/automatiser">Automatiser</a></li>
-          <li><a href="/fonctionnalites/traduire">Traduire</a></li>
-          <li><a href="/app-mobile">App mobile</a></li>
-          <li><a href="/tarifs">Tarifs</a></li>
+          <li><a href={links.transcribe}>{isFr ? 'Transcrire' : 'Transcribe'}</a></li>
+          <li><a href={links.ask}>{isFr ? 'Interroger' : 'Ask AI'}</a></li>
+          <li><a href={links.automate}>{isFr ? 'Automatiser' : 'Automate'}</a></li>
+          <li><a href={links.translate}>{isFr ? 'Traduire' : 'Translate'}</a></li>
+          <li><a href={links.mobile}>{isFr ? 'App mobile' : 'Mobile app'}</a></li>
+          <li><a href={links.pricing}>{isFr ? 'Tarifs' : 'Pricing'}</a></li>
         </ul>
       </div>
       <div>
-        <h5>Société</h5>
+        <h5>{isFr ? 'Société' : 'Company'}</h5>
         <ul>
-          <li><a href="/a-propos">À propos</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href={links.about}>{isFr ? 'À propos' : 'About'}</a></li>
+          <li><a href={links.blog}>Blog</a></li>
+          <li><a href={links.contact}>Contact</a></li>
         </ul>
       </div>
       <div>
-        <h5>Légal</h5>
+        <h5>{isFr ? 'Légal' : 'Legal'}</h5>
         <ul>
-          <li><a href="/confidentialite">Confidentialité</a></li>
-          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href={links.privacy}>{isFr ? 'Confidentialité' : 'Privacy policy'}</a></li>
+          <li><a href={links.legal}>{isFr ? 'Mentions légales' : 'Legal notice'}</a></li>
         </ul>
       </div>
     </div>

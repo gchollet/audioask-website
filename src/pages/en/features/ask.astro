@@ -1,0 +1,172 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+const APP_URL = 'https://dev-app.audioask.ai';
+---
+
+<Layout
+  title="Ask AI questions about any episode — Audioask"
+  description="Ask anything about a podcast episode in plain English. AI answers with timestamped citations you can verify in one click."
+  activePage="features"
+  lang="en"
+  alternatePath="/fonctionnalites/interroger"
+>
+
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container" style="max-width: 900px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+      <div>
+        <div class="eyebrow"><span class="dot">●</span> Ask AI</div>
+        <h1 style="margin-top: 18px;">Ask questions.<br><span class="em-serif">The episode answers.</span></h1>
+        <p class="lede" style="margin-top: 18px;">In plain language, on any episode. AI answers with timestamped citations — verifiable in one click. No hallucinations: every claim is grounded in what was actually said.</p>
+        <div class="hero-ctas" style="margin-top: 28px;">
+          <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Try for free <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <!-- LIVE DEMO CARD -->
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.07);">
+        <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent);"></span>
+          ACQUIRED · #119 · NVIDIA
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: var(--cream-2); border-radius: 10px 10px 4px 10px; padding: 10px 14px; font-size: 13px; color: var(--ink); align-self: flex-end; max-width: 85%;">
+            What are Jensen Huang's 3 bets that made Nvidia?
+          </div>
+          <div style="background: var(--cream); border: 1px solid var(--line); border-radius: 4px 10px 10px 10px; padding: 12px 14px; font-size: 13px; color: var(--ink-2); line-height: 1.6;">
+            <div><span style="color: var(--accent); font-weight: 700;">1.</span> Betting on <b>CUDA</b> in 2006 — the proprietary compute layer.</div>
+            <div><span style="color: var(--accent); font-weight: 700;">2.</span> Acquiring <b>Mellanox</b> in 2019 to lock in the datacenter.</div>
+            <div><span style="color: var(--accent); font-weight: 700;">3.</span> Betting on <b>generative AI</b> two years before ChatGPT.</div>
+            <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line-2); font-size: 10.5px; color: var(--ink-3); display: flex; gap: 8px;">↩ 3 citations <span style="font-family: var(--mono); color: var(--accent-ink);">12:42</span><span style="font-family: var(--mono); color: var(--accent-ink);">52:10</span><span style="font-family: var(--mono); color: var(--accent-ink);">1:47:18</span></div>
+          </div>
+          <div style="background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 8px;">
+            <span>✎</span><span style="font-style: italic;">Ask another question…</span>
+            <span style="margin-left: auto; width: 22px; height: 20px; border-radius: 5px; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE QUESTIONS -->
+<section class="section paper">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> Example questions</div>
+    <h2 style="text-align: center; margin-top: 16px;">Ask anything.<br><span class="serif-it">Really anything.</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 48px;">
+      {[
+        { q: "What are the book recommendations mentioned in this episode?", tag: "Knowledge capture" },
+        { q: "Summarize in 5 bullet points.", tag: "Synthesis" },
+        { q: "What statistics or data are cited?", tag: "Fact-checking" },
+        { q: "What companies are mentioned, and in what context?", tag: "Research" },
+        { q: "Which arguments are the most debatable?", tag: "Critical analysis" },
+        { q: "What are the top 3 actionable takeaways?", tag: "Action" },
+      ].map(item => (
+        <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 20px;">
+          <span style="display: inline-block; margin-bottom: 12px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; padding: 3px 8px; background: var(--accent-soft); color: var(--accent-ink); border-radius: 999px;">{item.tag}</span>
+          <p style="font-size: 14px; color: var(--ink); line-height: 1.5; margin: 0; font-style: italic;">"{item.q}"</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- TWO MODES -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> Two modes</div>
+    <h2 style="text-align: center; margin-top: 16px;">One episode, or<br><span class="serif-it">an entire channel.</span></h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;">
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 32px;">
+        <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 16px;">FREE &amp; PREMIUM</div>
+        <h3>Single episode</h3>
+        <p style="color: var(--ink-2); font-size: 14px; line-height: 1.6;">Ask questions about one episode at a time. The AI is grounded in that episode's transcript — no drift, no hallucinations.</p>
+        <div style="margin-top: 20px; padding: 14px 16px; background: var(--cream-2); border-radius: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.5; font-style: italic;">"What is the main thesis of this episode?"</div>
+      </div>
+      <div style="background: var(--ink); border-radius: 20px; padding: 32px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 20px; right: 24px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; padding: 3px 9px; background: var(--accent); color: white; border-radius: 999px;">PRO</div>
+        <div style="font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; margin-bottom: 16px;">PRO PLAN</div>
+        <h3 style="color: white;">Cross-episode AI</h3>
+        <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6;">Ask questions across your entire channel library. "What do all 50 episodes of Acquired say about founder conviction?" — answered in seconds.</p>
+        <div style="margin-top: 20px; padding: 14px 16px; background: rgba(255,255,255,0.08); border-radius: 10px; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; font-style: italic;">"Which guest mentioned first principles thinking the most?"</div>
+        <a href="/en/professionals" style="display: inline-block; margin-top: 20px; font-size: 13px; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 1px; text-decoration: none;">Learn about the Pro plan →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVED PROMPTS -->
+<section class="section paper">
+  <div class="container" style="max-width: 800px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+      <div>
+        <div class="eyebrow"><span class="dot">●</span> Saved prompts</div>
+        <h2 style="margin-top: 16px;">Save your best questions.<br><span class="serif-it">Reuse in one click.</span></h2>
+        <p style="color: var(--ink-2); font-size: 15px; line-height: 1.7; margin-top: 16px;">Build your personal prompt library. "Executive brief · 5 points", "Key stats", "Memorable quotes" — one click and the AI applies it to any episode with citations.</p>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+        {[
+          { icon: "★", label: "Executive brief · 5 points" },
+          { icon: "☆", label: "Key statistics" },
+          { icon: "☆", label: "Memorable quotes" },
+          { icon: "☆", label: "Book recommendations" },
+          { icon: "☆", label: "Debatable arguments" },
+        ].map((p, i) => (
+          <div style={`display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; font-size: 13px; ${i === 0 ? 'background: var(--accent-soft); border: 1px solid var(--accent);' : 'background: var(--cream-2); border: 1px solid transparent;'}`}>
+            <span style="color: var(--accent);">{p.icon}</span>
+            <span style="flex: 1;">{p.label}</span>
+            {i === 0 && <span style="font-family: var(--mono); font-size: 9px; padding: 2px 7px; background: var(--accent); color: white; border-radius: 999px;">▶ RUN</span>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container" style="max-width: 720px;">
+    <div class="eyebrow center"><span class="dot">●</span> FAQ</div>
+    <h2 style="text-align: center; margin-top: 16px;">Questions about<br><span class="serif-it">AI interrogation.</span></h2>
+    <div class="faq" style="margin-top: 48px;">
+      <details class="faq-item">
+        <summary>Does the AI ever make things up?</summary>
+        <p>No. Every answer is strictly grounded in the episode transcript. If the information wasn't said in the episode, the AI says so — it doesn't invent. Each claim links back to a verifiable timestamp.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does the episode need to be transcribed first?</summary>
+        <p>Yes — AI interrogation requires a transcript. If the episode hasn't been transcribed yet, Audioask will prompt you to do so first. It only takes a few minutes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What counts as "an AI analysis"?</summary>
+        <p>Each question you ask on an episode counts as one AI analysis. Saved prompts applied to an episode each count as one analysis.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I ask in a different language than the episode?</summary>
+        <p>Yes. You can ask in English about a French episode, or vice versa. The AI understands the transcript's language and responds in yours.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is cross-episode AI?</summary>
+        <p>A Pro-only feature that lets you query your entire channel library at once — "What did all Acquired episodes say about company moats?" — instead of one episode at a time.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark cta-final">
+  <div class="container">
+    <h2>Ask your first question <span class="em-serif">today.</span></h2>
+    <p class="lede" style="margin: 0 auto 36px; max-width: 48ch; color: var(--night-text-2);">3 free analyses per month included. No card required.</p>
+    <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Create a free account <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+  [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+}
+</style>
+</Layout>

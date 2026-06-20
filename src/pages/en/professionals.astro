@@ -1,0 +1,287 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const APP_URL = 'https://dev-app.audioask.ai';
+---
+
+<Layout
+  title="Audioask Pro — For professionals who work with podcasts"
+  description="Transcribe at scale, analyze entire channels with AI, automate every new episode. The Pro plan for podcast editors, communication agencies, and journalists."
+  activePage="pro"
+  lang="en"
+  alternatePath="/pro"
+>
+
+<!-- HERO -->
+<section class="hero dotbg">
+  <div class="container" style="max-width: 860px; text-align: center;">
+    <div class="eyebrow" style="justify-content: center;"><span class="dot">●</span> Pro plan · €19/month</div>
+    <h1 style="margin-top: 18px;">Built for people who<br><span class="em-serif">work with podcasts.</span></h1>
+    <p class="lede" style="margin: 20px auto 0; max-width: 54ch;">Cross-episode AI analysis, unlimited automations, scalable transcription. The professional layer on top of Audioask.</p>
+    <div class="hero-ctas" style="justify-content: center; margin-top: 32px;">
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup?plan=pro`}>Start Pro trial <span class="arrow">→</span></a>
+      <a class="btn btn-ghost lg" href="/en/pricing">See all plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATED FEATURE TOUR -->
+<section class="section paper">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> Pro features</div>
+    <h2 style="text-align: center; margin-top: 16px;">Four capabilities<br><span class="serif-it">that change how you work.</span></h2>
+
+    <div class="pro-tabs" id="pro-tabs" style="margin-top: 48px;">
+      <!-- TAB LABELS -->
+      <div class="pro-tab-labels" role="tablist">
+        {["Saved prompts", "Cross-episode AI", "Automations", "Widget Embed"].map((label, i) => (
+          <button class={`pro-tab-label ${i === 0 ? 'active' : ''}`} role="tab" aria-selected={i === 0} data-tab={i}>{label}</button>
+        ))}
+      </div>
+
+      <!-- TAB PANELS -->
+      <div class="pro-tab-panels">
+
+        <!-- 01 PROMPTS -->
+        <div class="pro-tab-panel active" data-panel="0">
+          <div class="pro-panel-grid">
+            <div>
+              <h3>Unlimited reusable prompts.</h3>
+              <p>Build a personal library of questions and analysis templates. "Executive brief", "Key quotes", "Action items" — applied to any episode in one click, with cited answers.</p>
+              <ul class="pro-checklist">
+                <li>Unlimited saved prompts</li>
+                <li>One-click apply to any episode</li>
+                <li>Cited, verifiable answers</li>
+                <li>Share prompts with your team</li>
+              </ul>
+            </div>
+            <div class="pro-panel-visual">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 4px;">MY PROMPTS · 6 saved</div>
+                {[
+                  { icon: "★", label: "Executive brief · 5 points", active: true },
+                  { icon: "☆", label: "Key statistics &amp; data" },
+                  { icon: "☆", label: "Memorable quotes" },
+                  { icon: "☆", label: "Book recommendations" },
+                  { icon: "☆", label: "Action items" },
+                  { icon: "☆", label: "Debatable arguments" },
+                ].map((p, i) => (
+                  <div style={`display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; font-size: 13px; ${p.active ? 'background: var(--accent-soft); border: 1px solid var(--accent);' : 'background: var(--cream-2); border: 1px solid transparent;'}`}>
+                    <span style="color: var(--accent);">{p.icon}</span>
+                    <span style="flex: 1;" set:html={p.label}></span>
+                    {p.active && <span style="font-family: var(--mono); font-size: 9px; padding: 2px 7px; background: var(--accent); color: white; border-radius: 999px;">▶ RUN</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 CROSS-EPISODE AI -->
+        <div class="pro-tab-panel" data-panel="1">
+          <div class="pro-panel-grid">
+            <div>
+              <h3>Query your entire channel library.</h3>
+              <p>Ask questions across all transcribed episodes of a channel at once. "What did Acquired say about moats across all 100+ episodes?" — answered in seconds, with citations.</p>
+              <ul class="pro-checklist">
+                <li>Query across full channels</li>
+                <li>Cross-episode thematic analysis</li>
+                <li>Citations from all relevant episodes</li>
+                <li>Comparative insights across time</li>
+              </ul>
+            </div>
+            <div class="pro-panel-visual">
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">AI · CROSS-EPISODE · ACQUIRED (127 eps.)</div>
+                <div style="background: var(--cream-2); border-radius: 10px 10px 4px 10px; padding: 10px 14px; font-size: 13px; color: var(--ink); align-self: flex-end; max-width: 90%;">Which guests mentioned Jensen Huang the most?</div>
+                <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 4px 10px 10px 10px; padding: 12px 14px; font-size: 13px; color: var(--ink-2); line-height: 1.6;">
+                  <div><span style="color: var(--accent); font-weight: 700;">1.</span> <b>Elad Gil</b> · 4 episodes</div>
+                  <div><span style="color: var(--accent); font-weight: 700;">2.</span> <b>Keith Rabois</b> · 3 episodes</div>
+                  <div><span style="color: var(--accent); font-weight: 700;">3.</span> <b>Sarah Tavel</b> · 2 episodes</div>
+                  <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 10.5px; color: var(--ink-3);">↩ 12 citations across 8 episodes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 AUTOMATIONS -->
+        <div class="pro-tab-panel" data-panel="2">
+          <div class="pro-panel-grid">
+            <div>
+              <h3>Unlimited automated channels.</h3>
+              <p>Every new episode from every channel you care about, processed and delivered — transcript, AI analysis, email or Slack — automatically. No limits on the Pro plan.</p>
+              <ul class="pro-checklist">
+                <li>Unlimited channels</li>
+                <li>Transcription + AI analysis on every new episode</li>
+                <li>Delivery: library, email, Slack</li>
+                <li>Custom prompt per channel</li>
+              </ul>
+            </div>
+            <div class="pro-panel-visual">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 4px;">AUTOMATED CHANNELS · 8 active</div>
+                {["Acquired", "The Knowledge Project", "Lex Fridman", "Founders", "Tim Ferriss Show"].map(name => (
+                  <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--cream-2); border-radius: 8px; font-size: 12.5px;">
+                    <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0;"></span>
+                    <span style="flex: 1;">{name}</span>
+                    <span style="font-family: var(--mono); font-size: 9px; padding: 2px 7px; background: var(--accent-soft); color: var(--accent-ink); border-radius: 999px;">ACTIVE</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 WIDGET EMBED -->
+        <div class="pro-tab-panel" data-panel="3">
+          <div class="pro-panel-grid">
+            <div>
+              <h3>Embed Audioask on your site.</h3>
+              <p>Add the Audioask widget to any web page. Your visitors can listen, read, and ask questions about episodes — without leaving your site.</p>
+              <ul class="pro-checklist">
+                <li>Embeddable iframe widget</li>
+                <li>Full player + transcript + AI</li>
+                <li>Custom branding</li>
+                <li>Analytics on usage</li>
+              </ul>
+            </div>
+            <div class="pro-panel-visual">
+              <div style="border: 2px dashed var(--line-2); border-radius: 12px; padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">YOUR WEBSITE</span>
+                <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; width: 100%; padding: 12px 14px;">
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; margin-bottom: 8px;">
+                    <span style="width: 22px; height: 22px; border-radius: 5px; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0;">A</span>
+                    <span style="font-weight: 600;">Audioask · Episode player</span>
+                  </div>
+                  <div style="height: 4px; background: var(--accent-tint); border-radius: 3px; margin-bottom: 8px;"><div style="width: 35%; height: 100%; background: var(--accent); border-radius: 3px;"></div></div>
+                  <div style="font-size: 11px; color: var(--ink-3); font-style: italic;">Full transcript · AI Q&amp;A · Bookmarks</div>
+                </div>
+                <div style="background: var(--cream-2); border-radius: 8px; padding: 8px 12px; width: 100%; font-family: var(--mono); font-size: 10px; color: var(--ink-3); text-align: left;">&lt;iframe src="audioask.ai/embed/…"&gt;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE BLOCKS -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> What's included in Pro</div>
+    <h2 style="text-align: center; margin-top: 16px;">Everything you need<br><span class="serif-it">at professional scale.</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px;">
+      {[
+        { icon: "◎", title: "20h of transcription / month", sub: "then €2/h — no artificial cap", desc: "High-volume transcription with per-use overflow. Suitable for teams processing dozens of episodes per month." },
+        { icon: "✦", title: "25M AI characters / month", sub: "then €2/M characters", desc: "Enough for hundreds of episode analyses. Cross-episode AI on large channels stays well within the monthly quota." },
+        { icon: "⊞", title: "Cross-episode AI", sub: "query entire channels", desc: "The only plan that lets you ask questions across a whole channel's episode library. Essential for trend analysis and research." },
+        { icon: "⚡", title: "Unlimited automations", sub: "transcription + analysis + delivery", desc: "Automate every channel you follow. Each new episode is processed and delivered with zero manual intervention." },
+        { icon: "∞", title: "Unlimited saved prompts", sub: "reusable, shareable", desc: "Build a library of analysis templates. Apply them to any episode instantly and share with teammates." },
+        { icon: "↗", title: "Export PDF / MD / SRT", sub: "all formats included", desc: "Download transcripts and AI analyses in the format that works for your workflow — SRT for subtitles, Markdown for docs, PDF to share." },
+      ].map(feat => (
+        <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: flex; gap: 20px;">
+          <span style="font-size: 22px; color: var(--accent); flex-shrink: 0; line-height: 1;">{feat.icon}</span>
+          <div>
+            <div style="font-size: 16px; font-weight: 700; color: var(--ink);">{feat.title}</div>
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); letter-spacing: 0.06em; margin: 4px 0 10px;">{feat.sub}</div>
+            <p style="font-size: 14px; color: var(--ink-2); line-height: 1.6; margin: 0;">{feat.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK EFFECT — DARK -->
+<section class="section dark">
+  <div class="container" style="max-width: 760px; text-align: center;">
+    <div class="eyebrow" style="color: var(--accent); justify-content: center;"><span class="dot">●</span> Shared library</div>
+    <h2 style="margin-top: 16px;">+185M episodes,<br><span class="serif-it">already available.</span></h2>
+    <p class="lede" style="margin: 20px auto 0; max-width: 50ch; color: var(--night-text-2);">Pro users contribute to and benefit from the shared library. When you transcribe, the community benefits — and vice versa. Your credits go further.</p>
+    <div style="margin-top: 32px;">
+      <div style="font-family: var(--serif); font-size: 64px; line-height: 1; letter-spacing: -0.03em; color: var(--accent);">+185M</div>
+      <div style="font-size: 15px; color: var(--night-text-3); margin-top: 8px;">episodes in the shared library</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAS -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow center"><span class="dot">●</span> Who uses Pro</div>
+    <h2 style="text-align: center; margin-top: 16px;">Built for these<br><span class="serif-it">three profiles.</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;">
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px;">
+        <div style="font-size: 28px; margin-bottom: 16px;">🎙️</div>
+        <h3>Podcast editors</h3>
+        <p style="color: var(--ink-2); font-size: 14px; line-height: 1.6;">Transcribe every episode, auto-generate show notes and chapter titles, archive transcripts for the whole catalog. Save hours per episode.</p>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px;">
+        <div style="font-size: 28px; margin-bottom: 16px;">📢</div>
+        <h3>Communication agencies</h3>
+        <p style="color: var(--ink-2); font-size: 14px; line-height: 1.6;">Monitor industry channels, extract key insights automatically, produce client briefings from podcast content — at scale, without manual work.</p>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px;">
+        <div style="font-size: 28px; margin-bottom: 16px;">📰</div>
+        <h3>Journalists &amp; analysts</h3>
+        <p style="color: var(--ink-2); font-size: 14px; line-height: 1.6;">Quote accurately with timestamp citations. Search across hundreds of episodes for your research. Never miss a relevant interview again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section dark cta-final">
+  <div class="container">
+    <h2>Start your Pro trial<br><span class="em-serif">today.</span></h2>
+    <p class="lede" style="margin: 0 auto 36px; max-width: 46ch; color: var(--night-text-2);">€19/month · Full Pro access from day one.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a class="btn btn-primary lg" href={`${APP_URL}/signup?plan=pro`}>Start Pro trial <span class="arrow">→</span></a>
+      <a class="btn btn-ghost lg" href="/en/pricing" style="color: var(--night-text); border-color: var(--night-line-2);">Compare all plans</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const labels = document.querySelectorAll<HTMLButtonElement>('.pro-tab-label');
+const panels = document.querySelectorAll<HTMLElement>('.pro-tab-panel');
+
+labels.forEach(label => {
+  label.addEventListener('click', () => {
+    const idx = Number(label.dataset.tab);
+    labels.forEach(l => { l.classList.remove('active'); l.setAttribute('aria-selected', 'false'); });
+    panels.forEach(p => p.classList.remove('active'));
+    label.classList.add('active');
+    label.setAttribute('aria-selected', 'true');
+    const panel = document.querySelector<HTMLElement>(`.pro-tab-panel[data-panel="${idx}"]`);
+    if (panel) panel.classList.add('active');
+  });
+});
+</script>
+
+<style>
+.pro-tabs { }
+.pro-tab-labels { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
+.pro-tab-label { background: none; border: none; padding: 12px 20px; font-size: 14px; cursor: pointer; color: var(--ink-3); border-bottom: 2px solid transparent; margin-bottom: -1px; font-family: var(--sans); transition: color 0.15s; }
+.pro-tab-label.active, .pro-tab-label:hover { color: var(--ink); }
+.pro-tab-label.active { color: var(--accent-ink); border-bottom-color: var(--accent); }
+.pro-tab-panel { display: none; }
+.pro-tab-panel.active { display: block; }
+.pro-panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.pro-panel-grid h3 { font-size: 22px; margin: 0 0 16px; }
+.pro-panel-grid p { color: var(--ink-2); font-size: 15px; line-height: 1.7; margin: 0 0 24px; }
+.pro-checklist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.pro-checklist li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-2); }
+.pro-checklist li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.pro-panel-visual { background: var(--cream-2); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+@media (max-width: 768px) {
+  .pro-panel-grid { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+  .pro-tab-labels { gap: 0; }
+  .pro-tab-label { padding: 10px 14px; font-size: 13px; }
+}
+</style>
+</Layout>
