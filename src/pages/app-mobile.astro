@@ -4,18 +4,36 @@ const APP_URL = 'https://dev-app.audioask.ai';
 ---
 
 <Layout
-  title="App mobile Audioask — Bientôt sur iOS et Android"
-  description="Audioask arrive sur mobile. Toute votre bibliothèque, vos signets et vos automations dans une vraie app iOS et Android. Inscrivez-vous pour être notifié à la sortie."
+  title="App mobile Audioask — Podcasts iOS & Android, bientôt disponible"
+  description="L'app Audioask arrive sur iPhone et Android. Écoutez, transcrivez et interrogez vos podcasts en mobilité. Rejoignez la liste d'attente et soyez notifié à la sortie."
   activePage=""
 >
 
 <Fragment slot="head">
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Audioask", "item": "https://www.audioask.ai" },
-      { "@type": "ListItem", "position": 2, "name": "App mobile", "item": "https://www.audioask.ai/app-mobile" }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Audioask", "item": "https://www.audioask.ai" },
+          { "@type": "ListItem", "position": 2, "name": "App mobile", "item": "https://www.audioask.ai/app-mobile" }
+        ]
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Audioask",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "MultimediaApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Application mobile Audioask — écoutez, transcrivez et interrogez vos podcasts sur iPhone et Android.",
+        "url": "https://www.audioask.ai/app-mobile",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Audioask",
+          "url": "https://www.audioask.ai"
+        }
+      }
     ]
   })} />
 </Fragment>

@@ -1,0 +1,136 @@
+---
+interface Props { uid?: string; }
+const { uid = 'tease' } = Astro.props;
+const phId   = `aa-${uid}-ph`;
+const scrId  = `aa-${uid}-scr`;
+const dotsId = `aa-${uid}-dots`;
+---
+
+<!-- APP MOBILE TEASER -->
+<section class="section">
+  <div class="container">
+    <div class="mobile-tease">
+      <div class="mobile-tease-copy">
+        <div class="eyebrow"><span class="dot">●</span> Bientôt disponible · iOS &amp; Android</div>
+        <h2 style="margin-top: 16px;">Audioask dans<br><span class="serif-it">votre poche.</span></h2>
+        <p class="lede" style="max-width: 38ch; margin-top: 20px;">Toute votre bibliothèque, vos signets et vos automations dans une vraie app mobile. Même compte, même expérience — partout.</p>
+        <div style="margin-top: 32px;">
+          <a class="btn btn-primary" href="/app-mobile">Découvrir l'app mobile <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mobile-tease-visual">
+        <div class="aa-tease-wrap">
+          <div class="aa-phone" id={phId}>
+            <div class="aa-island"></div>
+            <div class="aa-screens" id={scrId}></div>
+          </div>
+          <div class="aa-dots" id={dotsId}></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+/* ---- MOBILE TEASER LAYOUT ---- */
+.mobile-tease {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.mobile-tease-visual { display: flex; justify-content: center; }
+
+/* ---- PHONE ANIMATION (aa-*) ---- */
+.aa-phone { width: 280px; height: 570px; border-radius: 46px; background: #0E0B0A; padding: 9px; box-shadow: 0 44px 100px -34px rgba(26,22,20,0.55), 0 14px 34px -12px rgba(26,22,20,0.25); transform: rotate(-3deg); flex-shrink: 0; }
+.aa-screens { position: relative; width: 100%; height: 100%; border-radius: 38px; overflow: hidden; background: var(--cream); }
+.aa-island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 84px; height: 24px; background: #0E0B0A; border-radius: 13px; z-index: 9; }
+.aa-screen { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; transform: translateY(14px) scale(0.99); transition: opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1); pointer-events: none; }
+.aa-screen.on { opacity: 1; transform: none; }
+.aa-screens:not([data-js]) .aa-screen:first-child { opacity: 1; transform: none; }
+.aa-sb { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px 6px; font-size: 10px; font-weight: 600; color: var(--ink-2); flex-shrink: 0; }
+.aa-pad { padding: 6px 14px 0; flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+.aa-kick { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 10px; }
+.aa-h { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 10px; }
+.aa-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.aa-chip { font-size: 10.5px; padding: 4px 10px; border-radius: 999px; background: var(--cream-2); color: var(--ink-2); border: 1px solid var(--line); }
+.aa-chip.on { background: var(--accent-soft); color: var(--accent-ink); border-color: transparent; }
+.aa-cover { border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.aa-ep { display: flex; align-items: center; gap: 9px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.aa-ep .t { font-size: 11.5px; font-weight: 600; line-height: 1.3; color: var(--ink); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.aa-mini { display: flex; align-items: center; gap: 9px; margin: auto 12px 8px; padding: 8px 12px; background: var(--ink); border-radius: 14px; flex-shrink: 0; color: var(--cream); }
+.aa-mini .pl { width: 26px; height: 26px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; flex-shrink: 0; padding-left: 1px; }
+.aa-tabs { display: flex; border-top: 1px solid var(--line); flex-shrink: 0; }
+.aa-tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 7px 4px 4px; font-size: 8.5px; color: var(--ink-3); }
+.aa-tab svg { width: 17px; height: 17px; }
+.aa-tab.on { color: var(--accent); }
+.aa-badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.aa-badge.accent { background: var(--accent); color: #fff; }
+.aa-badge.soft { background: var(--cream-2); color: var(--ink-2); border: 1px solid var(--line); }
+.aa-dots { display: flex; gap: 7px; margin-top: 20px; justify-content: center; }
+.aa-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(26,22,20,0.16); transition: width .35s, background .35s; display: block; }
+.aa-dots i.on { width: 22px; border-radius: 4px; background: var(--accent); }
+.aa-tease-wrap { display: flex; flex-direction: column; align-items: center; }
+@media (prefers-reduced-motion: reduce) { .aa-screen { transition: none; } }
+
+@media (max-width: 900px) {
+  .mobile-tease { grid-template-columns: 1fr; gap: 40px; }
+  .mobile-tease-visual { order: -1; }
+  .aa-tease-wrap { transform: scale(0.7); transform-origin: top center; margin-bottom: -180px; }
+}
+</style>
+
+<script define:vars={{ phId, scrId, dotsId }}>
+(function () {
+  var AA_CONFIG = { screenMs: 4200, pauseOffscreen: true };
+  var ICON = {
+    feed:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L22 22"/></svg>',
+    play:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h11M4 12h11M4 18h7M19 7v10l4-2z"/></svg>',
+    lib:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4v16M9 4l4 16M13 4v16M17 6l3 14"/></svg>',
+  };
+  function tabs(active) {
+    var t = [['feed','Feed'],['search','Recherche'],['play','Playlists'],['lib','Ma lib.']];
+    return '<div class="aa-tabs">' + t.map(function(a) {
+      return '<span class="aa-tab' + (active===a[0]?' on':'') + '">' + ICON[a[0]] + a[1] + '</span>';
+    }).join('') + '</div>';
+  }
+  var mini = '<div class="aa-mini"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:31px;height:31px;"><div><div style="font-size:11px;font-weight:600;color:var(--cream);">Construire la bonne ch…</div><div style="font-size:9px;color:rgba(255,255,255,0.4);font-family:var(--mono);">17:41 / 52:00</div></div><span class="pl">&#9658;</span></div>';
+  var sb = '<div class="aa-sb"><span>9:41</span><span style="color:var(--ink);">●●● ⌃ ▭</span></div>';
+
+  var SCREENS = [
+    { screen: sb+'<div class="aa-pad"><div class="aa-kick">Vos abonnements</div><div class="aa-h">Feed</div><div class="aa-chips"><span class="aa-chip on">Tous</span><span class="aa-chip"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:15px;height:15px;border-radius:4px;">GDIY</span><span class="aa-chip">Loycocracy</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:38px;height:38px;"><span class="t">Construire la bonne chose, pas seulement bien la construire</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-acquired.jpg" style="width:38px;height:38px;"><span class="t">Patagonia : bâtir une marque qui dit non à la croissance</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-lex.jpg" style="width:38px;height:38px;"><span class="t">La semaine de 4 jours, on a vraiment testé</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-huberman.jpg" style="width:38px;height:38px;"><span class="t">Le goût comme compétence qui s’entraîne</span></div></div>'+mini+tabs('feed') },
+    { screen: sb+'<div class="aa-pad"><div class="aa-h">Recherche</div><div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--ink-3);margin:11px 0 13px;">⌕ Podcasts, épisodes, sujets…</div><div class="aa-kick" style="margin-bottom:7px;">Recherches récentes</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px;"><span class="aa-chip">⟲ patagonia</span><span class="aa-chip">⟲ instagram</span><span class="aa-chip">⟲ patience</span></div><div class="aa-kick" style="margin-bottom:7px;">Découvrir</div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-a16z.jpg" style="width:38px;height:38px;"><div style="flex:1;"><div class="t">Culture IA</div><div style="font-size:9px;color:var(--ink-3);">Anthony Morel · BFM</div></div><span class="aa-badge soft" style="font-size:10px;">+ Suivre</span></div><div class="aa-ep"><img class="aa-cover" src="/assets/pod-founders.jpg" style="width:38px;height:38px;"><div style="flex:1;"><div class="t">Culture Générale</div><div style="font-size:9px;color:var(--ink-3);">Choses à savoir · 320 ép.</div></div><span class="aa-badge soft" style="font-size:10px;">+ Suivre</span></div></div>'+mini+tabs('search') },
+    { screen: sb+'<div class="aa-pad"><div class="aa-h">Bibliothèque</div><div class="aa-chips"><span class="aa-chip on">Channels</span><span class="aa-chip">Episodes</span><span class="aa-chip">Prompt</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;"><div><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">GDIY</div><div style="font-size:9px;color:var(--ink-3);">412 épisodes</div></div><div><img class="aa-cover" src="/assets/pod-huberman.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">Loycocracy</div><div style="font-size:9px;color:var(--ink-3);">38 épisodes</div></div><div><img class="aa-cover" src="/assets/pod-acquired.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">Acquired</div><div style="font-size:9px;color:var(--ink-3);">56 épisodes</div></div><div><img class="aa-cover" src="/assets/pod-lex.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;"><div style="font-size:12px;font-weight:600;margin-top:5px;">Le Super Daily</div><div style="font-size:9px;color:var(--ink-3);">1009 épisodes</div></div></div></div>'+mini+tabs('lib') },
+    { screen: sb+'<div class="aa-pad" style="align-items:center;text-align:center;"><div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin:2px 0 14px;"><span style="color:var(--ink-3);font-size:16px;">⌄</span><span style="font-family:var(--mono);font-size:9px;letter-spacing:0.12em;color:var(--ink-3);">EN LECTURE</span><span style="color:var(--accent);">♥</span></div><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:196px;height:196px;border-radius:18px;box-shadow:0 22px 46px -16px rgba(26,22,20,0.4);"><div style="font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-top:16px;">Construire la bonne chose, pas seulement bien la construire</div><div style="font-size:11px;color:var(--accent-ink);font-weight:600;margin-top:6px;">GDIY · Matthieu Stefani</div><div style="width:100%;margin-top:14px;"><div style="height:4px;background:var(--cream-3);border-radius:2px;position:relative;"><div style="position:absolute;left:0;top:0;bottom:0;width:34%;background:var(--accent);border-radius:2px;"></div><div style="position:absolute;left:34%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--accent);"></div></div><div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-3);margin-top:5px;"><span>17:41</span><span>−34:19</span></div></div><div style="display:flex;align-items:center;gap:18px;margin-top:14px;"><span style="color:var(--ink-2);font-size:13px;">↺15</span><span style="font-size:18px;">⏮</span><span style="width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;">▶</span><span style="font-size:18px;">⏭</span><span style="color:var(--ink-2);font-size:13px;">30↻</span></div></div><div style="height:12px;"></div>' },
+    { screen: sb+'<div class="aa-pad"><div style="display:flex;align-items:center;gap:9px;margin:4px 0 9px;"><img class="aa-cover" src="/assets/pod-tkp.jpg" style="width:44px;height:44px;border-radius:10px;"><div><div style="font-size:12.5px;font-weight:600;line-height:1.2;">Construire la bonne chose</div><div style="font-size:9px;color:var(--ink-3);font-family:var(--mono);">28 MAI · 52 MIN</div></div></div><div style="display:flex;gap:7px;margin-bottom:9px;"><span style="font-size:11px;color:var(--ink-3);">Info</span><span style="font-size:11px;font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:5px;">Transcript</span><span style="font-size:11px;color:var(--ink-3);">Signets</span><span style="font-size:11px;color:var(--ink-3);">Réponses</span></div><div style="background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 11px;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--ink-3);margin-bottom:10px;">⌕ Rechercher dans la transcription…</div><div style="display:flex;align-items:center;gap:6px;font-size:9px;color:var(--accent);font-family:var(--mono);margin-bottom:7px;">● TRANSCRIT · suit la lecture</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-3);margin-bottom:3px;">0:00 · SPEAKER_00</div><div style="font-size:11.5px;line-height:1.5;color:var(--ink-2);margin-bottom:9px;">Bienvenue dans cet épisode. Aujourd’hui on s’attaque à une question qui revient sans cesse chez les fondateurs.</div><div style="font-family:var(--mono);font-size:9px;color:var(--accent-ink);margin-bottom:3px;">6:30 · SPEAKER_01</div><div style="font-size:11.5px;line-height:1.5;color:var(--ink);background:var(--accent-soft);padding:5px 8px;border-radius:6px;">La patience est un verbe : continuer, pas attendre.</div></div>'+mini+tabs('feed') },
+    { screen: sb+'<div class="aa-pad"><div style="display:flex;align-items:center;gap:9px;margin:4px 0 11px;"><span style="width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;">✦</span><div style="flex:1;"><b style="font-size:13px;">Ask</b><div style="font-size:9px;color:var(--ink-3);">Construire la bonne chose…</div></div><span style="color:var(--ink-3);">✕</span></div><div style="align-self:flex-end;margin-left:auto;background:var(--cream-2);padding:9px 12px;border-radius:13px 13px 4px 13px;font-size:11.5px;max-width:80%;">Quels sont les points clés et arguments principaux ?</div><div style="margin-top:9px;background:var(--paper);border:1px solid var(--line);border-radius:13px 13px 13px 4px;padding:11px 13px;font-size:11.5px;line-height:1.5;"><b>En une phrase</b><div style="color:var(--ink-2);margin-top:3px;">Un épisode sur la différence entre <b style="color:var(--ink);">vitesse</b> et <b style="color:var(--ink);">progrès</b>.</div><b style="display:block;margin-top:8px;">Points clés</b><div style="color:var(--ink-2);margin-top:4px;">• Vitesse ≠ progrès — productif dans la mauvaise direction.</div><div style="color:var(--ink-2);margin-top:3px;">• La patience est un verbe : continuer, pas attendre.</div><div style="margin-top:8px;font-size:9px;font-family:var(--mono);color:var(--accent-ink);">↩ 4 citations · 06:30 · 17:41 · 34:02</div></div></div><div style="padding:0 16px 8px;"><div style="background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-3);">Posez une question…<span style="margin-left:auto;" class="aa-badge soft">Ask</span></div></div>'+tabs('feed') },
+  ];
+
+  var scrEl  = document.getElementById(scrId);
+  var dotsEl = document.getElementById(dotsId);
+  var phoneEl = document.getElementById(phId);
+  if (!scrEl || !dotsEl || !phoneEl) return;
+
+  SCREENS.forEach(function (s) {
+    var sc = document.createElement('div'); sc.className = 'aa-screen'; sc.innerHTML = s.screen; scrEl.appendChild(sc);
+    var d  = document.createElement('i'); dotsEl.appendChild(d);
+  });
+  var screens = Array.from(scrEl.children), dots = Array.from(dotsEl.children);
+  scrEl.setAttribute('data-js', '');
+  var idx = 0, timer = null;
+  function render() {
+    screens.forEach(function (e, i) { e.classList.toggle('on', i === idx); });
+    dots.forEach(function (e, i) { e.classList.toggle('on', i === idx); });
+  }
+  function go(n) { idx = (n + screens.length) % screens.length; render(); }
+  function play() { clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, AA_CONFIG.screenMs); }
+  function pause() { clearInterval(timer); }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (AA_CONFIG.pauseOffscreen && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? play() : pause(); }); }, { threshold: 0.2 }).observe(phoneEl);
+    } else { play(); }
+  }
+  go(0);
+})();
+</script>
