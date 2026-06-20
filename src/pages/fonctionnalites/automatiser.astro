@@ -223,12 +223,48 @@ const APP_URL = 'https://dev-app.audioask.ai';
           <p class="lede">Chaque nouvel épisode est non seulement transcrit, mais aussi analysé par notre IA selon vos prompts. Résumé, citations clés, fact-checks, questions de suivi — votre veille devient une vraie conversation, pas une simple liste.</p>
           <a class="btn btn-primary arrow" href="/fonctionnalites/interroger" style="margin-top: 18px;">Découvrir la fonction IA <span class="arrow">→</span></a>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 12px; padding: 8px;">
-          <div style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); text-transform: uppercase; letter-spacing: 0.08em;">Email automatique reçu</div>
-          <div class="card" style="font-size: 13px;">
-            <div style="font-weight: 700; margin-bottom: 10px;">Acquired · #189 — OpenAI</div>
-            <div style="margin-bottom: 8px; color: var(--ink-2);"><strong>Points clés :</strong><br>1. Altman revient au board en mars 2024<br>2. Valorisation : 157 milliards $<br>3. GPT-5 en préparation</div>
-            <div style="color: var(--accent-ink); font-size: 12px; border-left: 2px solid var(--accent); padding-left: 8px;">"The difference between us and others is…" — 42:17</div>
+        <div class="demo" style="padding: 0; overflow: hidden; aspect-ratio: auto; gap: 0;">
+          <!-- Chrome fenêtre mail -->
+          <div style="background: var(--cream-2); padding: 10px 14px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 8px;">
+            <div style="display: flex; gap: 5px;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #f87171; opacity: .7;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #fbbf24; opacity: .7;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #4ade80; opacity: .7;"></span>
+            </div>
+            <div style="flex: 1; text-align: center; font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.05em;">Boîte de réception</div>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--accent); background: var(--accent-tint); border-radius: 10px; padding: 1px 7px;">1</span>
+          </div>
+          <!-- Item de liste (sélectionné) -->
+          <div style="background: var(--accent-tint); border-bottom: 1px solid var(--line); padding: 11px 16px; display: flex; gap: 10px; align-items: flex-start; cursor: default;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0;">A</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: var(--accent-ink);">Audioask</span>
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); white-space: nowrap;">il y a 3 min</span>
+              </div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--accent-ink); margin-top: 2px;">Acquired #189 — Résumé IA prêt</div>
+              <div style="font-size: 11px; color: var(--accent-deep); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;">Votre analyse de l'épisode OpenAI est disponible…</div>
+            </div>
+          </div>
+          <!-- Corps de l'email -->
+          <div style="padding: 16px 18px; background: var(--paper);">
+            <div style="padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line);">
+              <div style="font-size: 14px; font-weight: 700; color: var(--ink);">Acquired · #189 — OpenAI</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 5px; font-size: 11px; color: var(--ink-3);">
+                <span>De&nbsp;: <span style="color: var(--ink-2);">noreply@audioask.ai</span></span>
+                <span>·</span>
+                <span>À&nbsp;: <span style="color: var(--ink-2);">vous</span></span>
+              </div>
+            </div>
+            <div style="font-size: 12.5px; color: var(--ink-2); margin-bottom: 12px;">
+              <strong style="color: var(--ink);">Points clés&nbsp;:</strong>
+              <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 5px;">
+                <div style="display: flex; gap: 7px;"><span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">1.</span><span>Altman revient au board en mars 2024</span></div>
+                <div style="display: flex; gap: 7px;"><span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">2.</span><span>Valorisation&nbsp;: 157 milliards $</span></div>
+                <div style="display: flex; gap: 7px;"><span style="color: var(--accent); font-weight: 700; flex-shrink: 0;">3.</span><span>GPT-5 en préparation secrète</span></div>
+              </div>
+            </div>
+            <div style="font-size: 11.5px; font-style: italic; color: var(--accent-ink); border-left: 2px solid var(--accent); padding-left: 8px;">"The difference between us and others is…" — 42:17</div>
           </div>
         </div>
       </div>
