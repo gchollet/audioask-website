@@ -1,0 +1,5 @@
+# Bloquer l'accès direct aux fichiers de données
+<Files "waitlist.csv">
+    Order allow,deny
+    Deny from all
+</Files>

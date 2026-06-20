@@ -54,6 +54,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
         <div class="notify-block" id="notify-block">
           <p class="notify-label">Être notifié à la sortie de l'app</p>
           <form class="notify-form" id="notify-form" novalidate>
+            <input type="text" name="website" style="display:none;" autocomplete="off" tabindex="-1">
             <input type="email" id="notify-email" name="email" placeholder="votre@email.com" required autocomplete="email"/>
             <button type="submit" class="btn btn-primary">Me notifier <span class="arrow">→</span></button>
           </form>
@@ -171,6 +172,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
       </div>
       <div class="notify-block notify-block-inline" id="notify-block-2">
         <form class="notify-form" id="notify-form-2" novalidate>
+          <input type="text" name="website" style="display:none;" autocomplete="off" tabindex="-1">
           <input
             type="email"
             id="notify-email-2"

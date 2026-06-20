@@ -111,9 +111,6 @@ import Layout from '../layouts/Layout.astro';
   }
 </style>
 
-<!-- hCaptcha -->
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-
 <!-- HERO -->
 <section class="dotbg contact-hero">
   <div class="container">
@@ -127,8 +124,7 @@ import Layout from '../layouts/Layout.astro';
 <section class="section paper" style="padding-top: 0; padding-bottom: 0;">
   <div class="form-wrap">
     <div class="form-card">
-      <form id="contact-form" action="/contact-handler.php" method="POST" novalidate>
-        <input type="hidden" name="csrf_token" id="csrf_token">
+      <form id="contact-form" novalidate>
 
         <div class="contact-field">
           <label class="contact-label" for="nom">Nom</label>
@@ -178,7 +174,8 @@ import Layout from '../layouts/Layout.astro';
           ></textarea>
         </div>
 
-        <div class="h-captcha" data-sitekey="HCAPTCHA_SITE_KEY"></div>
+        <!-- Honeypot anti-spam : invisible pour les humains -->
+        <input type="text" name="website" id="website" style="display:none;" autocomplete="off" tabindex="-1">
 
         <div class="submit-row">
           <button type="submit" class="btn btn-primary lg" id="submit-btn">
@@ -199,20 +196,6 @@ import Layout from '../layouts/Layout.astro';
 </section>
 
 <script>
-  // CSRF token simple (aléatoire côté client, validé côté PHP)
-  function generateToken(length = 32) {
-    const arr = new Uint8Array(length);
-    crypto.getRandomValues(arr);
-    return Array.from(arr, b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  const tokenEl = document.getElementById('csrf_token') as HTMLInputElement | null;
-  if (tokenEl) {
-    const token = generateToken();
-    tokenEl.value = token;
-    sessionStorage.setItem('contact_csrf', token);
-  }
-
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const successEl = document.getElementById('form-success');
   const errorEl = document.getElementById('form-error');
@@ -222,11 +205,9 @@ import Layout from '../layouts/Layout.astro';
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Réinitialiser les messages
     if (successEl) successEl.style.display = 'none';
     if (errorEl) errorEl.style.display = 'none';
 
-    // Validation basique côté client
     const nom = (document.getElementById('nom') as HTMLInputElement)?.value.trim();
     const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
     const sujet = (document.getElementById('sujet') as HTMLSelectElement)?.value;
@@ -240,36 +221,20 @@ import Layout from '../layouts/Layout.astro';
       return;
     }
 
-    // Vérifier la présence de la réponse hCaptcha
-    const hcaptchaInput = form.querySelector('[name="h-captcha-response"]') as HTMLInputElement | null;
-    if (!hcaptchaInput || !hcaptchaInput.value) {
-      if (errorEl) {
-        errorEl.textContent = 'Merci de compléter le captcha.';
-        errorEl.style.display = 'block';
-      }
-      return;
-    }
-
-    // État chargement
     if (submitBtn) submitBtn.disabled = true;
     if (spinner) spinner.style.display = 'inline';
 
     try {
       const data = new FormData(form);
-      const response = await fetch('/contact-handler.php', {
-        method: 'POST',
-        body: data,
-      });
-
+      const response = await fetch('/contact-handler.php', { method: 'POST', body: data });
       const result = await response.json();
 
       if (result.success) {
         form.style.display = 'none';
         if (successEl) successEl.style.display = 'block';
       } else {
-        const msg = result.error || 'Une erreur est survenue. Merci de réessayer.';
         if (errorEl) {
-          errorEl.textContent = msg;
+          errorEl.textContent = result.error || 'Une erreur est survenue. Merci de réessayer.';
           errorEl.style.display = 'block';
         }
         if (submitBtn) submitBtn.disabled = false;
