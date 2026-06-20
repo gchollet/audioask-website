@@ -1447,6 +1447,9 @@ body.menu-open { overflow: hidden; }
 
   /* Floating cards */
   .float { display: none !important; }
+
+  /* Hero illustration masquée */
+  .product-stage { display: none !important; }
 }
 
 /* ================================================================
