@@ -1004,23 +1004,30 @@ const APP_URL = 'https://dev-app.audioask.ai';
 .aa-tease-wrap { display: flex; flex-direction: column; align-items: center; }
 @media (prefers-reduced-motion: reduce) { .aa-screen { transition: none; } }
 
-/* ---- FAN ÉVENTAIL ---- */
-.fan-stage { position: relative; width: 560px; height: 310px; margin: 0 auto; }
+/* ---- MOBILES CÔTE À CÔTE ---- */
+.fan-stage {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 268px;
+}
 .fan-phone {
-  position: absolute; bottom: 0; left: 280px;
-  width: 0; height: 0;
-  transform-origin: bottom center;
+  width: 132px;
+  height: 268px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
   opacity: 0;
 }
-.fan-phone:nth-child(1) { --fr: -20deg; transform: rotate(-20deg); z-index: 1; }
-.fan-phone:nth-child(2) { --fr: -12deg; transform: rotate(-12deg); z-index: 2; }
-.fan-phone:nth-child(3) { --fr: -4deg;  transform: rotate(-4deg);  z-index: 3; }
-.fan-phone:nth-child(4) { --fr:  4deg;  transform: rotate(4deg);   z-index: 4; }
-.fan-phone:nth-child(5) { --fr:  12deg; transform: rotate(12deg);  z-index: 5; }
-.fan-phone:nth-child(6) { --fr:  20deg; transform: rotate(20deg);  z-index: 6; }
 .fan-ph-inner {
-  position: absolute; bottom: 0; left: -140px;
-  transform: scale(0.52); transform-origin: bottom center;
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 280px;
+  transform: scale(0.471);
+  transform-origin: bottom left;
 }
 .fan-ph-inner .aa-phone { transform: none; }
 .fan-label {
@@ -1029,25 +1036,26 @@ const APP_URL = 'https://dev-app.audioask.ai';
   color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase;
 }
 @keyframes fanSweep {
-  from { opacity: 0; transform: rotate(0deg) scale(0.7) translateY(60px); }
-  to   { opacity: 1; transform: rotate(var(--fr, 0deg)) scale(1) translateY(0px); }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.fan-play .fan-phone { animation: fanSweep 0.6s cubic-bezier(.22,1,.36,1) both; }
+.fan-play .fan-phone { animation: fanSweep 0.28s ease both; }
 .fan-play .fan-phone:nth-child(1) { animation-delay: 0s; }
-.fan-play .fan-phone:nth-child(2) { animation-delay: 0.1s; }
-.fan-play .fan-phone:nth-child(3) { animation-delay: 0.2s; }
-.fan-play .fan-phone:nth-child(4) { animation-delay: 0.3s; }
-.fan-play .fan-phone:nth-child(5) { animation-delay: 0.4s; }
-.fan-play .fan-phone:nth-child(6) { animation-delay: 0.5s; }
+.fan-play .fan-phone:nth-child(2) { animation-delay: 0.07s; }
+.fan-play .fan-phone:nth-child(3) { animation-delay: 0.14s; }
+.fan-play .fan-phone:nth-child(4) { animation-delay: 0.21s; }
+.fan-play .fan-phone:nth-child(5) { animation-delay: 0.28s; }
+.fan-play .fan-phone:nth-child(6) { animation-delay: 0.35s; }
 @media (max-width: 900px) {
-  .fan-stage { width: 340px; height: 220px; }
-  .fan-phone { left: 170px; }
-  .fan-ph-inner { left: -105px; transform: scale(0.375); }
+  .fan-stage { height: 200px; gap: 5px; }
+  .fan-phone { width: 99px; height: 200px; border-radius: 17px; }
+  .fan-ph-inner { transform: scale(0.352); }
 }
-@media (max-width: 480px) {
-  .fan-stage { width: 260px; height: 180px; }
-  .fan-phone { left: 130px; }
-  .fan-ph-inner { left: -90px; transform: scale(0.31); }
+@media (max-width: 600px) {
+  .fan-stage { height: 175px; gap: 4px; }
+  .fan-phone { width: 87px; height: 175px; border-radius: 15px; }
+  .fan-ph-inner { transform: scale(0.309); }
+  .fan-phone:first-child, .fan-phone:last-child { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .fan-play .fan-phone { animation: none; opacity: 1; } }
 </style>
