@@ -15,9 +15,22 @@ const otherPodcasts = allPodcasts.filter((p: typeof podcast) => p.id !== podcast
 const { data } = podcast;
 const APP_URL = 'https://dev-app.audioask.ai';
 const embedSrc = `https://dev-app.audioask.ai/embed/${data.embedId}`;
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.audioask.ai" },
+    { "@type": "ListItem", "position": 2, "name": "Podcasts", "item": "https://www.audioask.ai/podcast" },
+    { "@type": "ListItem", "position": 3, "name": data.name, "item": `https://www.audioask.ai/podcast/${podcast.id}` }
+  ]
+};
 ---
 
 <Layout title={`${data.pageTitle} | Audioask`} description={data.metaDescription}>
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+</Fragment>
 
 <style>
   .podcast-hero {

@@ -1,6 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const APP_URL = 'https://dev-app.audioask.ai';
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Puis-je changer de plan à tout moment ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, vous pouvez passer à un plan supérieur ou inférieur à tout moment depuis votre compte. Le changement est effectif immédiatement, avec proratisation de la facturation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si je dépasse ma limite Free ou Premium ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sur les plans Free et Premium, vous recevez une notification quand vous approchez de votre quota mensuel. Vous pouvez upgrader en cours de mois pour débloquer plus de capacité. Il n'y a pas de surfacturation automatique sur ces plans." }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne la facturation à l'usage du plan Pro ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Le plan Pro inclut 20h de transcription et 25M caractères d'IA par mois. Au-delà, vous êtes facturé 2€/h de transcription et 2€/million de caractères." }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionnent les crédits de la bibliothèque communautaire ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Quand un utilisateur transcrit un épisode, cette transcription est partagée avec toute la communauté. Si quelqu'un d'autre cherche le même épisode, il y accède directement sans consommer ses propres crédits." }
+    },
+    {
+      "@type": "Question",
+      "name": "Mes données sont-elles sécurisées ? Où sont-elles hébergées ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Vos données sont hébergées en Europe (UE), conformément au RGPD. Audioask est développé et opéré depuis la Suisse, avec des standards de confidentialité stricts. Vos données ne sont jamais utilisées pour entraîner des modèles d'IA tiers." }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il des tarifs pour étudiants, ONG ou associations ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui, nous proposons des tarifs spéciaux pour les étudiants, les associations à but non lucratif et les ONG. Contactez-nous via notre formulaire de contact avec votre situation et nous vous proposerons une solution adaptée." }
+    }
+  ]
+};
 ---
 
 <Layout
@@ -8,6 +45,9 @@ const APP_URL = 'https://dev-app.audioask.ai';
   description="Trouvez le plan Audioask fait pour vous. Commencez gratuitement, passez à Premium pour 3€/mois ou activez Pro à 19€/mois + usage."
   activePage="tarifs"
 >
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+</Fragment>
 
   <!-- HERO -->
   <section class="hero dotbg">
@@ -15,7 +55,7 @@ const APP_URL = 'https://dev-app.audioask.ai';
       <div class="hero-copy">
         <div class="page-intro" style="margin-bottom: 20px;">Tarifs</div>
         <h1>
-          Trouvez le plan Audioask<br><span class="em-serif">fait pour vous.</span>
+          Choisissez le plan Audioask<br><span class="em-serif">fait pour vous.</span>
         </h1>
         <p class="lede">Commencez gratuitement. Passez à Premium pour 3€.<br>Activez Pro quand vous en avez besoin.</p>
       </div>

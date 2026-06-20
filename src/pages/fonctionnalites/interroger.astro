@@ -4,10 +4,21 @@ const APP_URL = 'https://dev-app.audioask.ai';
 ---
 
 <Layout
-  title="Interroger — Audioask"
+  title="Interroger un podcast avec l'IA — Audioask"
   description="Posez vos questions en langage naturel sur n'importe quel épisode ou channel entier. L'IA répond avec des citations horodatées vérifiables."
   activePage="features"
 >
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.audioask.ai" },
+      { "@type": "ListItem", "position": 2, "name": "Fonctionnalités", "item": "https://www.audioask.ai/fonctionnalites" },
+      { "@type": "ListItem", "position": 3, "name": "Interroger", "item": "https://www.audioask.ai/fonctionnalites/interroger" }
+    ]
+  })} />
+</Fragment>
 
   <!-- HERO -->
   <section class="hero dotbg">

@@ -4,10 +4,21 @@ const APP_URL = 'https://dev-app.audioask.ai';
 ---
 
 <Layout
-  title="Automatiser — Audioask"
+  title="Automatiser sa veille podcast avec l'IA — Audioask"
   description="Configurez un channel, sauvegardez un prompt, indiquez où livrer : chaque nouvel épisode déclenche votre workflow sans intervention."
   activePage="features"
 >
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.audioask.ai" },
+      { "@type": "ListItem", "position": 2, "name": "Fonctionnalités", "item": "https://www.audioask.ai/fonctionnalites" },
+      { "@type": "ListItem", "position": 3, "name": "Automatiser", "item": "https://www.audioask.ai/fonctionnalites/automatiser" }
+    ]
+  })} />
+</Fragment>
 
   <!-- HERO -->
   <section class="hero dotbg">

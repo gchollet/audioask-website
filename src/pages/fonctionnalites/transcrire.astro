@@ -3,7 +3,18 @@ import Layout from '../../layouts/Layout.astro';
 const APP_URL = 'https://dev-app.audioask.ai';
 ---
 
-<Layout title="Transcrire — Audioask" description="Transcrivez n'importe quel podcast en quelques minutes. Texte précis, horodaté et consultable. Intervenants identifiés, recherche plein-texte, effet réseau communautaire." activePage="features">
+<Layout title="Transcrire un podcast en texte — Audioask" description="Transcrivez n'importe quel podcast en quelques minutes. Texte précis, horodaté et consultable. Intervenants identifiés, recherche plein-texte, effet réseau communautaire." activePage="features">
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.audioask.ai" },
+      { "@type": "ListItem", "position": 2, "name": "Fonctionnalités", "item": "https://www.audioask.ai/fonctionnalites" },
+      { "@type": "ListItem", "position": 3, "name": "Transcrire", "item": "https://www.audioask.ai/fonctionnalites/transcrire" }
+    ]
+  })} />
+</Fragment>
 
   <!-- HERO -->
   <section class="hero dotbg">

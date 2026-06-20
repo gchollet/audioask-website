@@ -4,10 +4,21 @@ const APP_URL = 'https://dev-app.audioask.ai';
 ---
 
 <Layout
-  title="Traduire — Audioask"
+  title="Traduire un podcast dans votre langue — Audioask"
   description="Traduisez n'importe quel podcast dans 12 langues et générez un nouvel épisode audio doublé avec une voix au choix."
   activePage="features"
 >
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.audioask.ai" },
+      { "@type": "ListItem", "position": 2, "name": "Fonctionnalités", "item": "https://www.audioask.ai/fonctionnalites" },
+      { "@type": "ListItem", "position": 3, "name": "Traduire", "item": "https://www.audioask.ai/fonctionnalites/traduire" }
+    ]
+  })} />
+</Fragment>
 
 <!-- HERO -->
 <section class="hero dotbg">

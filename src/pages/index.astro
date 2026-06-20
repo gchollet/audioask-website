@@ -9,6 +9,68 @@ const APP_URL = 'https://dev-app.audioask.ai';
   activePage="home"
 >
 
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.audioask.ai/#organization",
+        "name": "Audioask",
+        "url": "https://www.audioask.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.audioask.ai/favicon.svg"
+        },
+        "foundingLocation": {
+          "@type": "Place",
+          "addressCountry": "CH"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.audioask.ai/#website",
+        "url": "https://www.audioask.ai",
+        "name": "Audioask",
+        "inLanguage": "fr",
+        "publisher": { "@id": "https://www.audioask.ai/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.audioask.ai/#app",
+        "name": "Audioask",
+        "url": "https://www.audioask.ai",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium",
+            "price": "3",
+            "priceCurrency": "EUR",
+            "billingIncrement": "P1M"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "19",
+            "priceCurrency": "EUR",
+            "billingIncrement": "P1M"
+          }
+        ],
+        "description": "Audioask transcrit, analyse et automatise vos podcasts grâce à l'IA. Transcription complète, interrogation sémantique et résumés automatiques."
+      }
+    ]
+  })} />
+</Fragment>
+
 <!-- HERO -->
 <section class="hero dotbg">
   <div class="container">

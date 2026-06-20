@@ -7,13 +7,18 @@ interface Props {
   title: string;
   description?: string;
   activePage?: string;
+  ogImage?: string;
 }
 
 const {
   title,
   description = 'AudioAsk — Transcription, IA et automatisation pour vos podcasts. Signets, recherche plein-texte, analyses IA avec citations vérifiables.',
   activePage = '',
+  ogImage = '/og-default.png',
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
 ---
 
 <!doctype html>
@@ -22,11 +27,31 @@ const {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- SEO de base -->
+  <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Audioask" />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <title>{title}</title>
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- Slot pour JSON-LD et meta supplémentaires par page -->
+  <slot name="head" />
 </head>
 <body>
   <Header activePage={activePage} />
