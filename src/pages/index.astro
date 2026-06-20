@@ -70,7 +70,6 @@ const APP_URL = 'https://dev-app.audioask.ai';
       <p class="lede">Audioask donne une nouvelle dimension à vos podcasts. Écoutez, transcrivez, interrogez chaque épisode avec l'IA et exploitez ce que vous écoutez.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary lg" href={`${APP_URL}/signup`}>Essayer gratuitement <span class="arrow">→</span></a>
-        <a class="btn lg" href="#">Voir une démo</a>
       </div>
       <div class="hero-meta">
         <span class="dotcheck">Gratuit. Sans carte.</span>
@@ -78,29 +77,50 @@ const APP_URL = 'https://dev-app.audioask.ai';
       </div>
     </div>
 
-    <!-- DUAL PRODUCT MOCKUP -->
-    <div class="product-dual">
+    <!-- HERO CAROUSEL -->
+    <div class="hero-carousel" id="hero-carousel">
 
-      <!-- WEB APP -->
-      <div class="dual-web">
-        <div class="app-card">
+      <!-- ① WEB APP animée (slide 1) -->
+      <div class="carousel-slide active" id="carousel-slide-0">
+        <div class="product-stage" id="product-stage">
+
+          <div class="float seq" style="top: 38px; left: -8px; max-width: 220px; animation-delay: 0.5s;">
+            <span class="lbl">Bibliothèque commune</span>
+            <span class="val" style="font-family: var(--serif); font-size: 26px; line-height: 1; color: var(--accent-ink); letter-spacing: -0.02em;">+185M</span>
+            <span style="font-size: 12px; color: var(--ink-3);">épisodes déjà accessibles</span>
+          </div>
+
+          <div class="float seq" style="top: 220px; left: -28px; max-width: 200px; animation-delay: 1.3s;">
+            <span class="lbl">Signet · 12:42</span>
+            <span style="font-size: 13px; color: var(--ink); line-height: 1.4;">« On a parié sur CUDA quand personne n'y croyait. »</span>
+            <span style="font-size: 11px; color: var(--ink-3); margin-top: 2px;">— Jensen Huang</span>
+          </div>
+
+          <div class="float seq" style="top: 110px; right: -16px; max-width: 240px; animation-delay: 2.1s;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 22px; height: 22px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center;">⚡</span>
+              <span class="lbl" style="margin: 0;">Automation</span>
+            </div>
+            <span style="font-size: 13px; color: var(--ink); line-height: 1.4;">Chaque nouvel épisode de <b>Acquired</b> sera traité automatiquement.</span>
+          </div>
+
+          <div class="float seq" style="bottom: 90px; right: -36px; max-width: 220px; animation-delay: 2.9s;">
+            <span class="lbl">Recherche globale</span>
+            <span style="font-size: 13px; color: var(--ink); line-height: 1.4;">3 épisodes parlent de <span style="background: var(--accent-soft); padding: 1px 4px; border-radius: 3px; color: var(--accent-ink);">tokenomics</span></span>
+          </div>
+
+          <div class="app-card" id="hero-app">
           <div class="app-toolbar">
             <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="url">audioask.ai</span>
+            <span class="url">audioask.ai/feed/channel/acquired</span>
           </div>
-          <div class="app-shell" style="height: 380px; overflow: hidden;">
+          <div class="app-shell">
             <aside class="app-side">
               <div class="brand"><span class="brand-mark">A</span><span>Audioask</span></div>
               <div class="nav">
-                <div class="nav-item on">
-                  <svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h10M3 8h10M3 12h6"/></svg>Feed
-                </div>
-                <div class="nav-item">
-                  <svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3"/></svg>Recherche
-                </div>
-                <div class="nav-item">
-                  <svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3v11M5 3v11M9 3l4 11M12 3v11"/></svg>My Audioask
-                </div>
+                <div class="nav-item"><svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h10M3 8h10M3 12h6"/></svg>Feed</div>
+                <div class="nav-item"><svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3"/></svg>Recherche</div>
+                <div class="nav-item on"><svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3v11M5 3v11M9 3l4 11M12 3v11"/></svg>My Audioask</div>
               </div>
               <div class="group-label">CHANNELS FAVORIS</div>
               <div class="nav">
@@ -115,43 +135,57 @@ const APP_URL = 'https://dev-app.audioask.ai';
                 <div class="channel"><span style="width:14px;height:14px;border-radius:3px;background:rgba(26,22,20,0.10);"></span>Pour le trajet · 6</div>
               </div>
             </aside>
-            <main class="app-main" style="overflow: hidden; padding: 20px 24px; display: flex; flex-direction: column; min-width: 0;">
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 16px;">FEED · ACQUIRED</div>
-              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--accent-soft); border-radius: 12px; border: 1px solid var(--accent); margin-bottom: 8px;">
-                <img src="/assets/acquired-cover.jpg" alt="Acquired" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
-                <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 12.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#119 — Nvidia : la décennie qui change tout</div>
-                  <div style="font-size: 10.5px; color: var(--ink-3); margin-top: 3px;">Acquired · 2h 47min</div>
-                  <div style="margin-top: 8px; background: var(--paper); border-radius: 8px; height: 4px; overflow: hidden;"><div style="background: var(--accent); height: 4px; width: 30%;"></div></div>
+            <main class="app-main">
+                <div class="crumbs">FEED › CHANNEL · <span class="curr">ACQUIRED</span></div>
+                <div class="ep-head">
+                  <div class="ep-cover" style="padding: 0; overflow: hidden;">
+                    <img src="/assets/acquired-cover.jpg" alt="Acquired" style="width: 88px; height: 88px; object-fit: cover; display: block; border-radius: 12px;">
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div class="ep-title">#119 — Nvidia&nbsp;: la décennie qui change tout</div>
+                    <div class="ep-author">Ben Gilbert &amp; David Rosenthal · 2h 47min</div>
+                    <div class="ep-stats">
+                      <div class="ep-stat"><b>126</b>passages</div>
+                      <div class="ep-stat"><b>2</b>intervenants</div>
+                      <div class="ep-stat"><b>4</b>réponses favorites</div>
+                      <div class="ep-stat"><b>7</b>signets</div>
+                    </div>
+                  </div>
+                  <div class="ep-actions">
+                    <span class="chip"><span style="color: var(--ink-3); font-size: 14px;">↗</span>Partager</span>
+                    <span class="chip accent">✦ Audioask</span>
+                  </div>
                 </div>
-                <div style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
-                  <span style="padding: 4px 10px; border-radius: 6px; background: var(--ink); color: var(--cream); font-size: 10px; white-space: nowrap;">▶ En cours</span>
-                  <span style="font-size: 14px; color: var(--accent);">★</span>
+                <div class="transcript">
+                  <div class="t-row"><span class="ts">00:00</span><span><span class="speak host">BEN</span>Bienvenue dans cet épisode où nous allons retracer l'histoire de Nvidia, de ses débuts en 1993 à sa position actuelle…</span></div>
+                  <div class="t-row"><span class="ts">04:18</span><span><span class="speak host">DAVID</span>Avant Nvidia, le marché des GPU était dominé par 3DFX, Matrox, ATI…</span></div>
+                  <div class="t-row bookmarked"><span class="ts">12:42</span><span><span class="speak guest">JENSEN</span><span class="quote">« On a parié sur CUDA quand personne n'y croyait. C'est devenu notre fossé concurrentiel le plus profond. »</span></span></div>
+                  <div class="t-row"><span class="ts">19:30</span><span><span class="speak host">BEN</span>Et c'est exactement à ce moment-là que la stratégie a basculé. Le marché des datacenters…</span></div>
+                  <div class="t-row"><span class="ts">28:05</span><span><span class="speak guest">JENSEN</span>Notre conviction&nbsp;: chaque watt utilisé doit servir à accélérer un calcul utile.</span></div>
+                  <div class="t-row"><span class="ts">38:50</span><span><span class="speak host">DAVID</span>Le tournant de 2022, c'est l'explosion de la demande pour l'IA générative…</span></div>
                 </div>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--paper); border-radius: 12px; border: 1px solid var(--line); margin-bottom: 8px;">
-                <img src="/assets/pod-tkp.jpg" alt="TKP" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
-                <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 12.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#362 — La puissance de la pensée lente</div>
-                  <div style="font-size: 10.5px; color: var(--ink-3); margin-top: 3px;">The Knowledge Project · 1h 12min</div>
-                </div>
-                <div style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
-                  <span style="padding: 4px 10px; border-radius: 6px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); font-size: 10px;">▶ Écouter</span>
-                  <span style="font-size: 14px; color: var(--ink-3);">☆</span>
-                </div>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--paper); border-radius: 12px; border: 1px solid var(--line);">
-                <img src="/assets/pod-lex.jpg" alt="Lex" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
-                <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 12.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#460 — Mark Zuckerberg : vision long terme</div>
-                  <div style="font-size: 10.5px; color: var(--ink-3); margin-top: 3px;">Lex Fridman · 3h 05min</div>
-                </div>
-                <div style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
-                  <span style="padding: 4px 10px; border-radius: 6px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); font-size: 10px;">▶ Écouter</span>
-                  <span style="font-size: 14px; color: var(--ink-3);">☆</span>
-                </div>
-              </div>
             </main>
+            <aside class="app-ai">
+              <div class="ai-head">
+                <span class="ai-spark">✦</span>
+                <span class="ai-title">Audioask</span>
+                <span style="margin-left: auto; font-size: 10px; color: var(--ink-3); font-family: var(--mono);">SUR CET ÉPISODE</span>
+              </div>
+              <div class="ai-body">
+                <div class="ai-bubble q">Quels sont les 3 paris clés racontés dans cet épisode&nbsp;?</div>
+                <div class="ai-bubble a">
+                  <div><span class="num">1.</span> Le pari sur <b>CUDA</b> en 2006 — investir massivement dans une couche logicielle propriétaire.</div>
+                  <div style="margin-top: 6px;"><span class="num">2.</span> Le rachat de <b>Mellanox</b> en 2019 pour verrouiller le datacenter.</div>
+                  <div style="margin-top: 6px;"><span class="num">3.</span> Le bet sur l'<b>IA générative</b> en 2018, deux ans avant ChatGPT.</div>
+                  <div class="ai-cite"><span>↩</span><span>3 citations · </span><span class="ts">12:42</span><span class="ts">52:10</span><span class="ts">1:47:18</span></div>
+                </div>
+                <div class="ai-input">
+                  <span style="color: var(--ink-3);">✎</span>
+                  <span>Une autre question…</span>
+                  <span class="send">→</span>
+                </div>
+              </div>
+            </aside>
           </div>
           <div class="app-player">
             <div class="player-now">
@@ -172,79 +206,99 @@ const APP_URL = 'https://dev-app.audioask.ai';
             </div>
           </div>
         </div>
+          <div class="float seq" style="bottom: -24px; left: 8%; max-width: 200px; animation-delay: 3.7s;">
+            <span class="lbl">Transcrit en</span>
+            <span class="val" style="font-family: var(--serif); font-size: 28px; line-height: 1; letter-spacing: -0.02em;">2&nbsp;min&nbsp;48</span>
+            <span style="font-size: 11px; color: var(--ink-3);">pour 2h 47min d'audio</span>
+          </div>
+
+        </div>
       </div>
 
-      <!-- PHONE APP -->
-      <div class="dual-phone">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <div style="height: 28px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 16px 4px; position: relative;">
-              <span style="font-family: var(--mono); font-size: 9px; color: var(--ink-2); font-weight: 600;">9:41</span>
-              <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 72px; height: 18px; background: var(--ink); border-radius: 0 0 14px 14px;"></div>
-              <span style="font-size: 9px; color: var(--ink-3);">●●●</span>
-            </div>
-            <div style="padding: 8px 12px 0; flex: 1; overflow: hidden;">
-              <div style="font-size: 16px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px;">Feed</div>
-              <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--accent-soft); border-radius: 10px; border: 1px solid var(--accent); margin-bottom: 6px;">
-                <img src="/assets/acquired-cover.jpg" alt="" style="width: 34px; height: 34px; border-radius: 7px; object-fit: cover; flex-shrink: 0;">
-                <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#119 — Nvidia</div>
-                  <div style="font-size: 9px; color: var(--ink-3); margin-top: 2px;">Acquired · 2h 47</div>
-                  <div style="margin-top: 4px; background: var(--paper); border-radius: 3px; height: 3px; overflow: hidden;"><div style="background: var(--accent); height: 3px; width: 30%;"></div></div>
+      <!-- ② APP MOBILE + floating cards (slide 2) -->
+      <div class="carousel-slide" id="carousel-slide-1">
+        <div class="mobile-hero-slide">
+
+          <div class="phone-hero-wrap">
+            <div class="phone-frame phone-hero-frame">
+              <div class="phone-screen">
+                <div style="height: 30px; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 18px 4px; position: relative;">
+                  <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-2); font-weight: 600;">9:41</span>
+                  <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 20px; background: var(--ink); border-radius: 0 0 16px 16px;"></div>
+                  <span style="font-size: 10px; color: var(--ink-3);">●●●</span>
                 </div>
-                <span style="width: 22px; height: 22px; background: var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 7px; flex-shrink: 0; padding-left: 1px;">▶</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--paper); border-radius: 10px; border: 1px solid var(--line); margin-bottom: 6px;">
-                <img src="/assets/pod-tkp.jpg" alt="" style="width: 34px; height: 34px; border-radius: 7px; object-fit: cover; flex-shrink: 0;">
-                <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#362 — Pensée lente</div>
-                  <div style="font-size: 9px; color: var(--ink-3); margin-top: 2px;">The Knowledge Project</div>
+                <div style="padding: 10px 16px 0; flex: 1; overflow: hidden;">
+                  <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px;">Feed</div>
+                  <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--accent-soft); border-radius: 12px; border: 1px solid var(--accent); margin-bottom: 8px;">
+                    <img src="/assets/acquired-cover.jpg" alt="" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+                    <div style="flex: 1; min-width: 0;">
+                      <div style="font-size: 12px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#119 — Nvidia</div>
+                      <div style="font-size: 10px; color: var(--ink-3); margin-top: 2px;">Acquired · 2h 47min</div>
+                      <div style="margin-top: 5px; background: var(--paper); border-radius: 3px; height: 3px; overflow: hidden;"><div style="background: var(--accent); height: 3px; width: 30%;"></div></div>
+                    </div>
+                    <span style="width: 28px; height: 28px; background: var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 10px; flex-shrink: 0; padding-left: 1px;">▶</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--paper); border-radius: 12px; border: 1px solid var(--line); margin-bottom: 8px;">
+                    <img src="/assets/pod-tkp.jpg" alt="" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+                    <div style="flex: 1; min-width: 0;">
+                      <div style="font-size: 12px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#362 — Pensée lente</div>
+                      <div style="font-size: 10px; color: var(--ink-3); margin-top: 2px;">The Knowledge Project</div>
+                    </div>
+                    <span style="width: 28px; height: 28px; background: var(--cream-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 10px; flex-shrink: 0; padding-left: 1px;">▶</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--paper); border-radius: 12px; border: 1px solid var(--line);">
+                    <img src="/assets/pod-lex.jpg" alt="" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+                    <div style="flex: 1; min-width: 0;">
+                      <div style="font-size: 12px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#460 — Zuckerberg</div>
+                      <div style="font-size: 10px; color: var(--ink-3); margin-top: 2px;">Lex Fridman · 3h 05min</div>
+                    </div>
+                    <span style="width: 28px; height: 28px; background: var(--cream-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 10px; flex-shrink: 0; padding-left: 1px;">▶</span>
+                  </div>
                 </div>
-                <span style="width: 22px; height: 22px; background: var(--cream-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 7px; flex-shrink: 0; padding-left: 1px;">▶</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--paper); border-radius: 10px; border: 1px solid var(--line);">
-                <img src="/assets/pod-lex.jpg" alt="" style="width: 34px; height: 34px; border-radius: 7px; object-fit: cover; flex-shrink: 0;">
-                <div style="flex: 1; min-width: 0;">
-                  <div style="font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#460 — Zuckerberg</div>
-                  <div style="font-size: 9px; color: var(--ink-3); margin-top: 2px;">Lex Fridman</div>
+                <div style="margin: 10px 12px 8px; padding: 10px 12px; background: var(--ink); border-radius: 14px; display: flex; align-items: center; gap: 10px;">
+                  <img src="/assets/pod-acquired.jpg" alt="" style="width: 32px; height: 32px; border-radius: 7px; object-fit: cover; flex-shrink: 0;">
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="font-size: 11px; font-weight: 600; color: var(--cream); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#119 — Nvidia</div>
+                    <div style="font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 1px;">Acquired</div>
+                  </div>
+                  <span style="width: 30px; height: 30px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; padding-left: 1px;">▶</span>
                 </div>
-                <span style="width: 22px; height: 22px; background: var(--cream-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 7px; flex-shrink: 0; padding-left: 1px;">▶</span>
+                <div style="display: flex; align-items: center; justify-content: space-around; padding: 10px 4px; border-top: 1px solid var(--line);">
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="var(--accent)" stroke-width="1.8"><path d="M3 4h10M3 8h10M3 12h6"/></svg>
+                    <span style="font-size: 9px; color: var(--accent); font-weight: 600;">Feed</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="var(--ink-3)" stroke-width="1.6"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3"/></svg>
+                    <span style="font-size: 9px; color: var(--ink-3);">Recherche</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="var(--ink-3)" stroke-width="1.6"><path d="M3 2h10M3 7h10M3 12h6"/></svg>
+                    <span style="font-size: 9px; color: var(--ink-3);">Playlists</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="var(--ink-3)" stroke-width="1.6"><circle cx="8" cy="6" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+                    <span style="font-size: 9px; color: var(--ink-3);">Profil</span>
+                  </div>
+                </div>
+                <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+                  <div style="width: 100px; height: 4px; background: var(--ink); border-radius: 2px; opacity: 0.15;"></div>
+                </div>
               </div>
             </div>
-            <div style="margin: 8px 10px 6px; padding: 8px 10px; background: var(--ink); border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-              <img src="/assets/pod-acquired.jpg" alt="" style="width: 28px; height: 28px; border-radius: 6px; object-fit: cover; flex-shrink: 0;">
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-size: 9px; font-weight: 600; color: var(--cream); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">#119 — Nvidia</div>
-                <div style="font-size: 8px; color: rgba(255,255,255,0.4); margin-top: 1px;">Acquired</div>
-              </div>
-              <span style="width: 26px; height: 26px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 9px; flex-shrink: 0; padding-left: 1px;">▶</span>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-around; padding: 8px 4px; border-top: 1px solid var(--line);">
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--accent)" stroke-width="1.8"><path d="M3 4h10M3 8h10M3 12h6"/></svg>
-                <span style="font-size: 8px; color: var(--accent); font-weight: 600;">Feed</span>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--ink-3)" stroke-width="1.6"><circle cx="7" cy="7" r="4"/><path d="M11 11l3 3"/></svg>
-                <span style="font-size: 8px; color: var(--ink-3);">Recherche</span>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--ink-3)" stroke-width="1.6"><path d="M3 2h10M3 7h10M3 12h6"/></svg>
-                <span style="font-size: 8px; color: var(--ink-3);">Playlists</span>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--ink-3)" stroke-width="1.6"><circle cx="8" cy="6" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
-                <span style="font-size: 8px; color: var(--ink-3);">Profil</span>
-              </div>
-            </div>
-            <div style="height: 20px; display: flex; align-items: center; justify-content: center;">
-              <div style="width: 80px; height: 4px; background: var(--ink); border-radius: 2px; opacity: 0.15;"></div>
+            <div style="text-align: center; margin-top: 14px;">
+              <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase;">App mobile · bientôt</span>
             </div>
           </div>
+
+
         </div>
-        <div style="text-align: center; margin-top: 14px;">
-          <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase;">App mobile · bientôt</span>
-        </div>
+      </div>
+
+      <!-- Indicateurs de navigation -->
+      <div class="carousel-dots" id="carousel-dots">
+        <button class="carousel-dot active" data-slide="0" aria-label="App web"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="App mobile"></button>
       </div>
 
     </div>
@@ -281,37 +335,9 @@ const APP_URL = 'https://dev-app.audioask.ai';
 
     <div class="feat-grid">
 
-      <!-- 01 → ancienne 02 : Playlists -->
+      <!-- 01 : Recherche -->
       <div class="feat-card">
         <span class="feat-num">01</span>
-        <div class="feat-ico">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h12M4 12h12M4 18h7"/><path d="M18 13l5 3-5 3z"/></svg>
-        </div>
-        <h3>Vos playlists, vos favoris, votre rythme d'écoute.</h3>
-        <p>Organisez vos épisodes en playlists thématiques (business, trajet, weekend). Marquez vos favoris en un tap. Tout reste à portée de main, sans fouiller.</p>
-        <div class="feat-visual" style="background: linear-gradient(180deg, var(--cream-2), var(--cream-3));">
-          <div style="position: absolute; inset: 22px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">MES PLAYLISTS</div>
-              <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">+ Nouvelle</div>
-            </div>
-            <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px;">
-              <span style="width: 32px; height: 32px; border-radius: 7px; background: linear-gradient(135deg, #5B7FD9, #2E4FB5); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 700;">12</span>
-              <div style="flex: 1; min-width: 0;"><div style="font-size: 12.5px; font-weight: 600;">Business &amp; stratégie</div><div style="font-size: 10.5px; color: var(--ink-3);">12 épisodes · 14h 30min</div></div>
-              <span style="color: var(--accent); font-size: 14px;">★</span>
-            </div>
-            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px;">
-              <span style="width: 32px; height: 32px; border-radius: 7px; background: linear-gradient(135deg, #B5915B, #8C6A38); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 700;">6</span>
-              <div style="flex: 1; min-width: 0;"><div style="font-size: 12.5px; font-weight: 600;">Pour le trajet</div><div style="font-size: 10.5px; color: var(--ink-3);">6 épisodes · 4h 12min</div></div>
-              <span style="color: var(--ink-3); font-size: 14px;">☆</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 02 → ancienne 03 : Recherche -->
-      <div class="feat-card">
-        <span class="feat-num">02</span>
         <div class="feat-ico">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
         </div>
@@ -342,9 +368,68 @@ const APP_URL = 'https://dev-app.audioask.ai';
         </div>
       </div>
 
-      <!-- 03 → ancienne 01 : Prompts -->
-      <div class="feat-card">
+      <!-- 02 : Transcription -->
+      <div class="feat-card feat-card-link">
+        <span class="feat-num">02</span>
+        <div class="feat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+        </div>
+        <h3>De l'audio au texte en quelques minutes.</h3>
+        <p>Audioask transcrit vos épisodes avec horodatage et identification des intervenants. Lisez, cherchez, partagez — chaque mot est consultable en quelques minutes.</p>
+        <div class="feat-visual" style="background: var(--cream-2);">
+          <div style="position: absolute; inset: 16px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #B5915B, #8C6A38); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 8px; color: white; flex-shrink: 0;">TKP</div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 11.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">The Knowledge Project · #218</div>
+                <div style="font-size: 10px; color: var(--ink-3); margin-top: 1px;">Shane Parrish · 1h 06min</div>
+              </div>
+              <span class="chip accent-soft" style="font-size: 9px; height: 18px; padding: 0 7px; flex-shrink: 0; display: flex; align-items: center; gap: 4px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent); display: inline-block;"></span>En cours</span>
+            </div>
+            <div style="padding: 9px 12px; background: var(--paper); border: 1px solid var(--accent); border-radius: 10px;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--accent-ink); margin-bottom: 6px;"><span>TRANSCRIPTION · 67%</span><span>1m 12s restants</span></div>
+              <div style="height: 5px; background: var(--accent-tint); border-radius: 3px;"><div style="height: 100%; width: 67%; background: var(--accent); border-radius: 3px;"></div></div>
+            </div>
+            <div style="padding: 8px 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 5px;">
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px; font-size: 10.5px;"><span style="font-family: var(--mono); color: var(--accent-ink);">00:00</span><span style="color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Bienvenue dans cet épisode…</span></div>
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px; font-size: 10.5px;"><span style="font-family: var(--mono); color: var(--accent-ink);">04:18</span><span style="color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Revenons sur ton parcours…</span></div>
+              <div style="display: grid; grid-template-columns: 42px 1fr; gap: 8px; font-size: 10.5px; opacity: 0.45;"><span style="font-family: var(--mono); color: var(--ink-3);">…</span><span style="display: flex; align-items: center; gap: 5px; color: var(--accent);"><span style="width: 3px; height: 11px; background: currentColor; border-radius: 2px; display: inline-block;"></span>transcription en cours…</span></div>
+            </div>
+          </div>
+        </div>
+        <a href="/fonctionnalites/transcrire" class="feat-card-cta">En savoir plus sur la transcription <span class="arrow">→</span></a>
+      </div>
+
+      <!-- 03 : Interprétation IA -->
+      <div class="feat-card feat-card-link">
         <span class="feat-num">03</span>
+        <div class="feat-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Posez des questions à vos épisodes. Notre IA vous répond.</h3>
+        <p>En langage naturel, dans votre langue. L'IA répond avec des citations horodatées issues de la transcription — vérifiables en un clic.</p>
+        <div class="feat-visual">
+          <div style="position: absolute; inset: 16px; display: flex; flex-direction: column; gap: 7px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 2px;">ACQUIRED · #119 · 2h 47min</div>
+            <div style="background: var(--cream-2); border: 1px solid var(--line); border-radius: 10px 10px 4px 10px; padding: 8px 12px; font-size: 11px; color: var(--ink); align-self: flex-end; max-width: 90%;">Quelles sont les 3 recommandations de livres mentionnées&nbsp;?</div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 4px 10px 10px 10px; padding: 9px 12px; font-size: 11px; color: var(--ink-2); line-height: 1.55;">
+              <div><span style="color: var(--accent); font-weight: 600;">1.</span> <b>Poor Charlie's Almanack</b></div>
+              <div><span style="color: var(--accent); font-weight: 600;">2.</span> <b>The Art of Worldly Wisdom</b></div>
+              <div><span style="color: var(--accent); font-weight: 600;">3.</span> <b>Influence</b></div>
+              <div style="margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--line-2); font-size: 10px; color: var(--ink-3); display: flex; gap: 6px; align-items: center;">↩ 3 citations <span style="font-family: var(--mono); color: var(--accent-ink);">28:05</span><span style="font-family: var(--mono); color: var(--accent-ink);">31:42</span></div>
+            </div>
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 11px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; margin-top: auto;">
+              <span>✎</span><span style="font-style: italic;">Tape ta question…</span>
+              <span style="margin-left: auto; width: 22px; height: 20px; border-radius: 5px; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;">→</span>
+            </div>
+          </div>
+        </div>
+        <a href="/fonctionnalites/interroger" class="feat-card-cta">En savoir plus sur l'interprétation IA <span class="arrow">→</span></a>
+      </div>
+
+      <!-- 04 : Prompts -->
+      <div class="feat-card">
+        <span class="feat-num">04</span>
         <div class="feat-ico">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3z"/><path d="M5 19h6"/></svg>
         </div>
@@ -371,9 +456,9 @@ const APP_URL = 'https://dev-app.audioask.ai';
         </div>
       </div>
 
-      <!-- 04 : Automation (avec lien) -->
+      <!-- 05 : Automation (avec lien) -->
       <div class="feat-card feat-card-link">
-        <span class="feat-num">04</span>
+        <span class="feat-num">05</span>
         <div class="feat-ico">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
         </div>
@@ -405,29 +490,40 @@ const APP_URL = 'https://dev-app.audioask.ai';
         <a href="/fonctionnalites/automatiser" class="feat-card-cta">En savoir plus sur l'automatisation <span class="arrow">→</span></a>
       </div>
 
-      <!-- 05 NEW : Signets (pleine largeur) -->
-      <div class="feat-card feat-card-wide">
-        <span class="feat-num">05</span>
+      <!-- 06 : Signets -->
+      <div class="feat-card">
+        <span class="feat-num">06</span>
         <div class="feat-ico">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
         </div>
-        <h3>Capturez l'instant. Retrouvez le passage exact.</h3>
+        <h3>Des signets pour marquer les moments que vous souhaitez retrouver.</h3>
         <p>Un tap pendant l'écoute, et le moment est épinglé avec son horodatage. Relisez, partagez ou exportez vos signets — dans la transcription comme dans votre bibliothèque. Sur web et sur mobile.</p>
-        <div class="feat-visual feat-visual-wide">
-          <div style="position: absolute; inset: 22px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em;">3 SIGNETS SUR CET ÉPISODE</div>
-            <div class="signets-grid">
-              <div style="background: var(--paper); border: 1px solid var(--accent); border-radius: 8px; padding: 10px 12px;">
-                <div style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-bottom: 5px;">12:42</div>
-                <div style="font-size: 11.5px; color: var(--ink-2); line-height: 1.4;">« On a parié sur CUDA quand personne n'y croyait. »</div>
+        <div class="feat-visual">
+          <div style="position: absolute; inset: 18px; display: flex; flex-direction: column; gap: 0;">
+            <!-- Timeline compacte -->
+            <div style="position: relative; height: 28px; margin-bottom: 14px;">
+              <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 5px; background: var(--cream-3); border-radius: 3px;">
+                <div style="width: 28%; height: 100%; background: var(--accent); border-radius: 3px;"></div>
               </div>
-              <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;">
-                <div style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-bottom: 5px;">52:10</div>
-                <div style="font-size: 11.5px; color: var(--ink-2); line-height: 1.4;">Le rachat de Mellanox, décision clé pour les datacenters.</div>
+              <div style="position: absolute; left: 13%; top: 50%; transform: translate(-50%,-50%); width: 8px; height: 8px; border-radius: 50%; background: var(--ink); border: 2px solid white;"></div>
+              <div style="position: absolute; left: 28%; top: 50%; transform: translate(-50%,-50%); width: 13px; height: 13px; border-radius: 50%; background: var(--accent); border: 2px solid white; z-index: 1;"></div>
+              <div style="position: absolute; left: 80%; top: 50%; transform: translate(-50%,-50%); width: 8px; height: 8px; border-radius: 50%; background: var(--ink); border: 2px solid white;"></div>
+              <div style="position: absolute; left: 0; bottom: 0; font-family: var(--mono); font-size: 8px; color: var(--ink-3);">0:00</div>
+              <div style="position: absolute; right: 0; bottom: 0; font-family: var(--mono); font-size: 8px; color: var(--ink-3);">05:06</div>
+            </div>
+            <!-- Liste signets -->
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <div style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 6px 8px; border-radius: 6px;">
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">00:35</span>
+                <span style="font-size: 11px; font-weight: 600; color: var(--ink);">Nouveaux auteurs</span>
               </div>
-              <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;">
-                <div style="font-family: var(--mono); color: var(--accent-ink); font-size: 10px; margin-bottom: 5px;">1:47:18</div>
-                <div style="font-size: 11.5px; color: var(--ink-2); line-height: 1.4;">Le bet sur l'IA générative, deux ans avant ChatGPT.</div>
+              <div style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 6px 8px; border-radius: 6px; background: var(--accent-tint); border: 1px solid var(--accent-soft);">
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--accent-ink); font-weight: 600;">01:30</span>
+                <span style="font-size: 11px; font-weight: 600; color: var(--ink);">Référence à un livre</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 6px 8px; border-radius: 6px;">
+                <span style="font-family: var(--mono); font-size: 10px; color: var(--ink-3);">04:31</span>
+                <span style="font-size: 11px; font-weight: 600; color: var(--ink);">Site internet</span>
               </div>
             </div>
           </div>
@@ -709,22 +805,121 @@ const APP_URL = 'https://dev-app.audioask.ai';
   </div>
 </section>
 
+<script>
+(function () {
+  /* --- Carousel --- */
+  var carousel = document.getElementById('hero-carousel');
+  if (!carousel) return;
+  var slides = carousel.querySelectorAll('.carousel-slide');
+  var dots   = carousel.querySelectorAll('.carousel-dot');
+  var current = 0;
+  var timer;
+
+  function goTo(idx) {
+    var stage = document.getElementById('product-stage');
+    var webFloats = stage ? stage.querySelectorAll('.float') : [];
+    /* Masque les floats quand on quitte le slide web */
+    if (current === 0 && idx !== 0) {
+      if (stage) stage.classList.remove('in-view');
+      webFloats.forEach(function(f) {
+        f.style.setProperty('opacity', '0', 'important');
+        f.style.setProperty('animation', 'none', 'important');
+        f.style.setProperty('visibility', 'hidden', 'important');
+      });
+    }
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = idx;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    /* Restaure les floats quand on revient sur le slide web */
+    if (idx === 0) {
+      webFloats.forEach(function(f) {
+        f.style.removeProperty('opacity');
+        f.style.removeProperty('animation');
+        f.style.removeProperty('visibility');
+      });
+      if (stage) { void stage.offsetWidth; stage.classList.add('in-view'); }
+    }
+  }
+
+  function next() { goTo((current + 1) % slides.length); }
+  function startTimer() { timer = setInterval(next, 5000); }
+  function resetTimer() { clearInterval(timer); startTimer(); }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { goTo(i); resetTimer(); });
+  });
+
+  /* --- Animation product-stage au scroll --- */
+  var stage = document.getElementById('product-stage');
+  if (stage) {
+    if (!('IntersectionObserver' in window)) {
+      stage.classList.add('in-view');
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { stage.classList.add('in-view'); io.disconnect(); }
+        });
+      }, { threshold: 0.25 });
+      io.observe(stage);
+    }
+  }
+
+  startTimer();
+})();
+</script>
+
 </Layout>
 
 <style>
-/* ---- HERO DUAL MOCKUP ---- */
-.product-dual {
-  margin-top: 60px;
-  display: flex;
-  align-items: flex-end;
-  gap: 24px;
-  max-width: 1120px;
-  margin-left: auto;
-  margin-right: auto;
+/* ---- HERO CAROUSEL ---- */
+.hero-carousel { margin-top: 60px; position: relative; }
+/* Slide active : fade-in, visibility immédiate */
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  transition: opacity 0.55s ease;
 }
-.dual-web { flex: 1.7; min-width: 0; }
-.dual-phone { flex: 0 0 210px; }
+/* Slide inactive : fade-out puis visibility:hidden après la transition */
+.carousel-slide:not(.active) {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  pointer-events: none;
+  transition: opacity 0.55s ease, visibility 0s linear 0.55s;
+}
+/* Annule le margin-top natif de product-stage (déjà géré par hero-carousel) */
+#hero-carousel .product-stage { margin-top: 0; }
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--line-2);
+  border: none; cursor: pointer; padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+.carousel-dot.active { background: var(--accent); transform: scale(1.35); }
 
+/* ---- MOBILE HERO SLIDE ---- */
+.mobile-hero-slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 60px 260px 40px;
+}
+.mobile-float { position: absolute !important; }
+.phone-hero-wrap { display: flex; flex-direction: column; align-items: center; }
+.phone-hero-frame { max-width: 280px; }
+
+/* ---- PHONE FRAME ---- */
 .phone-frame {
   background: var(--ink);
   border-radius: 42px;
@@ -834,8 +1029,8 @@ const APP_URL = 'https://dev-app.audioask.ai';
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 900px) {
-  .product-dual { flex-direction: column; align-items: stretch; }
-  .dual-phone { display: none; }
+  .mobile-hero-slide { padding: 40px 16px; }
+  .mobile-float { display: none !important; }
   .mobile-tease { grid-template-columns: 1fr; gap: 40px; }
   .mobile-tease-visual { order: -1; }
   .phone-tease { max-width: 200px; }
