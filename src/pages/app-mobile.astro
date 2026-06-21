@@ -490,7 +490,7 @@ function setupNotifyForm(formId, emailId, successId, errorId) {
     btn.disabled = true;
     btn.textContent = 'Envoi…';
     try {
-      const res = await fetch('/notify-handler.php', {
+      const res = await fetch('https://dev-app.audioask.ai/ajax/notify-public.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'email=' + encodeURIComponent(email),
