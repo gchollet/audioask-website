@@ -453,7 +453,7 @@ function setupNotifyForm(formId, emailId, successId, errorId) {
     btn.disabled = true;
     btn.textContent = 'Sending…';
     try {
-      const res = await fetch('https://dev-app.audioask.ai/api/notify', {
+      const res = await fetch('https://dev.audioask.ai/api/notify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'email=' + encodeURIComponent(email),
