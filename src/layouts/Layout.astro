@@ -37,25 +37,42 @@ const withTrailingSlash = (path: string) => {
 const alternateUrl = alternatePath ? withTrailingSlash(alternatePath) : null;
 const homeUrl = new URL('/', Astro.site).href;
 
-// JSON-LD global : Organisation + site web (aide Google/Bing à comprendre la marque)
+// JSON-LD global : Organisation + site web (aide Google/Bing à comprendre la marque).
+// Les @id permettent aux pages de référencer ces entités sans les redéclarer.
+const orgId = `${homeUrl}#organization`;
+const websiteId = `${homeUrl}#website`;
+
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': orgId,
   name: 'Audioask',
   legalName: 'Natives Sàrl',
   url: homeUrl,
-  logo: new URL('/favicon.svg', Astro.site).href,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL('/favicon.svg', Astro.site).href,
+  },
   description: 'Transcription, traduction, IA et automatisation pour vos podcasts.',
-  foundingLocation: 'Carouge, Genève, Suisse',
-  sameAs: [],
+  foundingLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Carouge',
+      addressRegion: 'Genève',
+      addressCountry: 'CH',
+    },
+  },
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': websiteId,
   name: 'Audioask',
   url: homeUrl,
   inLanguage: lang === 'en' ? 'en' : 'fr',
+  publisher: { '@id': orgId },
 };
 ---
 

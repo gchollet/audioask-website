@@ -13,33 +13,24 @@ const APP_URL = 'https://dev.audioask.ai';
 >
 
 <Fragment slot="head">
+  {/* Organization + WebSite sont déclarés globalement dans Layout.astro ;
+      on n'ajoute ici que l'app, qui référence l'Organisation via son @id. */}
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.audioask.ai/#organization",
-        "name": "Audioask",
-        "url": "https://www.audioask.ai",
-        "logo": { "@type": "ImageObject", "url": "https://www.audioask.ai/favicon.svg" },
-        "foundingLocation": { "@type": "Place", "addressCountry": "CH" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://www.audioask.ai/#app",
-        "name": "Audioask",
-        "url": "https://www.audioask.ai",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Web, iOS, Android",
-        "inLanguage": "en",
-        "offers": [
-          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR" },
-          { "@type": "Offer", "name": "Premium", "price": "3", "priceCurrency": "EUR", "billingIncrement": "P1M" },
-          { "@type": "Offer", "name": "Pro", "price": "19", "priceCurrency": "EUR", "billingIncrement": "P1M" }
-        ],
-        "description": "Audioask transcribes, analyzes, and automates your podcasts with AI. Full transcriptions, semantic search, and automatic summaries."
-      }
-    ]
+    "@type": "SoftwareApplication",
+    "@id": "https://www.audioask.ai/#app",
+    "name": "Audioask",
+    "url": "https://www.audioask.ai/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "inLanguage": "en",
+    "publisher": { "@id": "https://www.audioask.ai/#organization" },
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Premium", "price": "3", "priceCurrency": "EUR", "billingIncrement": "P1M" },
+      { "@type": "Offer", "name": "Pro", "price": "19", "priceCurrency": "EUR", "billingIncrement": "P1M" }
+    ],
+    "description": "Audioask transcribes, analyzes, and automates your podcasts with AI. Full transcriptions, semantic search, and automatic summaries."
   })} />
 </Fragment>
 
